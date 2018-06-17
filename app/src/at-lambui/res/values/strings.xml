@@ -1,3 +1,29 @@
-<resources>
-    <string name="app_name">Intern18Summer</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Recycleview</string>
+    <string name="menu">menu</string>
+    <string name="todo" tools:ignore="DuplicateDefinition">TODO</string>
+    <string name="_8_10_am">8 – 10 am</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="web">WEB</string>
+    <string name="thu">THU</string>
+    <string name="new_subpage_for_janet">New subpage for janet</string>
+    <string name="_11_12_pm_hangouts">11 – 12 pm Hangouts</string>
+    <string name="lunch_with_diane">Lunch with Diane</string>
+    <string name="_1pm_restaurant">1pm Restaurant</string>
+    <string name="_13">13</string>
+    <string name="_12">12</string>
+    <string name="_11">11</string>
+    <string name="_10">10</string>
+    <string name="_9">9</string>
+    <string name="_8">8</string>
+    <string name="_7">7</string>
+    <string name="catch_up_with_tom">Catch up with Tom</string>
+    <string name="february">FEBRUARY</string>
+    <string name="_3">3</string>
+
+    <string name="good_morning">Good Morning!</string>
 </resources>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        tools:ignore="ScrollViewSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="@drawable/bg_main"
+            android:contentDescription="@string/menu"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_menu_32"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:paddingTop="@dimen/spacing_large"
+                    android:id="@+id/imgMenuIcon"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ContentDescription,RtlHardcoded,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_large" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="240dp"
+                    android:paddingTop="@dimen/spacing_large"
+                    android:src="@drawable/ic_search_32"
+                    android:contentDescription="@string/todo"
+                    android:layout_marginStart="240dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/good_morning"
+                    android:textColor="@color/colorWhite"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:paddingLeft="80dp"
+                    android:textSize="@dimen/font_larger"
+                    android:paddingStart="80dp"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="ExtraText">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginLeft="120dp"
+                    android:src="@drawable/hugh"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FF000000"
+                    android:layout_marginStart="120dp" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_3"
+                        android:gravity="center"
+                        android:textSize="@dimen/font_small"
+                        android:layout_marginLeft="186dp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/custom_button"
+                        tools:ignore="HardcodedText,RtlHardcoded"
+                        android:layout_marginStart="186dp" />
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/spacing_large">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_left"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:paddingStart="@dimen/spacing_small"
+                    tools:ignore="RtlHardcoded,RtlSymmetry"
+                    android:contentDescription="@string/todo" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="98dp"
+                    android:text="@string/february"
+                    android:textSize="20sp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorWhite"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+                    android:paddingStart="90dp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_arrow_right"
+                    android:paddingLeft="80dp"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ContentDescription,RtlSymmetry"
+                    android:paddingStart="80dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="7"
+                android:paddingLeft="@dimen/spacing_small"
+                android:paddingRight="@dimen/spacing_small" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sun"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mon"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tue"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/web"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/thu"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fri"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sat"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:weightSum="7"
+                android:paddingLeft="@dimen/spacing_small"
+                android:paddingRight="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_7"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_8"
+                    android:textSize="@dimen/font_large"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:background="@drawable/custom_button2"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:paddingStart="15dp"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_9"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    android:paddingStart="@dimen/spacing_large"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_10"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    android:paddingStart="@dimen/spacing_small"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_11"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:textSize="@dimen/font_large"
+                    android:paddingStart="@dimen/spacing_small"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_12"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    tools:ignore="HardcodedText,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_small" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_13"
+                    android:paddingLeft="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/font_large"
+                    tools:ignore="HardcodedText,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_small" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/llProfile1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="8dp"
+                android:layout_height="60dp"
+                android:id="@+id/tvProfile1"
+                android:background="@color/colorWhite"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image2"
+                android:layout_width="@dimen/ic_user_width"
+                android:layout_height="@dimen/ic_user_height"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/hugh"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"
+                tools:ignore="DuplicateIds,RtlHardcoded"
+                android:layout_marginStart="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_subpage_for_janet"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingLeft="@dimen/spacing_large"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_large" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:hint="@string/_8_10_am"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_large" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/llProfile2">
+
+            <TextView
+                android:layout_width="8dp"
+                android:layout_height="60dp"
+                android:background="@color/colorWhite"
+                android:id="@+id/tvProfile2" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image3"
+                android:layout_width="@dimen/ic_user_width"
+                android:layout_height="@dimen/ic_user_height"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/nancy"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"
+                tools:ignore="DuplicateIds,RtlHardcoded"
+                android:layout_marginStart="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/catch_up_with_tom"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:paddingStart="@dimen/spacing_large"
+                    tools:ignore="RtlSymmetry" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:hint="@string/_11_12_pm_hangouts"
+                    tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry"
+                    android:paddingStart="@dimen/spacing_large" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/llProfile3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="8dp"
+                android:layout_height="60dp"
+                android:id="@+id/tvProfile3"
+                android:background="@color/colorWhite" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image3"
+                android:layout_width="@dimen/ic_user_width"
+                android:layout_height="@dimen/ic_user_height"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/nancy2"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"
+                tools:ignore="DuplicateIds"
+                android:layout_marginStart="30dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lunch_with_diane"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:paddingStart="@dimen/spacing_large"
+                    tools:ignore="RtlSymmetry" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_normal"
+                    android:paddingLeft="@dimen/spacing_large"
+                    android:hint="@string/_1pm_restaurant"
+                    tools:ignore="HardcodedTextRtlSymmetry"
+                    android:paddingStart="@dimen/spacing_large" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="45dp"
+                android:layout_marginBottom="@dimen/spacing_small"
+                android:paddingStart="45dp"
+                tools:ignore="RtlHardcoded,RtlSymmetry">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add"
+                    android:background="@drawable/custom_button3"
+                    android:contentDescription="@string/todo" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
