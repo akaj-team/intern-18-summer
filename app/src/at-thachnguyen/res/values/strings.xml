@@ -22,5 +22,6 @@
     <string name="time3">1pm   Restaurant</string>
     <string name="ex1">View and View Group</string>
     <string name="ex2">Intent</string>
+    <string name="ex3">Activity and Fragment</string>
 </resources>
 
