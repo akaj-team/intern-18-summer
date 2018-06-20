@@ -6,41 +6,41 @@
     android:orientation="vertical"
     android:scrollbars="vertical"
     tools:context=".thachnguyen.debug.MenuActivity">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnEx1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="#109b4a"
-        android:text="@string/ex1"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnEx1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#109b4a"
+            android:text="@string/ex1"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnEx2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="#e2be09"
-        android:text="@string/ex2"
-        android:textStyle="bold" />
-    <Button
-        android:id="@+id/btnEx3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="#c7553e"
-        android:text="@string/ex3"
-        android:textStyle="bold" />
-</LinearLayout>
+        <Button
+            android:id="@+id/btnEx2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#e2be09"
+            android:text="@string/ex2"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btnEx3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#c7553e"
+            android:text="@string/ex3"
+            android:textStyle="bold" />
+    </LinearLayout>
 </ScrollView>

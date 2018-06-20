@@ -23,5 +23,13 @@
     <string name="ex1">View and View Group</string>
     <string name="ex2">Intent</string>
     <string name="ex3">Activity and Fragment</string>
+    <string name="mail_hint">Email</string>
+    <string name="pass_hint">Password</string>
+    <string name="confirm_pass_hint">Confirm Password</string>
+    <string name="sign_up_request">Sign Up?</string>
+    <string name="log_in_label">LOG IN</string>
+    <string name="sign_up_label">SIGN UP</string>
+    <string name="home_label">HOME</string>
 </resources>
+
 

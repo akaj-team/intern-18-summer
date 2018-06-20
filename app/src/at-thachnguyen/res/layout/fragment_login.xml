@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6373ca"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:background="@drawable/border_edit_text"
+        android:padding="10dp"
+        android:id="@+id/edtEmail"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/mail_hint"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#e8eaf6"
+        android:textColor="#e8eaf6" />
+
+    <EditText
+        android:padding="10dp"
+        android:background="@drawable/border_edit_text"
+        android:id="@+id/edtPassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/pass_hint"
+        android:inputType="textPassword"
+        android:textColor="#e8eaf6"
+        android:textColorHint="#e8eaf6" />
+
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/sign_up_request"
+        android:textColor="#e8eaf6"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/log_in_label"
+        android:textColor="#e8eaf6"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+</LinearLayout>
