@@ -16,10 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".thachnguyen.debug.Main2Activity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".thachnguyen.debug.Main2Activity"></activity>
+        <activity android:name=".thachnguyen.debug.ActivityAndFragment"></activity>
     </application>
 
 </manifest>
