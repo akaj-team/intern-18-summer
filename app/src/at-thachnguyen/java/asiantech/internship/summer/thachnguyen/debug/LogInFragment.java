@@ -15,8 +15,8 @@ import android.widget.Toast;
 import asiantech.internship.summer.R;
 
 public class LogInFragment extends Fragment {
-    public static String DATA_RECEIVE_EMAIL = "email";
-    public static String DATA_RECEIVE_PASSWORD = "password";
+    public static final String DATA_RECEIVE_EMAIL = "email";
+    public static final String DATA_RECEIVE_PASSWORD = "password";
     private EditText edtEmail;
     private EditText edtPassword;
 

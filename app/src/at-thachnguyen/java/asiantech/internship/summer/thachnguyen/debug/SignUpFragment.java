@@ -13,7 +13,7 @@ import android.widget.Toast;
 import asiantech.internship.summer.R;
 
 public class SignUpFragment extends Fragment {
-    public static String DATA_RECEIVE_EMAIL="mail";
+    public static final String DATA_RECEIVE_EMAIL="mail";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
