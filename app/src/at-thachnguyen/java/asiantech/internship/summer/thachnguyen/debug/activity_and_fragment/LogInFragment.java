@@ -1,17 +1,19 @@
 package asiantech.internship.summer.thachnguyen.debug.activity_and_fragment;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.util.Objects;
 import asiantech.internship.summer.R;
 
 public class LogInFragment extends Fragment {
@@ -20,23 +22,27 @@ public class LogInFragment extends Fragment {
     private EditText edtEmail;
     private EditText edtPassword;
 
+    @SuppressLint("ResourceType")
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View mContentView = inflater.inflate(R.layout.fragment_login, container, false);
-        TextView tvSignUp = mContentView.findViewById(R.id.tvSignUp);
-        TextView tvLogIn = mContentView.findViewById(R.id.tvLogIn);
-        edtEmail = mContentView.findViewById(R.id.edtEmail);
-        edtPassword = mContentView.findViewById(R.id.edtPassword);
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View contentView = inflater.inflate(R.layout.fragment_login, container, false);
+        TextView tvSignUp = contentView.findViewById(R.id.tvSignUp);
+        TextView tvLogIn = contentView.findViewById(R.id.tvLogIn);
+        edtEmail = contentView.findViewById(R.id.edtEmail);
+        edtPassword = contentView.findViewById(R.id.edtPassword);
+        Toolbar toolbar = Objects.requireNonNull(getActivity()).findViewById(R.id.toolbar);
+        toolbar.setTitle("Log in");
 
         tvSignUp.setOnClickListener(view -> {
-            Activity mActivity = getActivity();
-            SignUpFragment mSignUpFragment = new SignUpFragment();
-            FragmentTransaction mTransaction = mActivity.getFragmentManager().beginTransaction();
-            mTransaction.replace(R.id.fragmentContainer, mSignUpFragment);
-            mTransaction.addToBackStack(null);
-            mTransaction.commit();
+            SignUpFragment signUpFragment = new SignUpFragment();
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out,
+                    R.anim.slide_left_in, R.anim.slide_right_out);
+            transaction.replace(R.id.fragmentContainer, signUpFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
         });
 
         tvLogIn.setOnClickListener(view -> {
@@ -44,21 +50,22 @@ public class LogInFragment extends Fragment {
             String password = edtPassword.getText().toString();
 
             if (email.equals("") || password.equals("")) {
-                Toast.makeText(mContentView.getContext(), "Please fill full information sign up!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(contentView.getContext(), "Please fill full information sign up!", Toast.LENGTH_SHORT).show();
             } else {
 
                 if (!CheckAccount.checkEmail(email)) {
-                    Toast.makeText(mContentView.getContext(), "Sorry!!! Your email is incorrect!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(contentView.getContext(), "Sorry!!! Your email is incorrect!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (!CheckAccount.checkPassword(password)) {
-                        Toast.makeText(mContentView.getContext(), "Sorry!!! Password must be 6 or more character", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character", Toast.LENGTH_SHORT).show();
                     } else {
                         HomeFragment mHomeFragment = new HomeFragment();
                         Bundle mBundleReceive = new Bundle();
                         mBundleReceive.putString(DATA_RECEIVE_EMAIL, email);
                         mBundleReceive.putString(DATA_RECEIVE_PASSWORD, password);
                         mHomeFragment.setArguments(mBundleReceive);
-                        getFragmentManager().beginTransaction()
+                        getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out,
+                                R.anim.slide_left_in, R.anim.slide_right_out)
                                 .replace(R.id.fragmentContainer, mHomeFragment)
                                 .commit();
                     }
@@ -66,16 +73,8 @@ public class LogInFragment extends Fragment {
             }
         });
 
-        return mContentView;
+        return contentView;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Bundle mBundleSend = getArguments();
-        if (mBundleSend != null) {
-            edtEmail.setText(mBundleSend.getString(SignUpFragment.DATA_RECEIVE_EMAIL));
-        }
-    }
 }
 
