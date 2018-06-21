@@ -1,4 +1,4 @@
-package asiantech.internship.summer.thachnguyen.debug;
+package asiantech.internship.summer.thachnguyen.debug.menu;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.thachnguyen.debug.activity_and_fragment.ActivityAndFragment;
+import asiantech.internship.summer.thachnguyen.debug.view_and_view_group.Main2Activity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btnEx1, btnEx3;

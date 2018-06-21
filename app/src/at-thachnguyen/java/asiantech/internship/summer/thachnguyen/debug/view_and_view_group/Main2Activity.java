@@ -1,4 +1,4 @@
-package asiantech.internship.summer.thachnguyen.debug;
+package asiantech.internship.summer.thachnguyen.debug.view_and_view_group;
 
         import android.graphics.Color;
         import android.support.v4.content.ContextCompat;

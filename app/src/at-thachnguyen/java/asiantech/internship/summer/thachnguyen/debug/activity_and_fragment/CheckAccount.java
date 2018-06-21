@@ -1,4 +1,4 @@
-package asiantech.internship.summer.thachnguyen.debug;
+package asiantech.internship.summer.thachnguyen.debug.activity_and_fragment;
 
 public class CheckAccount {
     public static boolean checkEmail(String email) {

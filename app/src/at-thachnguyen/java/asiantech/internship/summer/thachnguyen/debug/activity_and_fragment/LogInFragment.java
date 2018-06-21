@@ -1,4 +1,4 @@
-package asiantech.internship.summer.thachnguyen.debug;
+package asiantech.internship.summer.thachnguyen.debug.activity_and_fragment;
 
 import android.app.Activity;
 import android.app.Fragment;

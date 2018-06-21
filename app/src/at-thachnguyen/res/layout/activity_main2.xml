@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:scrollbars="none"
     android:layout_weight="2"
-    tools:context=".thachnguyen.debug.Main2Activity">
+    tools:context=".thachnguyen.debug.view_and_view_group.Main2Activity">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
