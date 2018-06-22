@@ -1,29 +1,21 @@
 package asiantech.internship.summer.thachnguyen.debug.activity_and_fragment;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CheckAccount {
-    public static boolean checkEmail(String email) {
-        char start = email.charAt(0);
-        if ((start < 65) || (start > 90 && start < 97) || (start > 122)) {
-            return false;
-        }
-        if (!email.contains("@")) {
-            return false;
-        }
-        if (email.endsWith("@")) {
-            return false;
-        }
-        String temp = email.substring(email.indexOf('@') + 1);
-        if (temp.contains("@")){
-            return false;
-        }
-        return true;
-}
+
+    public static boolean validateMail(String emailStr) {
+        Pattern VALID_EMAIL_ADDRESS_REGEX =
+                Pattern.compile("^[a-zA-Z]+[a-zA-Z0-9._%+-]*+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return !matcher.find();
+    }
 
     public static boolean checkPassword(String password) {
-        if (password.length() < 6) {
-            return false;
-        }
-        return true;
+        Pattern VALID_PASSWORD_REGEX =
+                Pattern.compile("[a-zA-Z0-9]{6,}", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = VALID_PASSWORD_REGEX.matcher(password);
+        return !matcher.find();
     }
 }
-

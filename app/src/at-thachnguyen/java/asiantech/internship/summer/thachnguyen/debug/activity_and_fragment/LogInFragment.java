@@ -1,6 +1,7 @@
 package asiantech.internship.summer.thachnguyen.debug.activity_and_fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.Objects;
+
 import asiantech.internship.summer.R;
 
 public class LogInFragment extends Fragment {
@@ -45,7 +48,7 @@ public class LogInFragment extends Fragment {
 
         });
 
-        tvLogIn.setOnClickListener(view -> {
+        tvLogIn.setOnClickListener((View view) -> {
             String email = edtEmail.getText().toString();
             String password = edtPassword.getText().toString();
 
@@ -53,21 +56,18 @@ public class LogInFragment extends Fragment {
                 Toast.makeText(contentView.getContext(), "Please fill full information sign up!", Toast.LENGTH_SHORT).show();
             } else {
 
-                if (!CheckAccount.checkEmail(email)) {
+                if (CheckAccount.validateMail(email)) {
                     Toast.makeText(contentView.getContext(), "Sorry!!! Your email is incorrect!", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (!CheckAccount.checkPassword(password)) {
-                        Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character", Toast.LENGTH_SHORT).show();
+                    if (CheckAccount.checkPassword(password)) {
+                        Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character and don't have specail character ", Toast.LENGTH_SHORT).show();
                     } else {
-                        HomeFragment mHomeFragment = new HomeFragment();
-                        Bundle mBundleReceive = new Bundle();
-                        mBundleReceive.putString(DATA_RECEIVE_EMAIL, email);
-                        mBundleReceive.putString(DATA_RECEIVE_PASSWORD, password);
-                        mHomeFragment.setArguments(mBundleReceive);
-                        getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out,
-                                R.anim.slide_left_in, R.anim.slide_right_out)
-                                .replace(R.id.fragmentContainer, mHomeFragment)
-                                .commit();
+                        Intent intent = new Intent(getActivity(), HomeActivity.class);
+                        Bundle bundleReceive = new Bundle();
+                        bundleReceive.putString(DATA_RECEIVE_EMAIL, email);
+                        bundleReceive.putString(DATA_RECEIVE_PASSWORD, password);
+                        intent.putExtras(bundleReceive);
+                        startActivity(intent);
                     }
                 }
             }
@@ -75,6 +75,4 @@ public class LogInFragment extends Fragment {
 
         return contentView;
     }
-
 }
-

@@ -25,6 +25,7 @@ public class SignUpFragment extends Fragment {
         EditText edtConfirmPassword=contentView.findViewById(R.id.edtConfirmPassword);
         TextView tvSignUp=contentView.findViewById(R.id.tvSignUp);
 
+
         Toolbar toolbar = Objects.requireNonNull(getActivity()).findViewById(R.id.toolbar);
         toolbar.setTitle("Sign up");
 
@@ -41,12 +42,12 @@ public class SignUpFragment extends Fragment {
                     Toast.makeText(contentView.getContext(), "Sorry!!! Password and confirm password are not the same!", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    if(!CheckAccount.checkEmail(email)){
+                    if(CheckAccount.validateMail(email)){
                         Toast.makeText(contentView.getContext(), "Sorry!!! Your email is incorrect!", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        if(!CheckAccount.checkPassword(password)){
-                            Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character", Toast.LENGTH_SHORT).show();
+                        if(CheckAccount.checkPassword(password)){
+                            Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character and don't have special character", Toast.LENGTH_SHORT).show();
                         }
                         else{
                             LogInFragment mLogInFragment = new LogInFragment ();
@@ -68,4 +69,3 @@ public class SignUpFragment extends Fragment {
     }
 
 }
-
