@@ -15,7 +15,7 @@ import java.util.Objects;
 import asiantech.internship.summer.R;
 
 public class SignUpFragment extends Fragment {
-    public static final String DATA_RECEIVE_EMAIL="mail";
+    static final String DATA_RECEIVE_EMAIL="mail";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
