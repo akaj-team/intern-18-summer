@@ -9,15 +9,15 @@ package asiantech.internship.summer.thachnguyen.debug.view_and_view_group;
         import asiantech.internship.summer.R;
 
 public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
-    private View mView1, mView2, mView3;
+    private View mViewSelector1, mViewSelector2, mViewSelector3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        mView1=findViewById(R.id.view1);
-        mView2=findViewById(R.id.view2);
-        mView3=findViewById(R.id.view3);
+        mViewSelector1=findViewById(R.id.view1);
+        mViewSelector2=findViewById(R.id.view2);
+        mViewSelector3=findViewById(R.id.view3);
 
         LinearLayout ll4 = findViewById(R.id.ll4);
         LinearLayout ll5 = findViewById(R.id.ll5);
@@ -34,19 +34,19 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         int id=view.getId();
         switch (id){
             case R.id.ll3:
-                mView1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorGreen));
-                mView2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
-                mView3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+                mViewSelector1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorGreen));
+                mViewSelector2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+                mViewSelector3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
                 break;
             case R.id.ll4:
-                mView1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
-                mView2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorGreen));
-                mView3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+                mViewSelector1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+                mViewSelector2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorGreen));
+                mViewSelector3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
                 break;
              case R.id.ll5:
-                 mView1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
-                 mView2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
-                 mView3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorGreen));
+                 mViewSelector1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+                 mViewSelector2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+                 mViewSelector3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorGreen));
                 break;
         }
     }
