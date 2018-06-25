@@ -22,8 +22,8 @@ import asiantech.internship.summer.R;
 public class LogInFragment extends Fragment {
     static final String DATA_RECEIVE_EMAIL = "email";
     static final String DATA_RECEIVE_PASSWORD = "password";
-    private EditText edtEmail;
-    private EditText edtPassword;
+    private EditText mEdtEmail;
+    private EditText mEdtPassword;
 
     @SuppressLint("ResourceType")
     @Nullable
@@ -32,8 +32,8 @@ public class LogInFragment extends Fragment {
         View contentView = inflater.inflate(R.layout.fragment_login, container, false);
         TextView tvSignUp = contentView.findViewById(R.id.tvSignUp);
         TextView tvLogIn = contentView.findViewById(R.id.tvLogIn);
-        edtEmail = contentView.findViewById(R.id.edtEmail);
-        edtPassword = contentView.findViewById(R.id.edtPassword);
+        mEdtEmail = contentView.findViewById(R.id.edtEmail);
+        mEdtPassword = contentView.findViewById(R.id.edtPassword);
         Toolbar toolbar = Objects.requireNonNull(getActivity()).findViewById(R.id.toolbar);
         toolbar.setTitle("Log in");
 
@@ -49,8 +49,8 @@ public class LogInFragment extends Fragment {
         });
 
         tvLogIn.setOnClickListener((View view) -> {
-            String email = edtEmail.getText().toString();
-            String password = edtPassword.getText().toString();
+            String email = mEdtEmail.getText().toString();
+            String password =mEdtPassword.getText().toString();
 
             if (email.equals("") || password.equals("")) {
                 Toast.makeText(contentView.getContext(), "Please fill full information sign up!", Toast.LENGTH_SHORT).show();

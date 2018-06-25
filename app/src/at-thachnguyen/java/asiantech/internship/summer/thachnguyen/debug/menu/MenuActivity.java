@@ -11,13 +11,12 @@ import asiantech.internship.summer.thachnguyen.debug.activity_and_fragment.Activ
 import asiantech.internship.summer.thachnguyen.debug.view_and_view_group.Main2Activity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnEx1, btnEx3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        btnEx1=findViewById(R.id.btnEx1);
-        btnEx3=findViewById(R.id.btnEx3);
+        Button btnEx1 = findViewById(R.id.btnEx1);
+        Button btnEx3 = findViewById(R.id.btnEx3);
         btnEx1.setOnClickListener(this);
         btnEx3.setOnClickListener(this);
     }
