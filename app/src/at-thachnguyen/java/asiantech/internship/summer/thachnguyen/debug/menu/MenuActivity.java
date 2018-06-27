@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.activity_and_fragment.ActivityAndFragment;
-import asiantech.internship.summer.thachnguyen.debug.recyclerview.RecyclerView;
+import asiantech.internship.summer.thachnguyen.debug.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.thachnguyen.debug.view_and_view_group.Main2Activity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(mIntent);
                 break;
             case R.id.btnEx4:
-                mIntent = new Intent(MenuActivity.this, RecyclerView.class);
+                mIntent = new Intent(MenuActivity.this, RecyclerViewActivity.class);
                 startActivity(mIntent);
                 break;
         }

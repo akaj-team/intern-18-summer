@@ -20,7 +20,7 @@
         <activity android:name=".thachnguyen.debug.view_and_view_group.Main2Activity"></activity>
         <activity android:name=".thachnguyen.debug.activity_and_fragment.ActivityAndFragment"></activity>
         <activity android:name=".thachnguyen.debug.activity_and_fragment.HomeActivity" />
-        <activity android:name=".thachnguyen.debug.recyclerview.RecyclerView"></activity>
+        <activity android:name=".thachnguyen.debug.recyclerview.RecyclerViewActivity"></activity>
     </application>
 
 </manifest>

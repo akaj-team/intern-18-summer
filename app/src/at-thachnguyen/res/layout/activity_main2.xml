@@ -16,26 +16,26 @@
 
     android:id="@+id/img"
     android:layout_alignParentTop="true"
-    android:background="@drawable/images"
+    android:background="@drawable/bg_cover"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:ignore="DuplicateIds" >
     <ImageView
         android:layout_margin="10dp"
-        android:src="@drawable/menu_icon"
+        android:src="@drawable/ic_menu"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_width="40dp"
         android:layout_height="40dp" />
     <ImageView
         android:layout_margin="10dp"
-        android:src="@drawable/search_icon"
+        android:src="@drawable/ic_search"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_width="40dp"
         android:layout_height="40dp" />
     <de.hdodenhof.circleimageview.CircleImageView
-        android:src="@drawable/avt"
+        android:src="@drawable/img_avt1"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerInParent="true"/>
@@ -177,7 +177,7 @@
             android:layout_width="3dp"
             android:layout_height="match_parent"/>
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/images1"
+            android:src="@drawable/img_avt2"
             android:layout_width="80dp"
             android:layout_height="80dp" />
         <LinearLayout
@@ -213,7 +213,7 @@
             android:layout_width="3dp"
             android:layout_height="match_parent"/>
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/images2"
+            android:src="@drawable/img_avt3"
             android:layout_width="80dp"
             android:layout_height="80dp" />
         <LinearLayout
@@ -247,7 +247,7 @@
             android:layout_width="3dp"
             android:layout_height="match_parent"/>
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/images3"
+            android:src="@drawable/img_avt4"
             android:layout_width="80dp"
             android:layout_height="80dp" />
         <LinearLayout
