@@ -20,7 +20,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     private Context mContext;
     private ArrayList<TimelineItem> mListTimeline;
 
-    public TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline) {
+    TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline) {
         this.mContext = mContext;
         this.mListTimeline = mListTimeline;
     }
@@ -41,6 +41,18 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         holder.mTvLike.setText(mListTimeline.get(position).getmLike()+" like");
         holder.mTvNameOwnerPost.setText(mListTimeline.get(position).getmOwner().getmName());
         holder.mTvDescription.setText(mListTimeline.get(position).getmDescription());
+        holder.mImgLike.setOnClickListener(view -> {
+            if (holder.mImgLike.getDrawable().getConstantState() == mContext.getResources().getDrawable( R.drawable.ic_unlike).getConstantState()){
+                mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike()+1);
+                holder.mTvLike.setText(mListTimeline.get(position).getmLike()+" like");
+                holder.mImgLike.setImageResource(R.drawable.ic_like);
+            }
+            else{
+                mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike()-1);
+                holder.mTvLike.setText(mListTimeline.get(position).getmLike()+" like");
+                holder.mImgLike.setImageResource(R.drawable.ic_unlike);
+            }
+        });
     }
 
     @Override
@@ -55,6 +67,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         TextView mTvLike;
         TextView mTvNameOwnerPost;
         TextView mTvDescription;
+        ImageView mImgLike;
 
         TimelineViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +77,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
             mTvLike = itemView.findViewById(R.id.tvLike);
             mTvNameOwnerPost = itemView.findViewById(R.id.tvNameOwnerPost);
             mTvDescription = itemView.findViewById(R.id.tvDescription);
+            mImgLike = itemView.findViewById(R.id.imgLike);
         }
     }
 }
