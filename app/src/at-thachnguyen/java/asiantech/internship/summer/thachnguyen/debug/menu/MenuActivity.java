@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.activity_and_fragment.ActivityAndFragment;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.RecyclerViewActivity;
