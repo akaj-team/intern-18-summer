@@ -10,7 +10,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <Button
             android:id="@+id/btnEx1"
             android:layout_width="match_parent"
@@ -21,7 +20,6 @@
             android:background="#109b4a"
             android:text="@string/ex1"
             android:textStyle="bold" />
-
         <Button
             android:id="@+id/btnEx2"
             android:layout_width="match_parent"
