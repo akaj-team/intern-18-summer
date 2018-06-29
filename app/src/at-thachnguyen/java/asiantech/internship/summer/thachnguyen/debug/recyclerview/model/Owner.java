@@ -17,4 +17,3 @@ public class Owner {
         return mAvatar;
     }
 }
-
