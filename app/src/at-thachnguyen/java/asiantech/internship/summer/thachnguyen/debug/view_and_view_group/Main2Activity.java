@@ -5,7 +5,6 @@ package asiantech.internship.summer.thachnguyen.debug.view_and_view_group;
         import android.os.Bundle;
         import android.view.View;
         import android.widget.LinearLayout;
-
         import asiantech.internship.summer.R;
 
 public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
@@ -51,5 +50,3 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         }
     }
 }
-
-
