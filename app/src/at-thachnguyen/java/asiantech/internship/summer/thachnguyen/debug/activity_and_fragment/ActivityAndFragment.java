@@ -23,4 +23,3 @@ public class ActivityAndFragment extends AppCompatActivity {
         transaction.commit();
     }
 }
-
