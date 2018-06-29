@@ -33,4 +33,3 @@ public class TimelineItem {
         this.mLike = mLike;
     }
 }
-
