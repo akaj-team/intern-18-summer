@@ -24,8 +24,6 @@ public class SignUpFragment extends Fragment {
         EditText edtPassword=contentView.findViewById(R.id.edtPassword);
         EditText edtConfirmPassword=contentView.findViewById(R.id.edtConfirmPassword);
         TextView tvSignUp=contentView.findViewById(R.id.tvSignUp);
-
-
         Toolbar toolbar = Objects.requireNonNull(getActivity()).findViewById(R.id.toolbar);
         toolbar.setTitle("Sign up");
 
@@ -63,9 +61,6 @@ public class SignUpFragment extends Fragment {
                 }
             }
         });
-
-
         return contentView;
     }
-
 }
