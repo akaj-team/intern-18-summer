@@ -1,4 +1,7 @@
 <root>
+    <item name='android.widget.ScrollView'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
     <item name='android.widget.TextView'>
         <annotation name='java.lang.Deprecated' />
     </item>

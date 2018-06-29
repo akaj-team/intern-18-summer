@@ -5,7 +5,7 @@
         android:radius="100dp" />
 
     <solid
-        android:color="#f5f5f5" />
+        android:color="#757575" />
 
     <size
         android:height="10dp"
