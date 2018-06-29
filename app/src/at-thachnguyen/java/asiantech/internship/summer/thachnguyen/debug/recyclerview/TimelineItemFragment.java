@@ -1,5 +1,6 @@
 package asiantech.internship.summer.thachnguyen.debug.recyclerview;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ProgressBar;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.Owner;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
@@ -83,8 +86,8 @@ public class TimelineItemFragment extends Fragment {
 
     private void createListTimeLine() {
         for (int i = 0; i < 10; i++) {
-            Owner owner = new Owner(RecyclerViewActivity.getName(i % 5), RecyclerViewActivity.getAvatar(i % 5));
-            mTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), RecyclerViewActivity.getDescription(i), 0));
+            Owner owner = new Owner(getName(i % 5), getAvatar(i % 5));
+            mTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), getDescription(i), 0));
             mTimelineAdapter.notifyDataSetChanged();
         }
     }
@@ -103,5 +106,20 @@ public class TimelineItemFragment extends Fragment {
         new Handler().postDelayed(() ->
                         mSwipeRefreshLayout.setRefreshing(false),
                 2000);
+    }
+
+    public String getName(int i) {
+        String[] arrayNames = Objects.requireNonNull(getContext()).getResources().getStringArray(R.array.name);
+        return arrayNames[i];
+    }
+
+    public int getAvatar(int i) {
+        String imgName = "img_avt" + i;
+        return Objects.requireNonNull(getActivity()).getResources().getIdentifier(imgName, "drawable", Objects.requireNonNull(getContext()).getPackageName());
+    }
+
+    public  String getDescription(int i) {
+        String[] arrayDescriptions = Objects.requireNonNull(getContext()).getResources().getStringArray(R.array.description);
+        return arrayDescriptions[i];
     }
 }

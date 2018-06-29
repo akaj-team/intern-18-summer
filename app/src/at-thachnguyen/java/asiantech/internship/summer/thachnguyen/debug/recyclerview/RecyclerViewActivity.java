@@ -44,18 +44,5 @@ public class RecyclerViewActivity extends AppCompatActivity {
         return mResources.getIdentifier(imgName, "drawable", mPackagename);
     }
 
-    public static String getName(int i) {
-        String[] arrayNames = mContext.getResources().getStringArray(R.array.name);
-        return arrayNames[i];
-    }
 
-    public static int getAvatar(int i) {
-        String imgName = "img_avt" + i;
-        return mResources.getIdentifier(imgName, "drawable", mPackagename);
-    }
-
-    public static String getDescription(int i) {
-        String[] arrayDescriptions = mContext.getResources().getStringArray(R.array.description);
-        return arrayDescriptions[i];
-    }
 }
