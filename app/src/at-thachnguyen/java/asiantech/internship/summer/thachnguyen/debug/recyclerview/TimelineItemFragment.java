@@ -81,7 +81,7 @@ public class TimelineItemFragment extends Fragment {
         });
     }
 
-    private void createListTimeLine() {
+    private void createListTimeLines() {
         for (int i = 0; i < 10; i++) {
             Owner owner = new Owner(RecyclerViewActivity.getName(i % 5), RecyclerViewActivity.getAvatar(i % 5));
             mTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), RecyclerViewActivity.getDescription(i), 0));
@@ -92,14 +92,14 @@ public class TimelineItemFragment extends Fragment {
     private void loadMoreTimeLine() {
         mProgressBarLoad.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
-            createListTimeLine();
+            createListTimeLines();
             mProgressBarLoad.setVisibility(View.GONE);
         }, 5000);
     }
 
     private void loadRefreshTimeLine() {
         mTimelines.clear();
-        createListTimeLine();
+        createListTimeLines();
         new Handler().postDelayed(() ->
                         mSwipeRefreshLayout.setRefreshing(false),
                 2000);
