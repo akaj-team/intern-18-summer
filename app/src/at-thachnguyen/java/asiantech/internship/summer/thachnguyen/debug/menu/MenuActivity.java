@@ -10,7 +10,7 @@ import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.activity_and_fragment.ActivityAndFragment;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.thachnguyen.debug.view_and_view_group.Main2Activity;
-import asiantech.internship.summer.thachnguyen.debug.viewpager.ViewPagerActivity;
+import asiantech.internship.summer.thachnguyen.debug.viewpager.PagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
@@ -44,7 +44,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(mIntent);
                 break;
             case R.id.btnEx5:
-                mIntent = new Intent(MenuActivity.this, ViewPagerActivity.class);
+                mIntent = new Intent(MenuActivity.this, PagerActivity.class);
                 startActivity(mIntent);
                 break;
         }

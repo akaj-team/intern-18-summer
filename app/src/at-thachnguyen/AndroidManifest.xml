@@ -21,7 +21,7 @@
         <activity android:name=".thachnguyen.debug.activity_and_fragment.ActivityAndFragment" />
         <activity android:name=".thachnguyen.debug.activity_and_fragment.HomeActivity" />
         <activity android:name=".thachnguyen.debug.recyclerview.RecyclerViewActivity" />
-        <activity android:name=".thachnguyen.debug.viewpager.ViewPagerActivity"></activity>
+        <activity android:name=".thachnguyen.debug.viewpager.PagerActivity"/>
     </application>
 
 </manifest>

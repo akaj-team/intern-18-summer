@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
+
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -19,7 +21,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     private final ArrayList<TimelineItem> mListTimeline;
     private final OnLikeClickListener mLikeClickListener;
 
-    TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline, OnLikeClickListener mLikeClickListener) {
+    public TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline, OnLikeClickListener mLikeClickListener) {
         this.mContext = mContext;
         this.mListTimeline = mListTimeline;
         this.mLikeClickListener = mLikeClickListener;
@@ -41,18 +43,26 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         holder.mTvLike.setText(mListTimeline.get(position).getmLike() + " like");
         holder.mTvNameOwnerPost.setText(mListTimeline.get(position).getmOwner().getmName());
         holder.mTvDescription.setText(mListTimeline.get(position).getmDescription());
+        if (mListTimeline.get(position).ismCheckLike()) {
+            holder.mImgLike.setImageResource(R.drawable.ic_like);
+        } else {
+            holder.mImgLike.setImageResource(R.drawable.ic_unlike);
+        }
         holder.mImgLike.setOnClickListener(view -> {
-            if (holder.mImgLike.getDrawable().getConstantState() == mContext.getResources().getDrawable(R.drawable.ic_unlike).getConstantState()) {
+            if (!mListTimeline.get(position).ismCheckLike()) {
+                mListTimeline.get(position).setmCheckLike(true);
                 mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike() + 1);
                 holder.mTvLike.setText(mListTimeline.get(position).getmLike() + " like");
                 holder.mImgLike.setImageResource(R.drawable.ic_like);
             } else {
+                mListTimeline.get(position).setmCheckLike(false);
                 mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike() - 1);
                 holder.mTvLike.setText(mListTimeline.get(position).getmLike() + " like");
                 holder.mImgLike.setImageResource(R.drawable.ic_unlike);
             }
-            mLikeClickListener.onLikeClickListener(position);
+            mLikeClickListener.onLikeClickListener(mListTimeline.get(position));
         });
+
     }
 
     @Override
@@ -82,6 +92,6 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     }
 
     public interface OnLikeClickListener {
-        void onLikeClickListener(int position);
+        void onLikeClickListener(TimelineItem timelineItem);
     }
 }

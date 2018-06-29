@@ -1,29 +1,24 @@
 package asiantech.internship.summer.thachnguyen.debug.recyclerview;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.FrameLayout;
+
 import java.util.Objects;
-import java.util.Random;
+
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
 
-public class RecyclerViewActivity extends AppCompatActivity {
-    private static String mPackagename;
-    private static Resources mResources;
-    @SuppressLint("StaticFieldLeak")
-    private static Context mContext;
-
+public class RecyclerViewActivity extends AppCompatActivity implements TimelineAdapter.OnLikeClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
-        mPackagename = getPackageName();
-        mResources = getResources();
-        mContext = getApplicationContext();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -37,12 +32,25 @@ public class RecyclerViewActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public static int randomImageFood(String image, int i) {
-        Random rand = new Random();
-        int rndN = rand.nextInt(i) + 1;
-        String imgName = "img_" + image + rndN;
-        return mResources.getIdentifier(imgName, "drawable", mPackagename);
+
+    @Override
+    public void onBackPressed() {
+        int fragments = getSupportFragmentManager().getBackStackEntryCount();
+        if (fragments == 1) {
+            finish();
+        } else {
+            if (getFragmentManager().getBackStackEntryCount() > 1) {
+                getFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
+        }
     }
 
-
+    @Override
+    public void onLikeClickListener(TimelineItem timelineItem) {
+        FragmentManager fragmentManager = this.getSupportFragmentManager();
+        TimelineItemFragment timelineItemFragment = (TimelineItemFragment) fragmentManager.findFragmentById(R.id.fragmentContainer);
+        timelineItemFragment.messageFavourite(timelineItem);
+    }
 }
