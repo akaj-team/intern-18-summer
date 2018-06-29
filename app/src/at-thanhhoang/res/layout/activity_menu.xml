@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundMenuActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/btnViewViewGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_view_viewGroup"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/colorBackgroundButtonMenuActivity"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/btnIntent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_intent"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/colorBackgroundButtonMenuActivity"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/btnActivityFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_activity_fragment"
+                android:background="@color/colorBackgroundButtonMenuActivity"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/btnRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ex_recycler_view"
+                android:background="@color/colorBackgroundButtonMenuActivity"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

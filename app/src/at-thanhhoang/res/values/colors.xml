@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorPressed">#ff5722</color>
+    <color name="colorDefault">#fff59d</color>
+    <color name="colorBackgroundMenuActivity">#4fc3f7</color>
+    <color name="colorBackgroundResultActivity">#ffd54f</color>
+    <color name="colorBackgroundFragmentLogin">#0288d1</color>
+    <color name="colorBackgroundChildViewResultActivity">#4fc3f7</color>
+    <color name="colorBackgroundButtonMenuActivity">#ff7043</color>
+    <color name="colorBackgroundItemViewActivityMain">#fff59d</color>
+    <color name="colorBackgroundDateMainActivity">#aed581</color>
+    <color name="colorBackgroundNumberMenuActivity">#ffee58</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBrown">#e0e0e0</color>
 </resources>
