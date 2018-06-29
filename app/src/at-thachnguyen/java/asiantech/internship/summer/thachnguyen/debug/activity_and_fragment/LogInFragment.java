@@ -34,7 +34,6 @@ public class LogInFragment extends Fragment {
         mEdtPassword = contentView.findViewById(R.id.edtPassword);
         Toolbar toolbar = Objects.requireNonNull(getActivity()).findViewById(R.id.toolbar);
         toolbar.setTitle("Log in");
-
         tvSignUp.setOnClickListener(view -> {
             SignUpFragment signUpFragment = new SignUpFragment();
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -43,17 +42,14 @@ public class LogInFragment extends Fragment {
             transaction.replace(R.id.fragmentContainer, signUpFragment);
             transaction.addToBackStack(null);
             transaction.commit();
-
         });
 
         tvLogIn.setOnClickListener((View view) -> {
             String email = mEdtEmail.getText().toString();
             String password =mEdtPassword.getText().toString();
-
             if (email.equals("") || password.equals("")) {
                 Toast.makeText(contentView.getContext(), "Please fill full information sign up!", Toast.LENGTH_SHORT).show();
             } else {
-
                 if (CheckAccount.validateMail(email)) {
                     Toast.makeText(contentView.getContext(), "Sorry!!! Your email is incorrect!", Toast.LENGTH_SHORT).show();
                 } else {
