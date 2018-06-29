@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:layout_weight="2"
+    tools:context=".thachnguyen.debug.view_and_view_group.Main2Activity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+<RelativeLayout
+    android:id="@+id/img"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/bg_cover"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="DuplicateIds" >
+    <ImageView
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_menu"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+    <ImageView
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_search"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/img_avt1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_below="@id/img"
+        android:padding="4dp"
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/sun"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/mon"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/tue"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/wed"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/thu"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/fri"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="18dp"
+            android:layout_weight="1"
+            android:text="@string/sat"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_below="@id/ll1"
+        android:padding="10dp"
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_1"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_2"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_3"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_4"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_5"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_6"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:text="@string/_7"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:id="@+id/ll3"
+        android:layout_below="@id/ll2"
+        tools:context=".thachnguyen.debug.Custom">
+        <View
+            android:id="@+id/view1"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/img_avt2"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvAction"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:text="@string/action1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tvTime"
+                android:padding="5dp"
+                android:text="@string/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:id="@+id/ll4"
+        android:layout_below="@id/ll3"
+        tools:context=".thachnguyen.debug.Custom">
+        <View
+            android:id="@+id/view2"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/img_avt3"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
+                android:textColor="#000"
+                android:text="@string/action1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="5dp"
+                android:text="@string/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:id="@+id/ll5"
+        android:layout_below="@id/ll4"
+        tools:context=".thachnguyen.debug.Custom">
+        <View
+            android:id="@+id/view3"
+            android:layout_width="3dp"
+            android:layout_height="match_parent"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/img_avt4"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="5dp"
+                android:textColor="#000"
+                android:text="@string/action1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="5dp"
+                android:text="@string/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:layout_margin="10dp"
+        android:layout_alignRight="@id/img"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/fab" />
+</RelativeLayout>
+</ScrollView>
