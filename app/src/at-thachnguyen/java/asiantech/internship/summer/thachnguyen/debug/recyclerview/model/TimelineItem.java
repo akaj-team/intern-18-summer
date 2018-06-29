@@ -1,9 +1,9 @@
 package asiantech.internship.summer.thachnguyen.debug.recyclerview.model;
 
 public class TimelineItem {
-    private Owner mOwner;
-    private int mImage;
-    private String mDescription;
+    private final Owner mOwner;
+    private final int mImage;
+    private final String mDescription;
     private int mLike;
 
     public TimelineItem(Owner mOwner, int mImage, String mDescription, int mLike) {

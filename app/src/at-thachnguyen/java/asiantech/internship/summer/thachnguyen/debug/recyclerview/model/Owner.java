@@ -1,8 +1,8 @@
 package asiantech.internship.summer.thachnguyen.debug.recyclerview.model;
 
 public class Owner {
-    private  String mName;
-    private  int mAvatar;
+    private final String mName;
+    private final int mAvatar;
 
     public Owner(String mName, int mAvatar) {
         this.mName = mName;

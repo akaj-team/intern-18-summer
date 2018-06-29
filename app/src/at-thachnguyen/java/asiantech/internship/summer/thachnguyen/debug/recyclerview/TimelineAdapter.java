@@ -16,19 +16,21 @@ import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder>{
-    private Context mContext;
-    private ArrayList<TimelineItem> mListTimeline;
+public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder> {
+    private final Context mContext;
+    private final ArrayList<TimelineItem> mListTimeline;
+    private final OnLikeClickListener mLikeClickListener;
 
-    TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline) {
+    TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline, OnLikeClickListener mLikeClickListener) {
         this.mContext = mContext;
         this.mListTimeline = mListTimeline;
+        this.mLikeClickListener = mLikeClickListener;
     }
 
     @NonNull
     @Override
     public TimelineViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layout= LayoutInflater.from(mContext).inflate(R.layout.list_item_timeline,parent, false);
+        View layout = LayoutInflater.from(mContext).inflate(R.layout.list_item_timeline, parent, false);
         return new TimelineViewHolder(layout);
     }
 
@@ -38,20 +40,20 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         holder.mCircleImageViewAvatar.setImageResource(mListTimeline.get(position).getmOwner().getmAvatar());
         holder.mTvNameOwner.setText(mListTimeline.get(position).getmOwner().getmName());
         holder.mImgFood.setImageResource(mListTimeline.get(position).getmImage());
-        holder.mTvLike.setText(mListTimeline.get(position).getmLike()+" like");
+        holder.mTvLike.setText(mListTimeline.get(position).getmLike() + " like");
         holder.mTvNameOwnerPost.setText(mListTimeline.get(position).getmOwner().getmName());
         holder.mTvDescription.setText(mListTimeline.get(position).getmDescription());
         holder.mImgLike.setOnClickListener(view -> {
-            if (holder.mImgLike.getDrawable().getConstantState() == mContext.getResources().getDrawable( R.drawable.ic_unlike).getConstantState()){
-                mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike()+1);
-                holder.mTvLike.setText(mListTimeline.get(position).getmLike()+" like");
+            if (holder.mImgLike.getDrawable().getConstantState() == mContext.getResources().getDrawable(R.drawable.ic_unlike).getConstantState()) {
+                mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike() + 1);
+                holder.mTvLike.setText(mListTimeline.get(position).getmLike() + " like");
                 holder.mImgLike.setImageResource(R.drawable.ic_like);
-            }
-            else{
-                mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike()-1);
-                holder.mTvLike.setText(mListTimeline.get(position).getmLike()+" like");
+            } else {
+                mListTimeline.get(position).setmLike(mListTimeline.get(position).getmLike() - 1);
+                holder.mTvLike.setText(mListTimeline.get(position).getmLike() + " like");
                 holder.mImgLike.setImageResource(R.drawable.ic_unlike);
             }
+            mLikeClickListener.onLikeClickListener(position);
         });
     }
 
@@ -61,13 +63,13 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     }
 
     class TimelineViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView mCircleImageViewAvatar;
-        TextView mTvNameOwner;
-        ImageView mImgFood;
-        TextView mTvLike;
-        TextView mTvNameOwnerPost;
-        TextView mTvDescription;
-        ImageView mImgLike;
+        final CircleImageView mCircleImageViewAvatar;
+        final TextView mTvNameOwner;
+        final ImageView mImgFood;
+        final TextView mTvLike;
+        final TextView mTvNameOwnerPost;
+        final TextView mTvDescription;
+        final ImageView mImgLike;
 
         TimelineViewHolder(View itemView) {
             super(itemView);
@@ -79,5 +81,9 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
             mTvDescription = itemView.findViewById(R.id.tvDescription);
             mImgLike = itemView.findViewById(R.id.imgLike);
         }
+    }
+
+    public interface OnLikeClickListener {
+        void onLikeClickListener(int position);
     }
 }
