@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,12 +24,13 @@ import static asiantech.internship.summer.R.layout.fragment_timeline_item;
 
 
 public class TimelineItemFragment extends Fragment {
-    private ProgressBar mProgressBarLoad;
-    private ArrayList<TimelineItem> mListTimelines;
-    private TimelineAdapter mTimelineAdapter;
-    private boolean mIsScrolling = false;
-    private int mCurrentItems, mScrollOutItems, mTotalItemCount;
 
+    private ArrayList<TimelineItem> mTimelines;
+    private TimelineAdapter mTimelineAdapter;
+    private ProgressBar mProgressBarLoad;
+    private boolean mIsScrolling = false;
+    private int mCurrentItems, mTotalItemCount, mScrollOutItems;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Nullable
     @Override
@@ -39,17 +41,16 @@ public class TimelineItemFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mListTimelines = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Owner owner = new Owner(RecyclerViewActivity.getName(i % 5), RecyclerViewActivity.getAvatar(i % 5));
-            mListTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), RecyclerViewActivity.getDescription(i), 0));
-        }
+        mTimelines = new ArrayList<>();
         RecyclerView recyclerViewTimeline = view.findViewById(R.id.recyclerViewTimeline);
-        mTimelineAdapter = new TimelineAdapter(getContext(), mListTimelines);
+        mTimelineAdapter = new TimelineAdapter(getContext(), mTimelines, position -> {
+
+        });
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerViewTimeline.setAdapter(mTimelineAdapter);
         recyclerViewTimeline.setLayoutManager(layoutManager);
         mProgressBarLoad = view.findViewById(R.id.progressBarLoad);
+
         recyclerViewTimeline.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
@@ -69,24 +70,45 @@ public class TimelineItemFragment extends Fragment {
 
                 if (mIsScrolling && (mCurrentItems + mScrollOutItems == mTotalItemCount)) {
                     mIsScrolling = false;
-                    fetchData();
+                    loadMoreTimeLine();
                 }
             }
         });
 
-
+        mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(this::loadRefreshTimeLine);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+        mSwipeRefreshLayout.post(() -> {
+            mSwipeRefreshLayout.setRefreshing(true);
+            loadRefreshTimeLine();
+        });
     }
 
-    private void fetchData() {
+    private void CreateListTimeLine() {
+        for (int i = 0; i < 10; i++) {
+            Owner owner = new Owner(RecyclerViewActivity.getName(i % 5), RecyclerViewActivity.getAvatar(i % 5));
+            mTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), RecyclerViewActivity.getDescription(i), 0));
+            mTimelineAdapter.notifyDataSetChanged();
+
+        }
+    }
+
+    private void loadMoreTimeLine() {
         mProgressBarLoad.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
-            for (int i = 0; i < 10; i++) {
-                Owner owner = new Owner(RecyclerViewActivity.getName(i % 5), RecyclerViewActivity.getAvatar(i % 5));
-                mListTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), RecyclerViewActivity.getDescription(i), 0));
-                mTimelineAdapter.notifyDataSetChanged();
-                mTimelineAdapter.notifyDataSetChanged();
-                mProgressBarLoad.setVisibility(View.GONE);
-            }
-        }, 1000);
+            CreateListTimeLine();
+            mProgressBarLoad.setVisibility(View.GONE);
+        }, 5000);
+    }
+
+    private void loadRefreshTimeLine() {
+        mTimelines.clear();
+        CreateListTimeLine();
+        new Handler().postDelayed(() ->
+                        mSwipeRefreshLayout.setRefreshing(false),
+                2000);
     }
 }
