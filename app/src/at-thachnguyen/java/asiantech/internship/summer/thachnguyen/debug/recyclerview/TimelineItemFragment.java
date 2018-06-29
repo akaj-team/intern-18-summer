@@ -13,13 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ProgressBar;
-
 import java.util.ArrayList;
-
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.Owner;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
-
 import static asiantech.internship.summer.R.layout.fragment_timeline_item;
 
 
@@ -52,7 +49,6 @@ public class TimelineItemFragment extends Fragment {
         mProgressBarLoad = view.findViewById(R.id.progressBarLoad);
 
         recyclerViewTimeline.addOnScrollListener(new RecyclerView.OnScrollListener() {
-
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -92,7 +88,6 @@ public class TimelineItemFragment extends Fragment {
             Owner owner = new Owner(RecyclerViewActivity.getName(i % 5), RecyclerViewActivity.getAvatar(i % 5));
             mTimelines.add(new TimelineItem(owner, RecyclerViewActivity.randomImageFood("food", 22), RecyclerViewActivity.getDescription(i), 0));
             mTimelineAdapter.notifyDataSetChanged();
-
         }
     }
 
