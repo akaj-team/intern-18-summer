@@ -19,9 +19,7 @@ import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.Owner;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
 import static asiantech.internship.summer.R.layout.fragment_timeline_item;
 
-
 public class TimelineItemFragment extends Fragment {
-
     private ArrayList<TimelineItem> mTimelines;
     private TimelineAdapter mTimelineAdapter;
     private ProgressBar mProgressBarLoad;
