@@ -9,7 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
+
 import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.TimelineAdapter;
