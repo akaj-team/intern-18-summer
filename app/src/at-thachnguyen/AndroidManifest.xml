@@ -9,13 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".thachnguyen.debug.menu.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".thachnguyen.debug.view_and_view_group.Main2Activity" />
+        <activity android:name=".thachnguyen.debug.activity_and_fragment.ActivityAndFragment" />
+        <activity android:name=".thachnguyen.debug.activity_and_fragment.HomeActivity" />
+        <activity android:name=".thachnguyen.debug.recyclerview.RecyclerViewActivity" />
+        <activity android:name=".thachnguyen.debug.viewpager.PagerActivity"/>
     </application>
 
 </manifest>
