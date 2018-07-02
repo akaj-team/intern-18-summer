@@ -1,8 +1,6 @@
 package asiantech.internship.summer.thachnguyen.debug.viewpager;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,8 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,6 +17,7 @@ import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.TimelineAdapter;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
 
+@SuppressWarnings("CollectionAddedToSelf")
 public class FavouriteFragment extends Fragment {
     private TimelineAdapter mTimelineAdapter;
     private final ArrayList<TimelineItem> mTimelines = new ArrayList<>();
@@ -67,7 +64,16 @@ public class FavouriteFragment extends Fragment {
         mTimelineAdapter.notifyDataSetChanged();
     }
 
+    public void removeAll() {
+        mTimelines.removeAll(mTimelines);
+        mTimelineAdapter.notifyDataSetChanged();
+    }
+
     interface OnUnlikeClickListener {
         void onUnlikeClickListener(TimelineItem timelineItem);
+    }
+
+    public interface RemoveAllList {
+        void removeAllList();
     }
 }

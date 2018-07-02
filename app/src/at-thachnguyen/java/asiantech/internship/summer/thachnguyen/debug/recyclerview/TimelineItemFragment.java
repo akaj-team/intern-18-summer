@@ -23,9 +23,11 @@ import java.util.Random;
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.Owner;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
+import asiantech.internship.summer.thachnguyen.debug.viewpager.FavouriteFragment;
 
 import static asiantech.internship.summer.R.layout.fragment_timeline_item;
 
+@SuppressWarnings("CollectionAddedToSelf")
 public class TimelineItemFragment extends Fragment {
     private ArrayList<TimelineItem> mTimelines;
     private TimelineAdapter mTimelineAdapter;
@@ -34,6 +36,7 @@ public class TimelineItemFragment extends Fragment {
     private int mCurrentItems, mTotalItemCount, mScrollOutItems;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private TimelineAdapter.OnLikeClickListener mOnLikeClickListener;
+    private FavouriteFragment.RemoveAllList mRemoveAllList;
 
     @Nullable
     @Override
@@ -94,6 +97,7 @@ public class TimelineItemFragment extends Fragment {
         super.onAttach(context);
 
         try {
+            mRemoveAllList = (FavouriteFragment.RemoveAllList) getActivity();
             mOnLikeClickListener = (TimelineAdapter.OnLikeClickListener) getActivity();
         } catch (ClassCastException e) {
             throw new ClassCastException("Error in retrieving data. Please try again");
@@ -119,6 +123,7 @@ public class TimelineItemFragment extends Fragment {
     private void loadRefreshTimeLine() {
         mTimelines.clear();
         createListTimeLine();
+        mRemoveAllList.removeAllList();
         new Handler().postDelayed(() ->
                         mSwipeRefreshLayout.setRefreshing(false),
                 2000);

@@ -10,7 +10,7 @@ import asiantech.internship.summer.thachnguyen.debug.recyclerview.TimelineAdapte
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.TimelineItemFragment;
 import asiantech.internship.summer.thachnguyen.debug.recyclerview.model.TimelineItem;
 
-public class PagerActivity extends AppCompatActivity implements TimelineAdapter.OnLikeClickListener, FavouriteFragment.OnUnlikeClickListener {
+public class PagerActivity extends AppCompatActivity implements TimelineAdapter.OnLikeClickListener, FavouriteFragment.OnUnlikeClickListener, FavouriteFragment.RemoveAllList {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,5 +34,11 @@ public class PagerActivity extends AppCompatActivity implements TimelineAdapter.
     public void onUnlikeClickListener(TimelineItem timelineItem) {
         TimelineItemFragment timelineItemFragment = (TimelineItemFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + 0);
         timelineItemFragment.setLike(timelineItem);
+    }
+
+    @Override
+    public void removeAllList() {
+        FavouriteFragment favouriteFragment = (FavouriteFragment) getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + 1);
+        favouriteFragment.removeAll();
     }
 }
