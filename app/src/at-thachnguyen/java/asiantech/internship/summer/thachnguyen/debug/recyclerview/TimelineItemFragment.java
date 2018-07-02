@@ -36,7 +36,7 @@ public class TimelineItemFragment extends Fragment {
     private int mCurrentItems, mTotalItemCount, mScrollOutItems;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private TimelineAdapter.OnLikeClickListener mOnLikeClickListener;
-    private FavouriteFragment.RemoveAllList mRemoveAllList;
+    private FavouriteFragment.Refresh mRemoveAllList;
 
     @Nullable
     @Override
@@ -97,7 +97,7 @@ public class TimelineItemFragment extends Fragment {
         super.onAttach(context);
 
         try {
-            mRemoveAllList = (FavouriteFragment.RemoveAllList) getActivity();
+            mRemoveAllList = (FavouriteFragment.Refresh) getActivity();
             mOnLikeClickListener = (TimelineAdapter.OnLikeClickListener) getActivity();
         } catch (ClassCastException e) {
             throw new ClassCastException("Error in retrieving data. Please try again");
@@ -123,7 +123,7 @@ public class TimelineItemFragment extends Fragment {
     private void loadRefreshTimeLine() {
         mTimelines.clear();
         createListTimeLine();
-        mRemoveAllList.removeAllList();
+        mRemoveAllList.refresh();
         new Handler().postDelayed(() ->
                         mSwipeRefreshLayout.setRefreshing(false),
                 2000);
@@ -162,5 +162,9 @@ public class TimelineItemFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "You unliked " + timelineItem.getmOwner().getmName() + "'s post", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void messageRefresh() {
+        Toast.makeText(getContext(), "Timeline just is refreshed " , Toast.LENGTH_SHORT).show();
     }
 }

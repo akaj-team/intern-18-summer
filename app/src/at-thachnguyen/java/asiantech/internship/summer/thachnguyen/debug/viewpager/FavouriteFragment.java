@@ -73,7 +73,7 @@ public class FavouriteFragment extends Fragment {
         void onUnlikeClickListener(TimelineItem timelineItem);
     }
 
-    public interface RemoveAllList {
-        void removeAllList();
+    public interface Refresh {
+        void refresh();
     }
 }
