@@ -5,16 +5,18 @@
     android:background="#6373ca"
     android:gravity="center_horizontal"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:background="#536dec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="#536dec" />
+
     <TextView
-        android:layout_marginTop="70dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:layout_marginTop="70dp"
         android:text="@string/home_label"
         android:textColor="#e8eaf6"
         android:textSize="40sp"

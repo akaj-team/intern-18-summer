@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Home");
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-          tvEmail.setText(bundle.getString(LogInFragment.DATA_RECEIVE_EMAIL));
+            tvEmail.setText(bundle.getString(LogInFragment.DATA_RECEIVE_EMAIL));
             tvPassword.setText(bundle.getString(LogInFragment.DATA_RECEIVE_PASSWORD));
         }
     }

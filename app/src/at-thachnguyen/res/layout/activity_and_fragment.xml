@@ -3,15 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".thachnguyen.debug.activity_and_fragment.ActivityAndFragment"
-    android:orientation="vertical">
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:background="#536dec"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:orientation="vertical"
+    tools:context=".thachnguyen.debug.activity_and_fragment.ActivityAndFragment">
 
-</android.support.v7.widget.Toolbar>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#536dec">
+
+    </android.support.v7.widget.Toolbar>
+
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"

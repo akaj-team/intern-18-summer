@@ -45,12 +45,11 @@ public class LogInFragment extends Fragment {
             transaction.replace(R.id.fragmentContainer, signUpFragment);
             transaction.addToBackStack(null);
             transaction.commit();
-
         });
 
         tvLogIn.setOnClickListener((View view) -> {
             String email = mEdtEmail.getText().toString();
-            String password =mEdtPassword.getText().toString();
+            String password = mEdtPassword.getText().toString();
 
             if (email.equals("") || password.equals("")) {
                 Toast.makeText(contentView.getContext(), "Please fill full information sign up!", Toast.LENGTH_SHORT).show();
@@ -60,7 +59,7 @@ public class LogInFragment extends Fragment {
                     Toast.makeText(contentView.getContext(), "Sorry!!! Your email is incorrect!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (CheckAccount.checkPassword(password)) {
-                        Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character and don't have specail character ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(contentView.getContext(), "Sorry!!! Password must be 6 or more character and don't have special character ", Toast.LENGTH_SHORT).show();
                     } else {
                         Intent intent = new Intent(getActivity(), HomeActivity.class);
                         Bundle bundleReceive = new Bundle();
