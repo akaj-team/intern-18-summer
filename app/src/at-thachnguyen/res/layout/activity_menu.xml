@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".thachnguyen.debug.MenuActivity"
+    android:orientation="vertical">
+<Button
+    android:background="#109b4a"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:id="@+id/btnEx1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ex1"
+    android:textStyle="bold"
+    />
+    <Button
+        android:background="#e2be09"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/btnEx2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ex2"
+        android:textStyle="bold"
+        />
+</LinearLayout>
