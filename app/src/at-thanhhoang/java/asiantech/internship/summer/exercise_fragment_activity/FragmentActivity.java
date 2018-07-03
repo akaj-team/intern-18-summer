@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import asiantech.internship.summer.R;
 
 public class FragmentActivity extends AppCompatActivity {
-
     public static final String TITLE_LOGIN = "Fragment Log In";
     public static final String TITLE_SIGN_UP = "Fragment Sign Up";
 
@@ -33,5 +32,13 @@ public class FragmentActivity extends AppCompatActivity {
     public void setTitleToolbar(String title){
         mToolbar.setTitle(title);
         setSupportActionBar(mToolbar);
+    }
+
+    @Override
+    public void onBackPressed() {
+        int fragment = getSupportFragmentManager().getBackStackEntryCount();
+        if(fragment == 1){
+            finish();
+        }
     }
 }

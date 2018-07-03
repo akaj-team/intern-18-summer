@@ -9,8 +9,7 @@ import android.widget.TextView;
 
 import asiantech.internship.summer.R;
 
-public class ResultActivity extends AppCompatActivity{
-
+public class ResultActivity extends AppCompatActivity {
     private TextView mTvEmailResult, mTvPasswordResult;
     private Toolbar mToolbarResult;
 
@@ -29,8 +28,7 @@ public class ResultActivity extends AppCompatActivity{
         String email_show = intent.getStringExtra(LoginFragment.KEY_MAIL);
         String pass_show = intent.getStringExtra(LoginFragment.KEY_PASS);
 
-        setData(email_show,pass_show);
-
+        setData(email_show, pass_show);
     }
 
     private void setData(String email_show, String pass_show) {

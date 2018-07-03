@@ -20,14 +20,13 @@ import java.util.Objects;
 import asiantech.internship.summer.R;
 
 public class LoginFragment extends Fragment {
-
     public static final String KEY_MAIL = "KEY_MAIL";
     public static final String KEY_PASS = "KEY_PASS";
 
     private TextView mTvSignUp, mTvLogin;
     private EditText mEdtMailLogin, mEdtPassWordLogin;
     private String mEmailReceive, mPassReceive;
-    SignUpFragment mFragmentSignUp = new SignUpFragment();
+    private SignUpFragment mFragmentSignUp = new SignUpFragment();
 
     @Nullable
     @Override
@@ -57,24 +56,21 @@ public class LoginFragment extends Fragment {
             String email = mEdtMailLogin.getText().toString();
             String password = mEdtPassWordLogin.getText().toString();
 
-            if(email.equals("") || password.equals("")){
+            if (email.equals("") || password.equals("")) {
                 Toast.makeText(getActivity(), "Please enter all fields", Toast.LENGTH_SHORT).show();
-            }
-
-            else if(CheckValid.isEmailValid(email) && CheckValid.isPasswordValid(password)){
+            } else if (CheckValid.isEmailValid(email) && CheckValid.isPasswordValid(password)) {
                 if (email.equals("thanhhoang@gmail.com") && password.equals("abc123") ||
                         email.equals(mEmailReceive) && password.equals(mPassReceive)) {
                     Intent intent = new Intent(getActivity(), ResultActivity.class);
                     intent.putExtra(KEY_MAIL, email);
                     intent.putExtra(KEY_PASS, password);
                     startActivity(intent);
-                }else{
+                } else {
                     Toast.makeText(getActivity(), "Not found data", Toast.LENGTH_SHORT).show();
                 }
-            }else{
+            } else {
                 Toast.makeText(getActivity(), "Format error!!", Toast.LENGTH_SHORT).show();
             }
-
         });
     }
 

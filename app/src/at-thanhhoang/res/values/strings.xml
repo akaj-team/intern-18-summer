@@ -1,26 +1,5 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
-    <string name="time_item_2">11 to 12pm</string>
-    <string name="time_item_3">1pm</string>
-    <string name="time_item_1">8 to 10am</string>
-    <string name="content_item_1">New subpage for Janet</string>
-    <string name="content_item_2">Catch up with Tom</string>
-    <string name="content_item_3">Lunch with Diane</string>
-    <string name="num_13">13</string>
-    <string name="num_12">12</string>
-    <string name="num_11">11</string>
-    <string name="num_10">10</string>
-    <string name="num_9">9</string>
-    <string name="num_8">8</string>
-    <string name="num_7">7</string>
-    <string name="sat">SAT</string>
-    <string name="fri">FRI</string>
-    <string name="thu">THU</string>
-    <string name="wed">WED</string>
-    <string name="tue">TUE</string>
-    <string name="mon">MON</string>
-    <string name="sun">SUN</string>
-    <string name="ex_view_viewGroup">View_ViewGroup</string>
     <string name="ex_intent">Intent</string>
     <string name="ex_activity_fragment">Activity_Fragment</string>
     <string name="label_email_sign_up">Email</string>
@@ -28,37 +7,9 @@
     <string name="label_confirm_password_sign_up">Confirm Password</string>
     <string name="label_email_login">Email</string>
     <string name="label_password_login">Password</string>
-    <string name="label_signup_login">Signup?</string>
+    <string name="label_sign_up_login">SignUp?</string>
     <string name="label_login">LOG IN</string>
     <string name="label_sign_up">SIGN UP</string>
-    <string name="ex_recycler_view">RecycleView</string>
-    <string name="label_count_likes">0 likes</string>
-    <string name="label_february_view">February</string>
-
-    <string-array name="username_array">
-        <item>Keylor Navas</item>
-        <item>Raphael Varane</item>
-        <item>Daniel Carvajal</item>
-        <item>Keylor Navas</item>
-        <item>Marcelo Vieira</item>
-        <item>Carlos Casemiro</item>
-        <item>Marco Asensio</item>
-        <item>Karim Benzema</item>
-        <item>Thibaut Courtois</item>
-        <item>Marcos Alonso</item>
-        <item>Keylor Nike</item>
-        <item>Ethan Ampadu</item>
-    </string-array>
-
-    <string-array name="description_array">
-        <item>Wow, that is delicious!</item>
-        <item>That is amazing!</item>
-        <item>The tastes great, where did you buy it?</item>
-        <item>The food at that restaurant is out of this World</item>
-        <item>It’s so yummy, where did you get the recipe?</item>
-        <item>I'm in heaven</item>
-        <item>It’s so fresh</item>
-        <item>The flavors are rich</item>
-    </string-array>
 </resources>
+
 

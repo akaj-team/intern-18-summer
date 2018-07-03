@@ -19,7 +19,6 @@ import java.util.Objects;
 import asiantech.internship.summer.R;
 
 public class SignUpFragment extends Fragment {
-
     public static final String MAIL_PASS = "sent mail";
     public static final String PASSWORD_PASS = "sent password";
     private EditText mEdtEmail, mEdtPassword, mEdtConfirmPassWord;
