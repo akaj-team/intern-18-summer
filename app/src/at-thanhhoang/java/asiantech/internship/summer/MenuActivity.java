@@ -8,15 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 import asiantech.internship.summer.exercise_fragment_activity.FragmentActivity;
-import asiantech.internship.summer.exercise_recycler_view.RecyclerViewActivity;
-import asiantech.internship.summer.exercise_view_view_group.MainTwoActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button mBtnEx1;
-    private Button mBtnEx2;
-    private Button mBtnEx3;
-    private Button mBtnEx4;
+    private Button mBtnIntent;
+    private Button mBtnFragmentActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,38 +24,25 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addListener() {
-        mBtnEx1.setOnClickListener(this);
-        mBtnEx2.setOnClickListener(this);
-        mBtnEx3.setOnClickListener(this);
-        mBtnEx4.setOnClickListener(this);
+        mBtnIntent.setOnClickListener(this);
+        mBtnFragmentActivity.setOnClickListener(this);
     }
 
     private void initView() {
-        mBtnEx1 = findViewById(R.id.btnViewViewGroup);
-        mBtnEx2 = findViewById(R.id.btnIntent);
-        mBtnEx3 = findViewById(R.id.btnActivityFragment);
-        mBtnEx4 = findViewById(R.id.btnRecycleView);
+        mBtnIntent = findViewById(R.id.btnIntent);
+        mBtnFragmentActivity = findViewById(R.id.btnActivityFragment);
     }
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
         Intent intent;
-        switch (id){
-            case R.id.btnViewViewGroup:
-                intent = new Intent(MenuActivity.this,MainTwoActivity.class);
-                startActivity(intent);
-                break;
-
+        switch (id) {
             case R.id.btnIntent:
                 break;
 
             case R.id.btnActivityFragment:
-                intent = new Intent(MenuActivity.this,FragmentActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.btnRecycleView:
-                intent = new Intent(MenuActivity.this,RecyclerViewActivity.class);
+                intent = new Intent(MenuActivity.this, FragmentActivity.class);
                 startActivity(intent);
                 break;
         }

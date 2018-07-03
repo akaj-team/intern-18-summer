@@ -1,6 +1,5 @@
 package asiantech.internship.summer.exercise_fragment_activity;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
