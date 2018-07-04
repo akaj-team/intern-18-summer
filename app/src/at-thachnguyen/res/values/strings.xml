@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
+    <string name="ex1">View and View Group</string>
+    <string name="ex2">Intent</string>
+    <string name="ex3">Activity and Fragment</string>
+    <string name="ex4">RecyclerView</string>
+    <string name="ex5">ViewPager</string>
+    <string name="ex6">DrawerLayout</string>
+    <string name="inbox">Inbox</string>
+    <string-array name="mail">
+        <item>hoangthach@gmail.com</item>
+        <item>thanhhoang@gmail.com</item>
+        <item>lambui@gmail.com</item>
+        <item>trivo@gmail.com</item>
+    </string-array>
 </resources>

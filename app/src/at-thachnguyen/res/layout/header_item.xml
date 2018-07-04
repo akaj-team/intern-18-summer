@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/img_background"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAvatar"
+        android:src="@drawable/img_avt"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"/>
+    <Spinner
+        android:id="@+id/spnMail"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:entries="@array/mail">
+    </Spinner>
+</LinearLayout>
