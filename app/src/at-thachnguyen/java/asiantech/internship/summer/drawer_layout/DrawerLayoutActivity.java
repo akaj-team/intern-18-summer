@@ -1,7 +1,5 @@
 package asiantech.internship.summer.drawer_layout;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,22 +20,20 @@ import asiantech.internship.summer.drawer_layout.model.MenuItem;
 public class DrawerLayoutActivity extends AppCompatActivity {
     private ArrayList<Bitmap> mBitmaps;
     private DrawerLayoutAdapter mDrawerLayoutAdapter;
+    private  ArrayList<MenuItem> mMenuItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_layout);
         RecyclerView recyclerViewMenu = findViewById(R.id.recyclerViewMenu);
-        ArrayList<MenuItem> menuItems = new ArrayList<>();
+        mMenuItems= new ArrayList<>();
+        createListItems();
         mBitmaps = new ArrayList<>();
         mBitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_avt));
-        menuItems.add(new MenuItem("Inbox", R.drawable.ic_inbox));
-        menuItems.add(new MenuItem("Delete", R.drawable.ic_delete));
-        menuItems.add(new MenuItem("Outbox", R.drawable.ic_outbox));
-        menuItems.add(new MenuItem("Spam", R.drawable.ic_spam));
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         recyclerViewMenu.setLayoutManager(manager);
-        mDrawerLayoutAdapter = new DrawerLayoutAdapter(menuItems, this, mBitmaps);
+        mDrawerLayoutAdapter = new DrawerLayoutAdapter(mMenuItems, this, mBitmaps);
         recyclerViewMenu.setAdapter(mDrawerLayoutAdapter);
     }
 
@@ -52,8 +48,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
             } else {
                 Uri uri = data.getData();
                 try {
-                    Bitmap bp = MediaStore.Images.Media.getBitmap(this.getContentResolver(),
-                            uri);
+                    Bitmap bp = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                     mBitmaps.add(0, bp);
                     mBitmaps.remove(1);
                 } catch (IOException e) {
@@ -66,12 +61,13 @@ public class DrawerLayoutActivity extends AppCompatActivity {
 
     private void createListItems(){
         final Random rnd = new Random();
-        final String str = "img_" + rnd.nextInt(4);
-        String resName="img_" + rnd.nextInt(4);
-
-        for (int i = 0; i < 10 ; i++) {
-            getResources().getDrawable(getResources().getIdentifier(resName, "drawable",
-                    getApplicationInfo().packageName));
+        for (int i = 0; i < 5 ; i++) {
+            int rndNumber = rnd.nextInt(11);
+            String resName="ic_"+ rndNumber ;
+            int image = getResources().getIdentifier(resName, "drawable", getApplicationInfo().packageName);
+            String[] array = getResources().getStringArray(R.array.title);
+            String title = array[rndNumber];
+            mMenuItems.add(new MenuItem(title, image));
         }
     }
 }

@@ -11,7 +11,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="40dp"
         android:gravity="center"
-        android:src="@drawable/ic_inbox" />
+        android:src="@drawable/ic_2" />
 
     <TextView
         android:layout_toRightOf="@+id/imgItem"

@@ -10,4 +10,17 @@
     <string-array name="mail">
         <item>hoangthach@gmail.com</item>
     </string-array>
+    <string-array name="title">
+        <item>Profile</item>
+        <item>Delete</item>
+        <item>Inbox</item>
+        <item>Outbox</item>
+        <item>Spam</item>
+        <item>Home</item>
+        <item>Setting</item>
+        <item>Notification</item>
+        <item>LogOut</item>
+        <item>SignUp</item>
+        <item>LogIn</item>
+    </string-array>
 </resources>
