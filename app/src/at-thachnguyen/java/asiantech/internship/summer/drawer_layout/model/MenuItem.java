@@ -1,10 +1,10 @@
-package asiantech.internship.summer.drawer_layout;
+package asiantech.internship.summer.drawer_layout.model;
 
 public class MenuItem {
     private String mTitle;
-    private String mImage;
+    private int mImage;
 
-    public MenuItem(String mTitle, String mImage) {
+    public MenuItem(String mTitle, int mImage) {
         this.mTitle = mTitle;
         this.mImage = mImage;
     }
@@ -13,7 +13,7 @@ public class MenuItem {
         return mTitle;
     }
 
-    public String getmImage() {
+    public int getmImage() {
         return mImage;
     }
 }
