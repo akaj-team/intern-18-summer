@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp">
-
     <ImageView
         android:id="@+id/imgItem"
         android:layout_width="30dp"
@@ -12,22 +11,21 @@
         android:layout_marginRight="40dp"
         android:gravity="center"
         android:src="@drawable/ic_2" />
-
     <TextView
-        android:layout_toRightOf="@+id/imgItem"
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imgItem"
         android:gravity="center"
         android:text="@string/inbox"
         android:textSize="18sp"
         android:textStyle="bold" />
     <View
-        android:background="@color/colorDustyGray"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginRight="60dp"
+        android:layout_below="@id/tvTitle"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="60dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/tvTitle"/>
+        android:background="@color/colorDustyGray" />
 </RelativeLayout>

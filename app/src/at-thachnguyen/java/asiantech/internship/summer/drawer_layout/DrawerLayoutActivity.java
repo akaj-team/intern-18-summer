@@ -20,14 +20,14 @@ import asiantech.internship.summer.drawer_layout.model.MenuItem;
 public class DrawerLayoutActivity extends AppCompatActivity {
     private ArrayList<Bitmap> mBitmaps;
     private DrawerLayoutAdapter mDrawerLayoutAdapter;
-    private  ArrayList<MenuItem> mMenuItems;
+    private ArrayList<MenuItem> mMenuItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_layout);
         RecyclerView recyclerViewMenu = findViewById(R.id.recyclerViewMenu);
-        mMenuItems= new ArrayList<>();
+        mMenuItems = new ArrayList<>();
         createListItems();
         mBitmaps = new ArrayList<>();
         mBitmaps.add(BitmapFactory.decodeResource(getResources(), R.drawable.img_avt));
@@ -59,11 +59,11 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         mDrawerLayoutAdapter.notifyDataSetChanged();
     }
 
-    private void createListItems(){
+    private void createListItems() {
         final Random rnd = new Random();
-        for (int i = 0; i < 5 ; i++) {
+        for (int i = 0; i < 5; i++) {
             int rndNumber = rnd.nextInt(11);
-            String resName="ic_"+ rndNumber ;
+            String resName = "ic_" + rndNumber;
             int image = getResources().getIdentifier(resName, "drawable", getApplicationInfo().packageName);
             String[] array = getResources().getStringArray(R.array.title);
             String title = array[rndNumber];

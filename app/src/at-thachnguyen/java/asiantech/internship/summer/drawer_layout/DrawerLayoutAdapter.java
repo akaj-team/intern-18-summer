@@ -13,19 +13,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.List;
+
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.drawer_layout.model.MenuItem;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class DrawerLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<MenuItem> mMenuItemList;
-    private Context mContext;
-    private List<Bitmap> mBitmaps;
+class DrawerLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private final List<MenuItem> mMenuItemList;
+    private final Context mContext;
+    private final List<Bitmap> mBitmaps;
     public static final int PICK_FROM_CAMERA = 1;
     private static final int PICK_FROM_GALLERY = 2;
 
@@ -53,9 +54,8 @@ public class DrawerLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (position == 0) {
-            ((HeaderItemHolder) holder).mImgAvtar.setImageBitmap(mBitmaps.get(0));
-        }
-        else {
+            ((HeaderItemHolder) holder).mImgAvatar.setImageBitmap(mBitmaps.get(0));
+        } else {
             ((MenuItemHolder) holder).mImgItem.setImageResource(mMenuItemList.get(position - 1).getmImage());
             ((MenuItemHolder) holder).mTvTitle.setText(mMenuItemList.get(position - 1).getmTitle());
         }
@@ -76,8 +76,8 @@ public class DrawerLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     class MenuItemHolder extends RecyclerView.ViewHolder {
-        ImageView mImgItem;
-        TextView mTvTitle;
+        final ImageView mImgItem;
+        final TextView mTvTitle;
 
         MenuItemHolder(View itemView) {
             super(itemView);
@@ -91,14 +91,12 @@ public class DrawerLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     class HeaderItemHolder extends RecyclerView.ViewHolder {
-        CircleImageView mImgAvtar;
-        Spinner mSpnMail;
+        final CircleImageView mImgAvatar;
 
         HeaderItemHolder(View itemView) {
             super(itemView);
-            mSpnMail = itemView.findViewById(R.id.spnMail);
-            mImgAvtar = itemView.findViewById(R.id.imgAvatar);
-            mImgAvtar.setOnClickListener(v -> {
+            mImgAvatar = itemView.findViewById(R.id.imgAvatar);
+            mImgAvatar.setOnClickListener(v -> {
                 final String[] items = new String[]{"Camera", "Gallery"};
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.select_dialog_item, items);
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -107,19 +105,17 @@ public class DrawerLayoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
                     if (which == 0) {
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        ((Activity)mContext).startActivityForResult(intent, PICK_FROM_CAMERA);
-
+                        ((Activity) mContext).startActivityForResult(intent, PICK_FROM_CAMERA);
                     } else {
                         Intent intent = new Intent();
                         intent.setType("image/*");
                         intent.setAction(Intent.ACTION_GET_CONTENT);
-                        ((Activity)mContext).startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_GALLERY);
+                        ((Activity) mContext).startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_GALLERY);
                     }
                 });
                 builder.create();
                 builder.show();
             });
         }
-
     }
 }

@@ -1,8 +1,8 @@
 package asiantech.internship.summer.drawer_layout.model;
 
 public class MenuItem {
-    private String mTitle;
-    private int mImage;
+    private final String mTitle;
+    private final int mImage;
 
     public MenuItem(String mTitle, int mImage) {
         this.mTitle = mTitle;

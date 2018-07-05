@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:background="@drawable/bg_header"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="120dp"
+    android:background="@drawable/bg_header"
     android:orientation="vertical">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgAvatar"
-        android:src="@drawable/img_avt"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:src="@drawable/img_avt" />
     <Spinner
         android:id="@+id/spnMail"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:entries="@array/mail">
-    </Spinner>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/colorWhite"
+        android:entries="@array/mail"
+        android:popupBackground="@color/colorRed"
+        android:theme="@style/mySpinnerItemStyle"
+        tools:targetApi="lollipop"/>
 </LinearLayout>
