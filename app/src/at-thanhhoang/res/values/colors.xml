@@ -15,4 +15,5 @@
     <color name="colorBackgroundNumberMenuActivity">#ffee58</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBrown">#e0e0e0</color>
 </resources>

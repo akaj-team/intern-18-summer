@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
+    <string name="ex1">View and View Group</string>
+    <string name="ex2">Intent</string>
+    <string name="ex3">Activity and Fragment</string>
+    <string name="ex4">RecyclerView</string>
+    <string name="mail_hint">Email</string>
+    <string name="pass_hint">Password</string>
+    <string name="confirm_pass_hint">Confirm Password</string>
+    <string name="sign_up_request">Sign Up?</string>
+    <string name="log_in_label">LOG IN</string>
+    <string name="sign_up_label">SIGN UP</string>
+    <string name="home_label">HOME</string>
+    <string name="owner">Peter Pan</string>
+    <string name="description">Today, what do we eat?</string>
+    <string name="like">0 like</string>
 </resources>

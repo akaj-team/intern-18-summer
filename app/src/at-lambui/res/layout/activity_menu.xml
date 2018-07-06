@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_activity_view_title"
+        android:textSize="@dimen/font_normal" />
+
+    <Button
+        android:id="@+id/btnViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_activity_recyclerview_title"
+        android:textSize="@dimen/font_normal" />
+</LinearLayout>
