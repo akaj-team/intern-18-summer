@@ -9,6 +9,8 @@
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:src="@drawable/ic_2" />
     <TextView
@@ -17,6 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgItem"
         android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/inbox"
         android:textSize="18sp"
         android:textStyle="bold" />

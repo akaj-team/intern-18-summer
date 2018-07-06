@@ -9,11 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
+import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.drawer_layout.model.MenuItem;
 
@@ -52,7 +51,7 @@ public class DrawerLayoutActivity extends AppCompatActivity {
                     mBitmaps.add(0, bp);
                     mBitmaps.remove(1);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Toast.makeText(this, "Error load gallery!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
