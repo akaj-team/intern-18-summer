@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import asiantech.internship.summer.timeline.TimelineActivity;
+import asiantech.internship.summer.exercise_fragment_activity.FragmentActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button mBtnExRecyclerView;
+    private Button mBtnFragmentActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,19 +22,19 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addListener() {
-        mBtnExRecyclerView.setOnClickListener(this);
+        mBtnFragmentActivity.setOnClickListener(this);
     }
 
     private void initView() {
-        mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
+        mBtnFragmentActivity = findViewById(R.id.btnActivityFragment);
     }
 
     @Override
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
-            case R.id.btnRecycleView:
-                intent = new Intent(MenuActivity.this, TimelineActivity.class);
+            case R.id.btnActivityFragment:
+                intent = new Intent(MenuActivity.this, FragmentActivity.class);
                 startActivity(intent);
                 break;
         }
