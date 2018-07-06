@@ -10,8 +10,6 @@ import android.widget.Button;
 import asiantech.internship.summer.exercise_fragment_activity.FragmentActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private Button mBtnIntent;
     private Button mBtnFragmentActivity;
 
     @Override
@@ -24,23 +22,17 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void addListener() {
-        mBtnIntent.setOnClickListener(this);
         mBtnFragmentActivity.setOnClickListener(this);
     }
 
     private void initView() {
-        mBtnIntent = findViewById(R.id.btnIntent);
         mBtnFragmentActivity = findViewById(R.id.btnActivityFragment);
     }
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
         Intent intent;
-        switch (id) {
-            case R.id.btnIntent:
-                break;
-
+        switch (view.getId()) {
             case R.id.btnActivityFragment:
                 intent = new Intent(MenuActivity.this, FragmentActivity.class);
                 startActivity(intent);

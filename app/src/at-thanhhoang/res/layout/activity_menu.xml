@@ -10,18 +10,6 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnIntent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorBackgroundButtonMenuActivity"
-            android:text="@string/ex_intent"
-            android:textAllCaps="false"
-            android:textSize="20sp" />
-
-        <Button
             android:id="@+id/btnActivityFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +17,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorBackgroundButtonMenuActivity"
-            android:text="@string/ex_activity_fragment"
+            android:text="@string/label_activity_fragment"
             android:textAllCaps="false"
             android:textSize="20sp" />
     </LinearLayout>

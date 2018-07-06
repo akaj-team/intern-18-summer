@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
-    <string name="ex_intent">Intent</string>
-    <string name="ex_activity_fragment">Activity_Fragment</string>
+    <string name="label_activity_fragment">Activity_Fragment</string>
     <string name="label_email_sign_up">Email</string>
     <string name="label_password_sign_up">Password</string>
     <string name="label_confirm_password_sign_up">Confirm Password</string>

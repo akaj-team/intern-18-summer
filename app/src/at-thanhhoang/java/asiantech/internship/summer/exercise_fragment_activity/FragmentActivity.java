@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 import asiantech.internship.summer.R;
 
 public class FragmentActivity extends AppCompatActivity {
@@ -22,23 +23,25 @@ public class FragmentActivity extends AppCompatActivity {
 
         LoginFragment mFragmentLogin = new LoginFragment();
 
-        FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.flContainer, mFragmentLogin);
         transaction.addToBackStack(null);
 
         transaction.commit();
     }
 
-    public void setTitleToolbar(String title){
+    public void setTitleToolbar(String title) {
         mToolbar.setTitle(title);
         setSupportActionBar(mToolbar);
     }
 
     @Override
     public void onBackPressed() {
-        int fragment = getSupportFragmentManager().getBackStackEntryCount();
-        if(fragment == 1){
+        int position = getSupportFragmentManager().getBackStackEntryCount();
+        if (position == 1) {
             finish();
+        } else if (position > 1) {
+            getSupportFragmentManager().popBackStack();
         }
     }
 }
