@@ -6,15 +6,16 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -33,8 +34,9 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int RESULT_LOAD_IMG = 2;
     private static final String TITLE_OPTION_DIALOG = "Option";
+    private static final String TAG = DrawerActivity.class.getSimpleName();
     private final CharSequence[] mChoice = {"Take Photo", "Choose from Gallery"};
-    private int[] mImageArray;
+    private Drawable[] mImageArray;
     private String[] mFunctionNameArray;
     private CircleImageView mCircleImageView;
 
@@ -45,18 +47,21 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
 
         mCircleImageView = findViewById(R.id.imgAvatar);
 
-        mImageArray = new int[]{R.drawable.ic_inbox, R.drawable.ic_setting, R.drawable.ic_spam, R.drawable.ic_trash};
+        mImageArray = new Drawable[]{getResources().getDrawable(R.drawable.ic_inbox),
+                getResources().getDrawable(R.drawable.ic_setting),
+                getResources().getDrawable(R.drawable.ic_spam),
+                getResources().getDrawable(R.drawable.ic_trash)};
+
         mFunctionNameArray = getResources().getStringArray(R.array.function_name_array);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         RecyclerView recyclerView = findViewById(R.id.recyclerViewDrawer);
 
-        List<OptionData> listData = createData();
+        List<OptionData> listData = createOptionData();
 
         DrawerAdapter drawerAdapter = new DrawerAdapter(listData, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(drawerAdapter);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.label_open, R.string.label_close) {
@@ -85,7 +90,7 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
         toggle.syncState();
     }
 
-    private List<OptionData> createData() {
+    private List<OptionData> createOptionData() {
         List<OptionData> list = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             OptionData data = new OptionData(mImageArray[i], mFunctionNameArray[i]);
@@ -104,13 +109,13 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(TITLE_OPTION_DIALOG)
                 .setItems(mChoice, (dialogInterface, i) -> {
-                    if (mChoice[i] == "Take Photo") {
+                    if (mChoice[i].equals(mChoice[0])) {
                         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                             mCircleImageView = circleImageView;
                             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                         }
-                    } else if (mChoice[i] == "Choose from Gallery") {
+                    } else if (mChoice[i].equals(mChoice[1])) {
                         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                         photoPickerIntent.setType("image/*");
                         startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
@@ -136,7 +141,7 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 mCircleImageView.setImageBitmap(selectedImage);
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                Log.d(TAG, "onActivityResult: " + e);
                 Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
             }
         }

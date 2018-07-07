@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -33,8 +32,8 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_item_header, parent, false);
             return new ViewHolderHeader(view);
         } else if (viewType == TYPE_TWO) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_item_function, parent, false);
-            return new ViewHolderFunction(view);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_item_option, parent, false);
+            return new ViewHolderOption(view);
         } else {
             throw new RuntimeException("The type has to be ONE or TWO");
         }
@@ -46,15 +45,15 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             case TYPE_ONE:
                 break;
             case TYPE_TWO:
-                initLayoutFunction((ViewHolderFunction) holder, position);
+                initItemOption((ViewHolderOption) holder, position);
                 break;
         }
     }
 
-    private void initLayoutFunction(ViewHolderFunction holder, int position) {
+    private void initItemOption(ViewHolderOption holder, int position) {
         OptionData data = mListData.get(position - 1);
-        holder.imgOption.setImageResource(data.getOptionImage());
-        holder.tvOption.setText(data.getOptionName());
+        holder.tvOptionName.setCompoundDrawablesWithIntrinsicBounds(data.getOptionImage(), null, null, null);
+        holder.tvOptionName.setText(data.getOptionName());
     }
 
     @Override
@@ -87,16 +86,13 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
-    private class ViewHolderFunction extends RecyclerView.ViewHolder {
-        private final ImageView imgOption;
-        private final TextView tvOption;
+    private class ViewHolderOption extends RecyclerView.ViewHolder {
+        private final TextView tvOptionName;
 
-        private ViewHolderFunction(View itemView) {
+        private ViewHolderOption(View itemView) {
             super(itemView);
-            imgOption = itemView.findViewById(R.id.imgOption);
-            tvOption = itemView.findViewById(R.id.tvOptionName);
-
-            itemView.setOnClickListener(view -> mListener.onItemClick(tvOption.getText().toString()));
+            tvOptionName = itemView.findViewById(R.id.tvOptionName);
+            itemView.setOnClickListener(view -> mListener.onItemClick(tvOptionName.getText().toString()));
         }
     }
 }

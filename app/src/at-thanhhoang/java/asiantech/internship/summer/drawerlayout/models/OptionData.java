@@ -1,27 +1,21 @@
 package asiantech.internship.summer.drawerlayout.models;
 
+import android.graphics.drawable.Drawable;
+
 public class OptionData {
-    private int mOptionImage;
+    private Drawable mOptionImage;
     private String mOptionName;
 
-    public OptionData(int mOptionImage, String mOptionName) {
+    public OptionData(Drawable mOptionImage, String mOptionName) {
         this.mOptionImage = mOptionImage;
         this.mOptionName = mOptionName;
     }
 
-    public int getOptionImage() {
+    public Drawable getOptionImage() {
         return mOptionImage;
-    }
-
-    public void setOptionImage(int mOptionImage) {
-        this.mOptionImage = mOptionImage;
     }
 
     public String getOptionName() {
         return mOptionName;
-    }
-
-    public void setOptionName(String mOptionName) {
-        this.mOptionName = mOptionName;
     }
 }
