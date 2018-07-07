@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/imgFunction"
+        android:id="@+id/imgOption"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
@@ -15,7 +15,7 @@
         android:src="@drawable/ic_spam" />
 
     <TextView
-        android:id="@+id/tvFunctionName"
+        android:id="@+id/tvOptionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

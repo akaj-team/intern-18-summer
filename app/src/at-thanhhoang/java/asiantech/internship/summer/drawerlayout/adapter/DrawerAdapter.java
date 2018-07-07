@@ -11,23 +11,17 @@ import android.widget.TextView;
 import java.util.List;
 
 import asiantech.internship.summer.R;
-import asiantech.internship.summer.drawerlayout.models.Data;
+import asiantech.internship.summer.drawerlayout.models.OptionData;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int TYPE_ONE = 1;
     private static final int TYPE_TWO = 2;
 
-    private List<Data> mListData;
+    private List<OptionData> mListData;
     private ClickListener mListener;
 
-    public interface ClickListener {
-        void onItemClick(String nameFunction);
-
-        void onImageAvatarClick(CircleImageView circleImageView);
-    }
-
-    public DrawerAdapter(List<Data> mListData, ClickListener listener) {
+    public DrawerAdapter(List<OptionData> mListData, ClickListener listener) {
         this.mListData = mListData;
         this.mListener = listener;
     }
@@ -58,9 +52,9 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     private void initLayoutFunction(ViewHolderFunction holder, int position) {
-        Data data = mListData.get(position - 1);
-        holder.imgFunction.setImageResource(data.getImage());
-        holder.tvFunction.setText(data.getText());
+        OptionData data = mListData.get(position - 1);
+        holder.imgOption.setImageResource(data.getOptionImage());
+        holder.tvOption.setText(data.getOptionName());
     }
 
     @Override
@@ -77,27 +71,32 @@ public class DrawerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+    public interface ClickListener {
+        void onItemClick(String nameFunction);
+
+        void onImageAvatarClick(CircleImageView circleImageView);
+    }
+
     private class ViewHolderHeader extends RecyclerView.ViewHolder {
         private final CircleImageView cImgHeader;
 
         private ViewHolderHeader(View itemView) {
             super(itemView);
             cImgHeader = itemView.findViewById(R.id.imgAvatar);
-
             cImgHeader.setOnClickListener(view -> mListener.onImageAvatarClick(cImgHeader));
         }
     }
 
     private class ViewHolderFunction extends RecyclerView.ViewHolder {
-        private final ImageView imgFunction;
-        private final TextView tvFunction;
+        private final ImageView imgOption;
+        private final TextView tvOption;
 
         private ViewHolderFunction(View itemView) {
             super(itemView);
-            imgFunction = itemView.findViewById(R.id.imgFunction);
-            tvFunction = itemView.findViewById(R.id.tvFunctionName);
+            imgOption = itemView.findViewById(R.id.imgOption);
+            tvOption = itemView.findViewById(R.id.tvOptionName);
 
-            itemView.setOnClickListener(view -> mListener.onItemClick(tvFunction.getText().toString()));
+            itemView.setOnClickListener(view -> mListener.onItemClick(tvOption.getText().toString()));
         }
     }
 }

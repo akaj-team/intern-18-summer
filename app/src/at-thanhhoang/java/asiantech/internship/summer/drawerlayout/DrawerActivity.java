@@ -25,20 +25,18 @@ import java.util.List;
 
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.drawerlayout.adapter.DrawerAdapter;
-import asiantech.internship.summer.drawerlayout.models.Data;
+import asiantech.internship.summer.drawerlayout.models.OptionData;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 @SuppressLint("Registered")
 public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.ClickListener {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int RESULT_LOAD_IMG = 2;
-
+    private static final String TITLE_OPTION_DIALOG = "Option";
+    private final CharSequence[] mChoice = {"Take Photo", "Choose from Gallery"};
     private int[] mImageArray;
     private String[] mFunctionNameArray;
-
     private CircleImageView mCircleImageView;
-
-    private final CharSequence[] choice = {"Take Photo", "Choose from Gallery"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,7 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         RecyclerView recyclerView = findViewById(R.id.recyclerViewDrawer);
 
-        List<Data> listData = createData();
+        List<OptionData> listData = createData();
 
         DrawerAdapter drawerAdapter = new DrawerAdapter(listData, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -87,10 +85,10 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
         toggle.syncState();
     }
 
-    private List<Data> createData() {
-        List<Data> list = new ArrayList<>();
+    private List<OptionData> createData() {
+        List<OptionData> list = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            Data data = new Data(mImageArray[i], mFunctionNameArray[i]);
+            OptionData data = new OptionData(mImageArray[i], mFunctionNameArray[i]);
             list.add(data);
         }
         return list;
@@ -104,15 +102,15 @@ public class DrawerActivity extends AppCompatActivity implements DrawerAdapter.C
     @Override
     public void onImageAvatarClick(final CircleImageView circleImageView) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Menu")
-                .setItems(choice, (dialogInterface, i) -> {
-                    if (choice[i] == "Take Photo") {
+        builder.setTitle(TITLE_OPTION_DIALOG)
+                .setItems(mChoice, (dialogInterface, i) -> {
+                    if (mChoice[i] == "Take Photo") {
                         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                             mCircleImageView = circleImageView;
                             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                         }
-                    } else if (choice[i] == "Choose from Gallery") {
+                    } else if (mChoice[i] == "Choose from Gallery") {
                         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                         photoPickerIntent.setType("image/*");
                         startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
