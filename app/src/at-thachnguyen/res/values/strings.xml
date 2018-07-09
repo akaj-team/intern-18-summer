@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
-    <string name="ex1">View and View Group</string>
-    <string name="ex2">Intent</string>
-    <string name="ex3">Activity and Fragment</string>
-    <string name="ex4">RecyclerView</string>
+    <string name="view">View and View Group</string>
+    <string name="intent">Intent</string>
+    <string name="activity">Activity and Fragment</string>
+    <string name="recycler_view">RecyclerView</string>
+    <string name="storage">File Storage</string>
     <string name="mail_hint">Email</string>
     <string name="pass_hint">Password</string>
     <string name="confirm_pass_hint">Confirm Password</string>
@@ -14,4 +15,8 @@
     <string name="owner">Peter Pan</string>
     <string name="description">Today, what do we eat?</string>
     <string name="like">0 like</string>
+    <string name="preference">Share Preference</string>
+    <string name="store">Internal store and external store</string>
+    <string name="sqlite">SQLite</string>
+    <string name="remember">Remember</string>
 </resources>
