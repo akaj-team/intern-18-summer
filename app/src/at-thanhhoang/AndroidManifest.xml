@@ -18,5 +18,7 @@
         </activity>
         <activity android:name=".timeline.TimelineActivity"/>
         <activity android:name=".ViewActivity"/>
+        <activity android:name=".storage.FileStorageActivity" />
+        <activity android:name=".storage.SharePreferenceActivity"/>
     </application>
 </manifest>

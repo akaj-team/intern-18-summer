@@ -32,5 +32,17 @@
             android:text="@string/ex_recycler_view"
             android:textAllCaps="false"
             android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnFileStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/label_file_storage"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
     </LinearLayout>
 </ScrollView>

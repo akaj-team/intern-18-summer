@@ -25,6 +25,12 @@
     <string name="label_good_morning">Good Morning!</string>
     <string name="label_february">FEBRUARY</string>
     <string name="label_view_view_group">View View Group</string>
+    <string name="label_share_preference">Share Preference</string>
+    <string name="label_internal_external_storage">Internal External Storage</string>
+    <string name="label_file_storage">File Storage</string>
+    <string name="label_database">Database SQLite</string>
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
