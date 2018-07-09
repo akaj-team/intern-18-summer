@@ -20,4 +20,11 @@
         android:background="@color/colorPrimaryBlack"
         android:text="@string/menu_activity_recyclerview_title"
         android:textSize="@dimen/font_normal" />
+
+    <Button
+        android:id="@+id/btnDrawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:text="@string/drawerlayout"
+        android:textSize="@dimen/spacing_small" />
 </LinearLayout>
