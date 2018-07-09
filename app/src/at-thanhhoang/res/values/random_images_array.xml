@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="imageFood">
+        <item>@drawable/img_food_one</item>
+        <item>@drawable/img_food_two</item>
+        <item>@drawable/img_food_three</item>
+        <item>@drawable/img_food_four</item>
+        <item>@drawable/img_food_five</item>
+        <item>@drawable/img_food_six</item>
+        <item>@drawable/img_food_seven</item>
+        <item>@drawable/img_food_eight</item>
+        <item>@drawable/img_food_nine</item>
+        <item>@drawable/img_food_ten</item>
+        <item>@drawable/img_food_eleven</item>
+        <item>@drawable/img_food_twelve</item>
+        <item>@drawable/img_food_thirteen</item>
+        <item>@drawable/img_food_fourteen</item>
+        <item>@drawable/img_food_fifteen</item>
+    </array>
+
+    <array name="imageAvatar">
+        <item>@drawable/img_avatar_one</item>
+        <item>@drawable/img_avatar_two</item>
+        <item>@drawable/img_avatar_three</item>
+        <item>@drawable/img_avatar_four</item>
+        <item>@drawable/img_avatar_five</item>
+        <item>@drawable/img_avatar_six</item>
+    </array>
+</resources>

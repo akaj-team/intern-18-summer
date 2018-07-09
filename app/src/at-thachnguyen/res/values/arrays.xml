@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="name">
+        <item>Messi</item>
+        <item>Ronaldo</item>
+        <item>Neymar</item>
+        <item>Kane</item>
+        <item>Pogba</item>
+        <item>Rooney</item>
+        <item>Xavi</item>
+        <item>Ramos</item>
+    </array>
+    <array name="description">
+        <item>To day, What do we eat?</item>
+        <item>Delicious!!!</item>
+        <item>Great!!!</item>
+        <item>Eat!!!</item>
+        <item>Ahihi!!!</item>
+        <item>Perfect!!!</item>
+        <item>Unbelievable!!!</item>
+        <item>Eat to live</item>
+        <item>Let us eat</item>
+        <item>Fly!!!</item>
+        <item>Check in!!!</item>
+        <item>How??</item>
+        <item>why?</item>
+        <item>Who made it? </item>
+        <item>It is me, who made it</item>
+        <item>What is about!!!</item>
+        <item>Good!!!</item>
+        <item>Thank mom!!!</item>
+        <item>Wonderful!!!</item>
+        <item>Good job!!!</item>
+        <item>Let you follow me!!!</item>
+        <item>Haha!!!</item>
+        <item>:)))!!!</item>
+    </array>
+</resources>

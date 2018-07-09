@@ -14,4 +14,5 @@
     <issue id="StringFormatMatches" severity="ignore"/>
     <issue id="StringFormatInvalid" severity="ignore"/>
     <issue id="UnusedResources" severity="ignore"/>
+    <issue id="InconsistentLayout" severity="ignore"/>
 </lint>

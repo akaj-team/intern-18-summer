@@ -19,6 +19,6 @@
         </activity>
         <activity android:name=".drawer_layout.DrawerLayoutActivity"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".recyclerview.RecyclerViewActivity"/>
     </application>
-
 </manifest>
