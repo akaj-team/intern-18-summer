@@ -16,7 +16,10 @@
     <string name="description">Today, what do we eat?</string>
     <string name="like">0 like</string>
     <string name="preference">Share Preference</string>
-    <string name="store">Internal store and external store</string>
+    <string name="store">Internal and external</string>
+    <string name="internal">Internal Store</string>
+    <string name="external">External Store</string>
     <string name="sqlite">SQLite</string>
     <string name="remember">Remember</string>
+    <string name="enter_content">Enter content need to store</string>
 </resources>

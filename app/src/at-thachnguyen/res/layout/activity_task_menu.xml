@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="asiantech.internship.summer.storage.TaskMenuActivity">
+    android:padding="30dp"
+    tools:context="asiantech.internship.summer.storage.StorageActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -19,17 +20,14 @@
         android:id="@+id/btnSharePreference"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:background="@color/colorPrimary"
         android:text="@string/preference" />
 
     <Button
+        android:id="@+id/btnStore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         android:text="@string/store" />
@@ -37,8 +35,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         android:text="@string/sqlite" />

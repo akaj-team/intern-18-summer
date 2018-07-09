@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
-import asiantech.internship.summer.storage.TaskMenuActivity;
+import asiantech.internship.summer.storage.StorageActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnView;
@@ -47,7 +47,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(mIntent);
                 break;
             case R.id.btnStorage:
-                mIntent = new Intent(MenuActivity.this, TaskMenuActivity.class);
+                mIntent = new Intent(MenuActivity.this, StorageActivity.class);
                 startActivity(mIntent);
                 break;
         }
