@@ -16,11 +16,12 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
+
 import asiantech.internship.summer.R;
 
 public class InternalAndExternalActivity extends AppCompatActivity implements View.OnClickListener {
@@ -37,6 +38,8 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
         init();
+        internalRead();
+       //externalRead();
         mBtnInternal.setOnClickListener(this);
         mBtnExternal.setOnClickListener(this);
     }
@@ -48,12 +51,21 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         mTvContent = findViewById(R.id.tvContent);
     }
 
-    private void internalStore() {
-        String content = mEdtContent.getText().toString();
-        FileOutputStream outputStream;
+    private void internalWrite() {
+        String path = getFilesDir() + "/" + FILE_NAME;
+        File file = new File(path);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
         try {
-            outputStream = openFileOutput(FILE_NAME, MODE_PRIVATE);
-            outputStream.write(content.getBytes());
+            FileOutputStream outputStream = new FileOutputStream(file);
+            OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream, Charset.forName("UTF-8"));
+            streamWriter.append(mEdtContent.getText().toString());
+            streamWriter.close();
             outputStream.close();
         } catch (Exception e) {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
@@ -63,28 +75,41 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
     @SuppressLint("SetTextI18n")
     private void internalRead() {
         try {
-            FileInputStream inputStream = openFileInput(FILE_NAME);
-            int c;
-            String temp = "";
-            while ((c = inputStream.read()) != -1) {
-                temp += (Character.toString((char) c));
+            String path = getFilesDir() + "/" + FILE_NAME;
+            File file = new File(path);
+            if (file.exists()) {
+                String temp;
+                String content = "";
+                FileInputStream inputStream = new FileInputStream(file);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+                while ((temp = reader.readLine()) != null) {
+                    content += temp + "\n";
+                }
+                reader.close();
+                inputStream.close();
+                mTvContent.setText("File content is: " + content);
             }
-            mTvContent.setText("File content is: " + temp);
         } catch (Exception e) {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void externalStore() {
+    private void externalWrite() {
         if (!(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_STORAGE);
         } else {
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
             File file = new File(path);
+            if (!file.exists()){
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
             try {
-                file.createNewFile();
                 FileOutputStream outputStream = new FileOutputStream(file);
-                OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream);
+                OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream, Charset.forName("UTF-8"));
                 streamWriter.append(mEdtContent.getText().toString());
                 streamWriter.close();
                 outputStream.close();
@@ -96,22 +121,24 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
 
     @SuppressLint("SetTextI18n")
     private void externalRead() {
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
-        File file = new File(path);
         if (!(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_STORAGE);
         } else {
             try {
-                String temp;
-                String content = "";
-                FileInputStream inputStream = new FileInputStream(file);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                while ((temp = reader.readLine()) != null) {
-                    content += temp + "\n";
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
+                File file = new File(path);
+                if (file.exists()) {
+                    String temp;
+                    String content = "";
+                    FileInputStream inputStream = new FileInputStream(file);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+                    while ((temp = reader.readLine()) != null) {
+                        content += temp + "\n";
+                    }
+                    reader.close();
+                    inputStream.close();
+                    mTvContent.setText("File content is: " + content);
                 }
-                reader.close();
-                inputStream.close();
-                mTvContent.setText("File content is: " + content);
             } catch (Exception e) {
                 Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
             }
@@ -122,11 +149,11 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnInternal:
-                internalStore();
+                internalWrite();
                 internalRead();
                 break;
             case R.id.btnExternal:
-                externalStore();
+                externalWrite();
                 externalRead();
                 break;
         }
