@@ -1,6 +1,5 @@
 package asiantech.internship.summer.storage;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,22 +14,30 @@ import asiantech.internship.summer.R;
 
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.EmployeeHolder> {
     private List<String> mListEmployee;
+    private boolean mIsEmployee;
 
-    public EmployeeAdapter(List<String> mListEmployee) {
+    public EmployeeAdapter(List<String> mListEmployee, boolean mIsEmployee) {
         this.mListEmployee = mListEmployee;
+        this.mIsEmployee = mIsEmployee;
     }
 
     @NonNull
     @Override
     public EmployeeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item_employee, parent, false);
+                .inflate(R.layout.list_item_manage, parent, false);
         return new EmployeeHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull EmployeeHolder holder, int position) {
         holder.mTvEmployee.setText(mListEmployee.get(position));
+        if(mIsEmployee){
+            holder.mImgMenu.setImageResource(R.drawable.ic_delete);
+        }
+        else{
+            holder.mImgMenu.setImageResource(R.drawable.ic_add);
+        }
     }
 
     @Override
@@ -40,14 +47,11 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
 
     class EmployeeHolder extends RecyclerView.ViewHolder {
         TextView mTvEmployee;
-        ImageView mImgDelete;
-        ImageView mImgInsert;
-
+        ImageView mImgMenu;
         EmployeeHolder(View itemView) {
             super(itemView);
             mTvEmployee = itemView.findViewById(R.id.tvEmployee);
-            mImgDelete = itemView.findViewById(R.id.imgDelete);
-            mImgInsert = itemView.findViewById(R.id.imgInsert);
+            mImgMenu = itemView.findViewById(R.id.imgMenu);
         }
     }
 }

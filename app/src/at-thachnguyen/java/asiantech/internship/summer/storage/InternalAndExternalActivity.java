@@ -13,14 +13,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 import asiantech.internship.summer.R;
 
@@ -36,10 +42,10 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_store);
+        setContentView(R.layout.activity_internal_and_external);
         init();
         internalRead();
-       //externalRead();
+        //externalRead();
         mBtnInternal.setOnClickListener(this);
         mBtnExternal.setOnClickListener(this);
     }
@@ -52,23 +58,12 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
     }
 
     private void internalWrite() {
-        String path = getFilesDir() + "/" + FILE_NAME;
-        File file = new File(path);
-        if (!file.exists()){
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }
         try {
-            FileOutputStream outputStream = new FileOutputStream(file);
-            OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream, Charset.forName("UTF-8"));
-            streamWriter.append(mEdtContent.getText().toString());
-            streamWriter.close();
-            outputStream.close();
+            FileOutputStream out = this.openFileOutput(FILE_NAME, MODE_APPEND);
+            out.write(mEdtContent.getText().toString().getBytes());
+            out.close();
         } catch (Exception e) {
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -100,19 +95,11 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         } else {
             String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
             File file = new File(path);
-            if (!file.exists()){
-                try {
-                    file.createNewFile();
-                } catch (IOException e) {
-                    Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
-                }
-            }
             try {
-                FileOutputStream outputStream = new FileOutputStream(file);
-                OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream, Charset.forName("UTF-8"));
-                streamWriter.append(mEdtContent.getText().toString());
-                streamWriter.close();
-                outputStream.close();
+                FileWriter fileWriter = new FileWriter(file, true);
+                BufferedWriter bufferFileWriter = new BufferedWriter(fileWriter);
+                bufferFileWriter.append(mEdtContent.getText().toString());
+                bufferFileWriter.close();
             } catch (Exception e) {
                 Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
             }

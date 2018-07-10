@@ -14,14 +14,7 @@
         android:layout_weight="13" />
 
     <ImageView
-        android:id="@+id/imgInsert"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_weight="1"
-        android:src="@android:drawable/ic_input_add" />
-
-    <ImageView
-        android:id="@+id/imgDelete"
+        android:id="@+id/imgMenu"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_weight="1"
