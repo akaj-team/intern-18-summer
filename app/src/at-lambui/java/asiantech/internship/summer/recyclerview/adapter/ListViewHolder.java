@@ -1,12 +1,10 @@
-package asiantech.internship.summer.adapter;
-
+package asiantech.internship.summer.recyclerview.adapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import asiantech.internship.summer.R;
-import asiantech.internship.summer.recyclerview.OnClickListener;
 
 public class ListViewHolder extends RecyclerView.ViewHolder {
     private TextView mTvName;
@@ -29,7 +27,7 @@ public class ListViewHolder extends RecyclerView.ViewHolder {
         mTvDescription = itemView.findViewById(R.id.tvDescription);
         mImgLike = itemView.findViewById(R.id.imgLike);
         mTvCountLike = itemView.findViewById(R.id.tvCountLike);
-        mImgLike.setOnClickListener(view -> mOnClickListener.onClickListen(mPosition));
+        mImgLike.setOnClickListener((View view) -> mOnClickListener.onClickListen(mPosition));
     }
 
     public TextView getmTvName() {
@@ -60,7 +58,7 @@ public class ListViewHolder extends RecyclerView.ViewHolder {
         return mImgProfile;
     }
 
-    public void setPosition(int mposition) {
-        this.mPosition = mposition;
+    public void setPosition(int position) {
+        this.mPosition = position;
     }
 }

@@ -1,4 +1,4 @@
-package asiantech.internship.summer.model;
+package asiantech.internship.summer.recyclerview.model;
 
 import java.util.ArrayList;
 import java.util.List;
