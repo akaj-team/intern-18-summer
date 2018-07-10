@@ -36,7 +36,7 @@ public class DrawerLayoutActivity extends AppCompatActivity implements OnClickLi
     private List<UserHeader> mListUserHeader;
     private final static int GALLERY_REQUEST = 101;
     public final static int CAMERA_REQUEST = 102;
-    private int PERMISSION_CODE_STORAGE = 1;
+    private final int PERMISSION_CODE_STORAGE = 1;
     private Dialog mDialog;
 
     @Override
@@ -148,7 +148,6 @@ public class DrawerLayoutActivity extends AppCompatActivity implements OnClickLi
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_CODE_STORAGE);
         }
-
     }
 
     @Override
@@ -179,7 +178,7 @@ public class DrawerLayoutActivity extends AppCompatActivity implements OnClickLi
 
     /*click random item*/
     @Override
-    public void OnToastClickItem(int position) {
+    public void onToastClickItem(int position) {
         Toast.makeText(this, mListItemMenu.get(position).getTitleItem(), Toast.LENGTH_SHORT).show();
     }
 

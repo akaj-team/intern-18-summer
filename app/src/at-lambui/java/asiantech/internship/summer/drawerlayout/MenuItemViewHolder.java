@@ -23,7 +23,7 @@ public class MenuItemViewHolder extends RecyclerView.ViewHolder {
         mImgItemMenu = itemView.findViewById(R.id.imgItemMenu);
         mTvItemMenu = itemView.findViewById(R.id.tvItemMenu);
         RelativeLayout rlItemView = itemView.findViewById(R.id.rlItemView);
-        rlItemView.setOnClickListener(view -> mOnClickListener.OnToastClickItem(mPosition));
+        rlItemView.setOnClickListener(view -> mOnClickListener.onToastClickItem(mPosition));
     }
 
     public void setPosition(int Position) {
