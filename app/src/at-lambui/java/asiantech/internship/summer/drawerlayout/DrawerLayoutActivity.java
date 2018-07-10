@@ -64,7 +64,7 @@ public class DrawerLayoutActivity extends AppCompatActivity implements OnClickLi
         mListItemMenu.add(new ItemMenu("outbox", R.drawable.ic_outbox));
         mListItemMenu.add(new ItemMenu("trash", R.drawable.ic_trash));
         mListItemMenu.add(new ItemMenu("spam", R.drawable.ic_spam));
-        mListItemMenu = CreateListItem();
+        mListItemMenu = createListItem();
     }
 
     @Override
@@ -182,7 +182,7 @@ public class DrawerLayoutActivity extends AppCompatActivity implements OnClickLi
         Toast.makeText(this, mListItemMenu.get(position).getTitleItem(), Toast.LENGTH_SHORT).show();
     }
 
-    public List<ItemMenu> CreateListItem() {
+    public List<ItemMenu> createListItem() {
         List<ItemMenu> listItem = new ArrayList<>(), listClone;
         listClone = new ArrayList<>(mListItemMenu);
         for (int i = 0; i < 4; i++) {
