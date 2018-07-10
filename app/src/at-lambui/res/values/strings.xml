@@ -6,4 +6,19 @@
     <string name="menu_activity_view_title">Recyclerview</string>
     <string name="menu_activity_recyclerview_title">ViewPager</string>
     <string name="like"> Like </string>
+    <string name="choose_gallery">Choose photo from gallery</string>
+    <string name="take_photo">Take photo</string>
+    <string name="photo">Photo</string>
+    <string name="inbox">inbox</string>
+    <string name="outbox">outbox</string>
+    <string name="trash">trash</string>
+    <string name="spam">spam</string>
+    <string name="navigation_drawer_open">Drawer Open</string>
+    <string name="navigation_drawer_close">Drawer Close</string>
+    <string name="drawerlayout">Bai tap DrawerLayout</string>
+    <string-array name="email_list">
+        <item>buiduclam08@gmail.com</item>
+        <item>Add account</item>
+        <item>Quan li tai khoan</item>
+    </string-array>
 </resources>

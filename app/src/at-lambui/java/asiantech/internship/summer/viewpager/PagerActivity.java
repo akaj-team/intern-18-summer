@@ -1,5 +1,6 @@
 package asiantech.internship.summer.viewpager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,6 +12,7 @@ import asiantech.internship.summer.recyclerview.TimelineFragment;
 import asiantech.internship.summer.recyclerview.model.TimelineItem;
 import asiantech.internship.summer.viewpager.adapter.PagerAdapter;
 
+@SuppressLint("Registered")
 public class PagerActivity extends AppCompatActivity {
 
     private TimelineFragment mrecyclerViewFragment;
