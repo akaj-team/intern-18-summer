@@ -22,9 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:hint="@string/enter_content"
+        android:inputType="text"
         android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:inputType="text" />
+        android:textColorHint="@color/colorPrimaryDark" />
 
     <Button
         android:id="@+id/btnInternal"
@@ -43,11 +43,11 @@
         android:text="@string/external" />
 
     <TextView
-        android:background="@color/colorCararra"
         android:id="@+id/tvContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="30dp"
+        android:background="@color/colorCararra"
         android:padding="10dp"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold" />

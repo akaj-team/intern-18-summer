@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center_vertical"
+    android:orientation="vertical"
     android:padding="30dp"
     tools:context="asiantech.internship.summer.storage.SharePreferenceActivity">
 
@@ -23,9 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="@string/mail_hint"
+        android:inputType="textEmailAddress"
         android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:inputType="textEmailAddress" />
+        android:textColorHint="@color/colorPrimaryDark" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -33,24 +33,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="@string/pass_hint"
+        android:inputType="textPassword"
         android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
-        android:inputType="textPassword" />
+        android:textColorHint="@color/colorPrimaryDark" />
+
     <CheckBox
         android:id="@+id/chkRemember"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="@string/remember"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/remember"
+        android:textColor="@color/colorPrimaryDark" />
+
     <Button
         android:id="@+id/btnLogin"
-        android:paddingRight="30dp"
-        android:paddingLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:background="@color/colorPrimary"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/log_in_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/log_in_label" />
 </LinearLayout>

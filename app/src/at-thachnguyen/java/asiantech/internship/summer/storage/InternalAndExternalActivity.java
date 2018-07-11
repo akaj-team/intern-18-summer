@@ -21,15 +21,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 import asiantech.internship.summer.R;
 
+@SuppressLint("Registered")
 public class InternalAndExternalActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnInternal;
     private Button mBtnExternal;
@@ -45,7 +41,7 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         setContentView(R.layout.activity_internal_and_external);
         init();
         internalRead();
-        //externalRead();
+        externalRead();
         mBtnInternal.setOnClickListener(this);
         mBtnExternal.setOnClickListener(this);
     }
@@ -60,7 +56,7 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
     private void internalWrite() {
         try {
             FileOutputStream out = this.openFileOutput(FILE_NAME, MODE_APPEND);
-            out.write(mEdtContent.getText().toString().getBytes());
+            out.write(mEdtContent.getText().toString().getBytes(Charset.forName("UTF-8")));
             out.close();
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -78,11 +74,11 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
                 FileInputStream inputStream = new FileInputStream(file);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
                 while ((temp = reader.readLine()) != null) {
-                    content += temp + "\n";
+                    content += temp + " ";
                 }
                 reader.close();
                 inputStream.close();
-                mTvContent.setText("File content is: " + content);
+                mTvContent.setText("\nInternal file content is: " + content);
             }
         } catch (Exception e) {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
@@ -93,15 +89,20 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         if (!(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_STORAGE);
         } else {
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
-            File file = new File(path);
-            try {
-                FileWriter fileWriter = new FileWriter(file, true);
-                BufferedWriter bufferFileWriter = new BufferedWriter(fileWriter);
-                bufferFileWriter.append(mEdtContent.getText().toString());
-                bufferFileWriter.close();
-            } catch (Exception e) {
-                Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            if (isExternalStorageWritable()) {
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
+                File file = new File(path, "UTF-8");
+
+                try {
+                    FileWriter fileWriter = new FileWriter(file, true);
+                    BufferedWriter bufferFileWriter = new BufferedWriter(fileWriter);
+                    bufferFileWriter.append(mEdtContent.getText().toString());
+                    bufferFileWriter.close();
+                } catch (Exception e) {
+                    Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(this, "SDcard is not exist", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -114,22 +115,35 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
             try {
                 String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + FILE_NAME;
                 File file = new File(path);
-                if (file.exists()) {
-                    String temp;
-                    String content = "";
-                    FileInputStream inputStream = new FileInputStream(file);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
-                    while ((temp = reader.readLine()) != null) {
-                        content += temp + "\n";
+                if (isExternalStorageReadable()) {
+                    if (file.exists()) {
+                        String temp;
+                        String content = "";
+                        FileInputStream inputStream = new FileInputStream(file);
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+                        while ((temp = reader.readLine()) != null) {
+                            content += temp + " ";
+                        }
+                        reader.close();
+                        inputStream.close();
+                        mTvContent.setText("\nExternal file content is: " + content);
                     }
-                    reader.close();
-                    inputStream.close();
-                    mTvContent.setText("File content is: " + content);
                 }
             } catch (Exception e) {
                 Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state);
+    }
+
+    public boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        return Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
     @Override
