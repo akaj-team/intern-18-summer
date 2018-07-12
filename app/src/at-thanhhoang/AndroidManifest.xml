@@ -24,5 +24,6 @@
         <activity android:name=".storage.FileStorageActivity" />
         <activity android:name=".storage.SharePreferenceActivity" />
         <activity android:name=".storage.InternalExternalActivity" />
+        <activity android:name=".storage.DatabaseActivity" />
     </application>
 </manifest>

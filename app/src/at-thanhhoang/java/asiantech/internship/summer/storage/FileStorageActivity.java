@@ -48,6 +48,8 @@ public class FileStorageActivity extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
             case R.id.btnDatabase:
+                intent = new Intent(this, DatabaseActivity.class);
+                startActivity(intent);
                 break;
         }
     }

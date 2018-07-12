@@ -35,6 +35,8 @@
     <string name="label_login">Login</string>
     <string name="label_input_text">Input text</string>
     <string name="label_internal">Internal</string>
+    <string name="label_company">Company</string>
+    <string name="label_add">Add</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
