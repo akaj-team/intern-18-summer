@@ -1,8 +1,8 @@
 package asiantech.internship.summer.storage.model;
 
 public class Employee {
-    private int mId;
-    private String mName;
+    private final int mId;
+    private final String mName;
     public static final String TABLE_NAME_EMPLOYEE = "employee";
     public static final String COL_ID="id";
     public static final String COL_NAME="name";

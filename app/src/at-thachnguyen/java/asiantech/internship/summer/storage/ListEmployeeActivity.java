@@ -18,8 +18,8 @@ import asiantech.internship.summer.storage.model.Employee;
 @SuppressLint("Registered")
 public class ListEmployeeActivity extends AppCompatActivity {
     private ManageDatabaseHelper mManageDatabase;
-    ManageAdapter mManageAdapter;
-    List<Employee> mEmployees = new ArrayList<>();
+    private ManageAdapter mManageAdapter;
+    private final List<Employee> mEmployees = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class ListEmployeeActivity extends AppCompatActivity {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         recyclerViewEmployees.setLayoutManager(manager);
         mManageDatabase = new ManageDatabaseHelper(this, Employee.TABLE_NAME_EMPLOYEE, Employee.CREATE_TABLE_EMPLOYEE);
-        mManageAdapter = new ManageAdapter(mEmployees, true, this, (int position) -> dialogDelete(mEmployees.get(position), idFirm));
+        mManageAdapter = new ManageAdapter(mEmployees, this, (int position) -> dialogDelete(mEmployees.get(position), idFirm));
         recyclerViewEmployees.setAdapter(mManageAdapter);
         mEmployees.addAll(mManageDatabase.getEmployees(idFirm));
         mManageAdapter.notifyDataSetChanged();

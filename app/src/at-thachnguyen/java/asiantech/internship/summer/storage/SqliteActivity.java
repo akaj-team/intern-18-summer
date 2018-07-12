@@ -39,7 +39,7 @@ public class SqliteActivity extends AppCompatActivity {
         mFirms = new ArrayList<>();
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         mRecyclerViewFirms.setLayoutManager(manager);
-        mManageAdapter = new ManageAdapter(false, this, mFirms, (int position) -> dialogAdd("Add Employee", true, mFirms.get(position).getmId()));
+        mManageAdapter = new ManageAdapter(this, mFirms, (int position) -> dialogAdd("Add Employee", true, mFirms.get(position).getmId()));
         mManageDatabase = new ManageDatabaseHelper(this, Firm.TABLE_NAME_FIRM, Firm.CREATE_TABLE_FIRM);
         mRecyclerViewFirms.setAdapter(mManageAdapter);
         mFirms.addAll(mManageDatabase.getAllFirms());

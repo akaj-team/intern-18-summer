@@ -20,21 +20,21 @@ import asiantech.internship.summer.storage.model.Firm;
 
 public class ManageAdapter extends RecyclerView.Adapter<ManageAdapter.EmployeeHolder> {
     private List<Employee> mListEmployee;
-    private boolean mIsEmployee;
-    private Context mContext;
-    private OnItemCLickListener mOnItemCLickListener;
+    private final boolean mIsEmployee;
+    private final Context mContext;
+    private final OnItemCLickListener mOnItemCLickListener;
     private List<Firm> mListFirm;
     public final static String ID_FIRM = "id_firm";
 
-    ManageAdapter(List<Employee> mListEmployee, boolean mIsEmployee, Context mContext, OnItemCLickListener mOnItemCLickListener) {
+    ManageAdapter(List<Employee> mListEmployee, Context mContext, OnItemCLickListener mOnItemCLickListener) {
         this.mListEmployee = mListEmployee;
-        this.mIsEmployee = mIsEmployee;
+        this.mIsEmployee = true;
         this.mContext = mContext;
         this.mOnItemCLickListener = mOnItemCLickListener;
     }
 
-    ManageAdapter(boolean mIsEmployee, Context mContext, List<Firm> mListFirm, OnItemCLickListener mOnItemCLickListener) {
-        this.mIsEmployee = mIsEmployee;
+    ManageAdapter(Context mContext, List<Firm> mListFirm, OnItemCLickListener mOnItemCLickListener) {
+        this.mIsEmployee = false;
         this.mContext = mContext;
         this.mOnItemCLickListener = mOnItemCLickListener;
         this.mListFirm = mListFirm;
@@ -70,8 +70,8 @@ public class ManageAdapter extends RecyclerView.Adapter<ManageAdapter.EmployeeHo
     }
 
     class EmployeeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView mTvEmployee;
-        ImageView mImgMenu;
+        final TextView mTvEmployee;
+        final ImageView mImgMenu;
 
         EmployeeHolder(View itemView) {
             super(itemView);

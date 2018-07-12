@@ -13,10 +13,10 @@ import java.util.List;
 import asiantech.internship.summer.storage.model.Employee;
 import asiantech.internship.summer.storage.model.Firm;
 
-public class ManageDatabaseHelper extends SQLiteOpenHelper {
+class ManageDatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private String mTableName;
-    private String mCreateTable;
+    private final String mTableName;
+    private final String mCreateTable;
 
     ManageDatabaseHelper(Context context, String mTableName, String mCreateTable) {
         super(context, mTableName, null, DATABASE_VERSION);
