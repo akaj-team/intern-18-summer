@@ -1,4 +1,4 @@
-package asiantech.internship.summer.adapter;
+package asiantech.internship.summer.recyclerview.adapter;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
@@ -10,8 +10,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import asiantech.internship.summer.R;
-import asiantech.internship.summer.model.TimelineItem;
-import asiantech.internship.summer.recyclerview.OnClickListener;
+import asiantech.internship.summer.recyclerview.model.TimelineItem;
 
 public class ListItemAdapter extends RecyclerView.Adapter {
     private static final int TYPE_HEAD = 0;
@@ -23,7 +22,7 @@ public class ListItemAdapter extends RecyclerView.Adapter {
 
     public ListItemAdapter(List<TimelineItem> listItem, OnClickListener listener) {
         this.mListItems = listItem;
-        mListener = listener;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -51,7 +50,7 @@ public class ListItemAdapter extends RecyclerView.Adapter {
     }
 
     @SuppressLint("SetTextI18n")
-    private void onBindViewHolder(ListViewHolder listViewHolder, int position) {
+    private void onBindViewHolder(ListViewHolder listViewHolder, @SuppressLint("RecyclerView") int position) {
         TimelineItem timelineItem = mListItems.get(position);
         listViewHolder.setPosition(position);
         listViewHolder.getmTvName().setText(timelineItem.getAuthor().getName());
@@ -59,6 +58,7 @@ public class ListItemAdapter extends RecyclerView.Adapter {
         listViewHolder.getmImgDish().setImageResource(timelineItem.getImage());
         listViewHolder.getmImgProfile().setImageResource(timelineItem.getAuthor().getAvatar());
         listViewHolder.getmTvDescription().setText(timelineItem.getDescription());
+        // set change backgroud before
         boolean islike = timelineItem.ismIsLiked();
         if (islike) {
             listViewHolder.getmImgLike().setImageResource(R.drawable.ic_like);
@@ -66,7 +66,6 @@ public class ListItemAdapter extends RecyclerView.Adapter {
             listViewHolder.getmImgLike().setImageResource(R.drawable.ic_dislike);
         }
         listViewHolder.getmTvCountLike().setText((timelineItem.getmNumberLike()) + LIKE);
-
     }
 
     @Override

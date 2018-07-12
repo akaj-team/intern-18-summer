@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
-    <string name="ex_recycler_view">RecycleView</string>
     <string name="label_count_likes">0 likes</string>
     <string name="time_item_2">11 to 12pm</string>
     <string name="time_item_3">1pm</string>
@@ -25,6 +24,8 @@
     <string name="label_good_morning">Good Morning!</string>
     <string name="label_february">FEBRUARY</string>
     <string name="label_view_view_group">View View Group</string>
+    <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
+    <string name="ex_recycler_view">RecyclerView</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>

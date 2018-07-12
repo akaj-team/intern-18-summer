@@ -1,9 +1,36 @@
-<resources>
-    <string name="app_name">Intern18Summer</string>
+<resources >
+    <string name="app_name">Recycleview</string>
+    <string name="menu">menu</string>
+    <string name="todo">TODO</string>
+    <string name="time_8am">8 – 10 am</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="web">WEB</string>
+    <string name="thu">THU</string>
+    <string name="new_subpage">New subpage for janet</string>
+    <string name="hangouts">11 – 12 pm Hangouts</string>
+    <string name="lunch_with_diane">Lunch with Diane</string>
+    <string name="restaurant_comment">1pm Restaurant</string>
+    <string name="ngay_13">13</string>
+    <string name="ngay_12">12</string>
+    <string name="ngay_11">11</string>
+    <string name="ngay_10">10</string>
+    <string name="ngay_9">9</string>
+    <string name="ngay_8">8</string>
+    <string name="ngay_7">7</string>
+    <string name="catch_up_with_tom">Catch up with Tom</string>
+    <string name="february">FEBRUARY</string>
+    <string name="ba_message">3</string>
+    <string name="good_morning">Good Morning!</string>
+    <string name="menu_activity_view_title">Bai tap view and view group</string>
+
     <string name="Name">name avatar</string>
     <string name="CountLike"> 0 like </string>
     <string name="description">description</string>
-    <string name="menu_activity_view_title">Recyclerview</string>
+    <string name="menu_recycler_view_title">Recyclerview</string>
     <string name="menu_activity_recyclerview_title">ViewPager</string>
     <string name="like"> Like </string>
 </resources>

@@ -1,5 +1,6 @@
 package asiantech.internship.summer.recyclerview;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -13,38 +14,49 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
+
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.recyclerview.model.Owner;
 import asiantech.internship.summer.recyclerview.model.TimelineItem;
+import asiantech.internship.summer.viewpager.FavouriteFragment;
 
 import static asiantech.internship.summer.R.layout.fragment_timeline_item;
 
+@SuppressWarnings("CollectionAddedToSelf")
 public class TimelineItemFragment extends Fragment {
     private ArrayList<TimelineItem> mTimelines;
     private TimelineAdapter mTimelineAdapter;
+    private RecyclerView mRecyclerViewTimeline;
     private ProgressBar mProgressBarLoad;
     private boolean mIsScrolling = false;
     private int mCurrentItems;
     private int mTotalItemCount;
     private int mScrollOutItems;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private RecyclerView mRecyclerViewTimeline;
+    private OnChangeFavourite mOnChangeFavourite;
+    private FavouriteFragment.OnPullRefreshRecyclerView mRemoveAllList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mTimelines = new ArrayList<>();
-        mTimelineAdapter = new TimelineAdapter(getContext(), mTimelines, position -> {
-            if (mTimelines.get(position).ismIsLike()){
-                mTimelines.get(position).setmLike(mTimelines.get(position).getmLike()-1);
-            }
-            else {
-                mTimelines.get(position).setmLike(mTimelines.get(position).getmLike()+1);
-            }
+
+        mTimelineAdapter = new TimelineAdapter(getContext(), mTimelines, timelineItem -> {
+            int position = mTimelines.indexOf(timelineItem);
+
             mTimelines.get(position).setmIsLike(!mTimelines.get(position).ismIsLike());
+            if (!mTimelines.get(position).ismIsLike()) {
+                mTimelines.get(position).setmLike(mTimelines.get(position).getmLike() - 1);
+            } else {
+                mTimelines.get(position).setmLike(mTimelines.get(position).getmLike() + 1);
+                mTimelineAdapter.notifyDataSetChanged();
+            }
+            mOnChangeFavourite.onChangeFavourite(mTimelines.get(position));
             mTimelineAdapter.notifyDataSetChanged();
         });
     }
@@ -80,6 +92,7 @@ public class TimelineItemFragment extends Fragment {
                 mCurrentItems = layoutManager.getChildCount();
                 mTotalItemCount = layoutManager.getItemCount();
                 mScrollOutItems = layoutManager.findFirstVisibleItemPosition();
+
                 if (mIsScrolling && (mCurrentItems + mScrollOutItems == mTotalItemCount)) {
                     mIsScrolling = false;
                     loadMoreTimeLine();
@@ -99,7 +112,19 @@ public class TimelineItemFragment extends Fragment {
         });
     }
 
-    private void createListTimeLines() {
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mRemoveAllList = (FavouriteFragment.OnPullRefreshRecyclerView) getActivity();
+            mOnChangeFavourite = (OnChangeFavourite) getActivity();
+        } catch (ClassCastException e) {
+            throw new ClassCastException("Error in retrieving data. Please try again");
+        }
+    }
+
+    private void createListTimeLine() {
         for (int i = 0; i < 10; i++) {
             Owner owner = new Owner(getName(i % 5), getAvatar(i % 5));
             mTimelines.add(new TimelineItem(owner, randomImageFood(), getDescription(i), 0, false));
@@ -110,14 +135,15 @@ public class TimelineItemFragment extends Fragment {
     private void loadMoreTimeLine() {
         mProgressBarLoad.setVisibility(View.VISIBLE);
         new Handler().postDelayed(() -> {
-            createListTimeLines();
+            createListTimeLine();
             mProgressBarLoad.setVisibility(View.GONE);
         }, 5000);
     }
 
     private void loadRefreshTimeLine() {
         mTimelines.clear();
-        createListTimeLines();
+        createListTimeLine();
+        mRemoveAllList.refresh();
         new Handler().postDelayed(() ->
                         mSwipeRefreshLayout.setRefreshing(false),
                 2000);
@@ -143,5 +169,26 @@ public class TimelineItemFragment extends Fragment {
         int rndN = rand.nextInt(22) + 1;
         String imgName = "img_" + "food" + rndN;
         return Objects.requireNonNull(getContext()).getResources().getIdentifier(imgName, "drawable", getContext().getPackageName());
+    }
+
+    public void setLike(TimelineItem timelineItem) {
+        mTimelines.get(mTimelines.indexOf(timelineItem)).setmLike(mTimelines.get(mTimelines.indexOf(timelineItem)).getmLike() - 1);
+        mTimelines.get(mTimelines.indexOf(timelineItem)).setmIsLike(!mTimelines.get(mTimelines.indexOf(timelineItem)).ismIsLike());
+        mTimelineAdapter.notifyDataSetChanged();
+    }
+
+    public void messageRefresh() {
+        Toast.makeText(getContext(), "Timeline just is refreshed ", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onChangeLike(TimelineItem timelineItem) {
+        if (!timelineItem.ismIsLike()) {
+            Toast.makeText(getContext(), "You just unlike " + timelineItem.getmOwner().getmName() + "'s post", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getContext(), "You just like " + timelineItem.getmOwner().getmName() + "'s post", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public interface OnChangeFavourite {
+        void onChangeFavourite(TimelineItem timelineItem);
     }
 }

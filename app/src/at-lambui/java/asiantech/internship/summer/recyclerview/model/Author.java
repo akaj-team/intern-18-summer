@@ -1,4 +1,4 @@
-package asiantech.internship.summer.model;
+package asiantech.internship.summer.recyclerview.model;
 
 public class Author {
     private int mAvatar;

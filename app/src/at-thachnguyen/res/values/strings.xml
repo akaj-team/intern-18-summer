@@ -1,5 +1,27 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="february">FEBRUARY</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="action1">New subpage for Janet</string>
+    <string name="action2">Catch up with Tom</string>
+    <string name="action3">Lunch with Diane</string>
+    <string name="time1">8 to 10am</string>
+    <string name="time2">11 to 12pm   Hangouts</string>
+    <string name="time3">1pm   Restaurant</string>
     <string name="view">View and View Group</string>
     <string name="intent">Intent</string>
     <string name="activity">Activity and Fragment</string>
