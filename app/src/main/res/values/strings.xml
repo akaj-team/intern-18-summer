@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
-    <string name="label_remember_me">Remember me</string>
-    <string name="label_login">Login</string>
+    <string name="label_external">External</string>
 </resources>

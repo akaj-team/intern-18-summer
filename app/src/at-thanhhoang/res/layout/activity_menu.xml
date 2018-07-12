@@ -19,7 +19,7 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_view_view_group"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnRecycleView"
@@ -31,7 +31,7 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/ex_recycler_view"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnFileStorage"
@@ -43,6 +43,6 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_file_storage"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 </ScrollView>

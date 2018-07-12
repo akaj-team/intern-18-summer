@@ -10,9 +10,9 @@ import android.widget.Button;
 import asiantech.internship.summer.R;
 
 public class FileStorageActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnSharePreference;
-    private Button btnInternalExternal;
-    private Button btnDatabaseSQLite;
+    private Button mBtnSharePreference;
+    private Button mBtnInternalExternal;
+    private Button mBtnDatabaseSQLite;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,15 +24,15 @@ public class FileStorageActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void initView(){
-        btnSharePreference = findViewById(R.id.btnSharePreference);
-        btnInternalExternal = findViewById(R.id.btnInternalExternal);
-        btnDatabaseSQLite = findViewById(R.id.btnDatabase);
+        mBtnSharePreference = findViewById(R.id.btnSharePreference);
+        mBtnInternalExternal = findViewById(R.id.btnInternalExternal);
+        mBtnDatabaseSQLite = findViewById(R.id.btnDatabase);
     }
 
     private void addListener() {
-        btnSharePreference.setOnClickListener(this);
-        btnInternalExternal.setOnClickListener(this);
-        btnDatabaseSQLite.setOnClickListener(this);
+        mBtnSharePreference.setOnClickListener(this);
+        mBtnInternalExternal.setOnClickListener(this);
+        mBtnDatabaseSQLite.setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +44,8 @@ public class FileStorageActivity extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
             case R.id.btnInternalExternal:
+                intent = new Intent(this, InternalExternalActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btnDatabase:
                 break;

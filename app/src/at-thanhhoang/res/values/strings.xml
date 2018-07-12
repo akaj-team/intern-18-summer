@@ -31,6 +31,10 @@
     <string name="label_database">Database SQLite</string>
     <string name="label_username">Username</string>
     <string name="label_password">Password</string>
+    <string name="label_remember_me">Remember me</string>
+    <string name="label_login">Login</string>
+    <string name="label_input_text">Input text</string>
+    <string name="label_internal">Internal</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
