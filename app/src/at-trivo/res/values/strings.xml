@@ -8,4 +8,26 @@
     <string-array name="homework_title">
         <item>Recycler view</item>
     </string-array>
+    <string name="share_preference">Share preference</string>
+    <string name="internal_and_external_store">Internal and external store</string>
+    <string name="database">Database</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="content_hint">Content</string>
+    <string name="company_code_hint">Company code</string>
+    <string name="company_name_hint">Company name</string>
+    <string name="employee_name_hint">Employee name</string>
+    <string name="employee_nickname_hint">Employee nickname</string>
+    <string name="log_in">Log in</string>
+    <string name="internal">Internal</string>
+    <string name="external">External</string>
+    <string name="remember">remember me</string>
+    <string name="unsaved_login">Unsaved login</string>
+    <string name="saved_login">Saved login</string>
+    <string name="new_company">New Company</string>
+    <string name="new_employee">New employee</string>
+    <string name="s_employee">\'s employee</string>
+    <string name="delete_employee">Delete this employee?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="asiantech.internship.summer.file_storage.internal_and_external.InternalAndExternalActivity">
+
+    <TextView
+        android:id="@+id/tvSaved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/edtContent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSaved"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:hint="@string/content_hint"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textSize="14dp" />
+
+    <Button
+        android:id="@+id/bttInternal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/edtContent"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/internal" />
+
+    <Button
+        android:id="@+id/bttExternal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtContent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_toRightOf="@id/bttInternal"
+        android:text="@string/external" />
+</RelativeLayout>
