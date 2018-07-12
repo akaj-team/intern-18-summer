@@ -26,7 +26,8 @@ import java.nio.charset.StandardCharsets;
 
 import asiantech.internship.summer.R;
 
-@SuppressLint("Registered")
+@SuppressLint("SetTextI18n")
+
 public class InternalAndExternalActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnInternal;
     private Button mBtnExternal;
@@ -36,7 +37,6 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
     private static final int REQUEST_WRITE_STORAGE = 112;
     private static final int REQUEST_READ_STORAGE = 200;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +65,6 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private String internalRead() {
         String content = "";
         try {
@@ -98,7 +97,7 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
 
                 try {
                     FileOutputStream stream = new FileOutputStream(file, true);
-                    stream.write(mEdtContent.getText().toString().getBytes());
+                    stream.write(mEdtContent.getText().toString().getBytes(StandardCharsets.UTF_8));
                     stream.close();
                 } catch (Exception e) {
                     Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
@@ -109,7 +108,6 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private String externalRead() {
         String content = "";
         if (!(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
@@ -148,7 +146,6 @@ public class InternalAndExternalActivity extends AppCompatActivity implements Vi
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
 
-    @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

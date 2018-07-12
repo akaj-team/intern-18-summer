@@ -9,12 +9,16 @@ import android.widget.Button;
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.storage.StorageActivity;
+import asiantech.internship.summer.view_and_view_group.ViewActivity;
+import asiantech.internship.summer.viewpager.PagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnView;
     private Button mBtnActivity;
     private Button mBtnRecyclerView;
+    private Button mBtnViewPager;
     private Button mBtnStorage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,32 +27,40 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnView.setOnClickListener(this);
         mBtnActivity.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
+        mBtnViewPager.setOnClickListener(this);
         mBtnStorage.setOnClickListener(this);
     }
 
-    private void init(){
+    private void init() {
 
         mBtnView = findViewById(R.id.btnView);
         mBtnActivity = findViewById(R.id.btnActivity);
         mBtnRecyclerView = findViewById(R.id.btnRecyclerView);
+        mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnStorage = findViewById(R.id.btnStorage);
     }
 
     @Override
     public void onClick(View view) {
-        Intent mIntent;
+        Intent intent;
         switch (view.getId()) {
             case R.id.btnView:
+                intent = new Intent(MenuActivity.this, ViewActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btnActivity:
                 break;
             case R.id.btnRecyclerView:
-                mIntent = new Intent(MenuActivity.this, RecyclerViewActivity.class);
-                startActivity(mIntent);
+                intent = new Intent(MenuActivity.this, RecyclerViewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnViewPager:
+                intent = new Intent(MenuActivity.this, PagerActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btnStorage:
-                mIntent = new Intent(MenuActivity.this, StorageActivity.class);
-                startActivity(mIntent);
+                intent = new Intent(MenuActivity.this, StorageActivity.class);
+                startActivity(intent);
                 break;
         }
     }

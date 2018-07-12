@@ -18,16 +18,13 @@ import asiantech.internship.summer.timeline.model.TimelineItem;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.TimelineViewHolder> {
-
     private final List<TimelineItem> mTimelineList;
     private final ClickViewListener mListener;
+    private final int mIsFragment;
 
-    public interface ClickViewListener {
-        void onImageLikeClick(int position);
-    }
-
-    public TimelineAdapter(List<TimelineItem> mTimelineList, ClickViewListener mListener) {
+    public TimelineAdapter(List<TimelineItem> mTimelineList, int mIsFragment, ClickViewListener mListener) {
         this.mTimelineList = mTimelineList;
+        this.mIsFragment = mIsFragment;
         this.mListener = mListener;
     }
 
@@ -57,6 +54,24 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         return mTimelineList.size();
     }
 
+    @SuppressLint("SetTextI18n")
+    private void setStateLike(ImageView imgLike, TextView tvCountLikes) {
+        imgLike.setImageResource(R.drawable.ic_like_red);
+        tvCountLikes.setText("1 likes");
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void setStateDisLike(ImageView imgLike, TextView tvCountLike) {
+        imgLike.setImageResource(R.drawable.ic_like_white);
+        tvCountLike.setText("0 likes");
+    }
+
+    public interface ClickViewListener {
+        void onCLickLike(int position);
+
+        void onClickDislike(int position, boolean status);
+    }
+
     class TimelineViewHolder extends ViewHolder {
 
         final private CircleImageView mImgAvatar;
@@ -84,27 +99,28 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
             }
 
             mImgLike.setOnClickListener(view -> {
-                if (timelineItem.isStateLikes()) {
-                    setStateDisLike(mImgLike, mTvCountLike);
-                    timelineItem.setStateLikes(!timelineItem.isStateLikes());
-                } else {
-                    setStateLike(mImgLike, mTvCountLike);
-                    timelineItem.setStateLikes(!timelineItem.isStateLikes());
+                if (mIsFragment == 0) {
+                    if (timelineItem.isStateLikes()) {
+                        setStateDisLike(mImgLike, mTvCountLike);
+                        timelineItem.setStateLikes(!timelineItem.isStateLikes());
+                    } else {
+                        setStateLike(mImgLike, mTvCountLike);
+                        timelineItem.setStateLikes(!timelineItem.isStateLikes());
+                    }
+                } else if (mIsFragment == 1) {
+                    if (timelineItem.isStateLikes()) {
+                        setStateDisLike(mImgLike, mTvCountLike);
+                        mListener.onClickDislike(getAdapterPosition(), true);
+                        timelineItem.setStateLikes(!timelineItem.isStateLikes());
+                    } else {
+                        setStateLike(mImgLike, mTvCountLike);
+                        mListener.onCLickLike(getAdapterPosition());
+                        timelineItem.setStateLikes(!timelineItem.isStateLikes());
+                    }
+                } else if (mIsFragment == 2) {
+                    mListener.onClickDislike(getAdapterPosition(), false);
                 }
-                mListener.onImageLikeClick(getAdapterPosition());
             });
         }
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void setStateLike(ImageView imgLike, TextView tvCountLikes) {
-        imgLike.setImageResource(R.drawable.ic_like_red);
-        tvCountLikes.setText("1 likes");
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void setStateDisLike(ImageView imgLike, TextView tvCountLike) {
-        imgLike.setImageResource(R.drawable.ic_like_white);
-        tvCountLike.setText("0 likes");
     }
 }

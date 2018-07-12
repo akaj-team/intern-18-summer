@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".timeline.TimelineActivity"/>
+        <activity android:name=".ViewActivity"/>
+        <activity android:name=".viewpager.ViewPagerActivity"/>
     </application>
-
 </manifest>

@@ -31,6 +31,7 @@ public class TimelineItem {
         return mLike;
     }
 
+
     public void setmLike(int mLike) {
         this.mLike = mLike;
     }

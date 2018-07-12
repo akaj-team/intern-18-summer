@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view_and_view_group.ViewActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:background="@drawable/bg_cover">
+
+                <ImageView
+                    android:id="@+id/search"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_menu" />
+
+                <TextView
+                    android:id="@+id/tvSection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/good_morning"
+                    android:textSize="32dp" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignRight="@+id/tvSection"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/ic_search" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="130dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgAvatar"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/img_avt1" />
+
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:background="@drawable/bg_radius_view"
+                        android:gravity="center"
+                        android:text="@string/_3"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20dp" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:drawableLeft="@drawable/ic_left"
+                    android:drawableRight="@drawable/ic_right"
+                    android:gravity="center_horizontal"
+                    android:text="@string/february"
+                    android:textSize="22sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/llDayOfWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                android:weightSum="7">
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/sun" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/mon" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/tue" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/wed" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/thu" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/fri" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/sat" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/llDayOfWeek"
+                android:weightSum="7">
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/_1"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:background="@drawable/bg_radius_view_day"
+                    android:drawableBottom="@drawable/ic_dot"
+                    android:text="@string/_2"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/_3"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/_4"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:drawableBottom="@drawable/ic_dot"
+                    android:text="@string/_5"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:drawableBottom="@drawable/ic_dot"
+                    android:text="@string/_6"
+                    android:textColor="@color/colorBlack" />
+
+                <TextView
+                    style="@style/CustomTextDay"
+                    android:text="@string/_7"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llItem1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/llDay"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/viewSelector1"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/img_avt2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action1"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llItem2"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/llItem1"
+                android:gravity="center_vertical">
+
+                <View
+                    android:id="@+id/viewSelector2"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/img_avt3" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action1"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llItem3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_below="@id/llItem2"
+                android:gravity="center_vertical">
+
+                <View
+                    android:id="@+id/viewSelector3"
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/img_avt4" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action1"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time1" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="30dp"
+        app:fabSize="normal" />
+</RelativeLayout>
