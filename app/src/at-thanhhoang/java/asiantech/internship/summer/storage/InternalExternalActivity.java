@@ -99,11 +99,12 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
     }
 
     private void saveInternalFile() {
-        File fileInternal = getFileStreamPath(FILE_NAME_INTERNAL);
-        if (fileInternal.exists()) {
+        File internalFile = getFileStreamPath(FILE_NAME_INTERNAL);
+        if (internalFile.exists()) {
             Toast.makeText(getApplicationContext(), "exists internal File", Toast.LENGTH_SHORT).show();
             try {
-                FileWriter writer = new FileWriter(fileInternal, true);
+                internalFile.createNewFile();
+                FileWriter writer = new FileWriter(internalFile, true);
                 writer.write(mEdtInputText.getText().toString());
                 mEdtInputText.setText("");
                 writer.flush();
@@ -152,6 +153,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
             if (externalFile.exists()) {
                 Toast.makeText(this, "exists external File", Toast.LENGTH_SHORT).show();
                 try {
+                    externalFile.createNewFile();
                     FileWriter writer = new FileWriter(externalFile, true);
                     writer.write(message);
                     writer.flush();
