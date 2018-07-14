@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,10 +25,12 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 
 import asiantech.internship.summer.R;
 
 public class InternalExternalActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = InternalExternalActivity.class.getSimpleName();
     private static final String FILE_NAME_INTERNAL = "Internal.txt";
     private static final String FILE_NAME_EXTERNAL = "External.txt";
     private static final String TITLE_TOOLBAR = "Internal External";
@@ -98,7 +101,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
     private void saveInternalFile() {
         File fileInternal = getFileStreamPath(FILE_NAME_INTERNAL);
         if (fileInternal.exists()) {
-            Toast.makeText(getApplicationContext(), "exists internal file", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "exists internal File", Toast.LENGTH_SHORT).show();
             try {
                 FileWriter writer = new FileWriter(fileInternal, true);
                 writer.write(mEdtInputText.getText().toString());
@@ -106,17 +109,17 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
                 writer.flush();
                 writer.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.d(TAG, "saveInternalFile: " + e);
             }
             mEdtInputText.setText("");
         } else {
             try {
-                Toast.makeText(getApplicationContext(), "not exists internal file", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "not exists internal File", Toast.LENGTH_SHORT).show();
                 FileOutputStream outputStream = openFileOutput(FILE_NAME_INTERNAL, Context.MODE_PRIVATE);
-                outputStream.write(mEdtInputText.getText().toString().getBytes());
+                outputStream.write(mEdtInputText.getText().toString().getBytes(StandardCharsets.UTF_8));
                 outputStream.close();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.d(TAG, "saveInternalFile: " + e);
             }
         }
     }
@@ -125,7 +128,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
         try {
             FileInputStream fileInputStream = openFileInput(FILE_NAME_INTERNAL);
             DataInputStream in = new DataInputStream(fileInputStream);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
             StringBuilder builder = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
@@ -133,7 +136,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
             }
             mTvContent.setText(builder.toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(TAG, "readInternalFile: " + e);
         }
     }
 
@@ -144,27 +147,27 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
             if (!dir.exists()) {
                 dir.mkdir();
             }
-            File file = new File(dir, FILE_NAME_EXTERNAL);
+            File externalFile = new File(dir, FILE_NAME_EXTERNAL);
             String message = mEdtInputText.getText().toString();
-            if (file.exists()) {
-                Toast.makeText(this, "exists external file", Toast.LENGTH_SHORT).show();
+            if (externalFile.exists()) {
+                Toast.makeText(this, "exists external File", Toast.LENGTH_SHORT).show();
                 try {
-                    FileWriter writer = new FileWriter(file, true);
+                    FileWriter writer = new FileWriter(externalFile, true);
                     writer.write(message);
                     writer.flush();
                     writer.close();
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Log.d(TAG, "saveExternalFile: " + e);
                 }
                 mEdtInputText.setText("");
             } else {
                 try {
-                    Toast.makeText(this, "not exists external file", Toast.LENGTH_SHORT).show();
-                    FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    fileOutputStream.write(message.getBytes());
+                    Toast.makeText(this, "not exists external File", Toast.LENGTH_SHORT).show();
+                    FileOutputStream fileOutputStream = new FileOutputStream(externalFile);
+                    fileOutputStream.write(message.getBytes(StandardCharsets.UTF_8));
                     fileOutputStream.close();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                } catch (IOException e) {
+                    Log.d(TAG, "saveExternalFile: " + e);
                 }
             }
         }
@@ -173,11 +176,11 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
     private void readExternalFile() {
         File root = Environment.getExternalStorageDirectory();
         File dir = new File(root.getAbsolutePath() + "/MyFile");
-        File file = new File(dir, FILE_NAME_EXTERNAL);
+        File externalFile = new File(dir, FILE_NAME_EXTERNAL);
         String line;
         try {
-            FileInputStream fileInputStream = new FileInputStream(file);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            FileInputStream fileInputStream = new FileInputStream(externalFile);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder builder = new StringBuilder();
             while ((line = bufferedReader.readLine()) != null) {
@@ -185,7 +188,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
             }
             mTvContent.setText(builder.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d(TAG, "readExternalFile: " + e);
         }
     }
 }

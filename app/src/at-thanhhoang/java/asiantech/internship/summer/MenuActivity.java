@@ -9,10 +9,12 @@ import android.widget.Button;
 
 import asiantech.internship.summer.storage.FileStorageActivity;
 import asiantech.internship.summer.timeline.TimelineActivity;
+import asiantech.internship.summer.viewpager.ViewPagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnViewViewGroup;
     private Button mBtnExRecyclerView;
+    private Button mBtnViewPager;
     private Button mBtnFileStorage;
 
     @Override
@@ -27,12 +29,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private void addListener() {
         mBtnViewViewGroup.setOnClickListener(this);
         mBtnExRecyclerView.setOnClickListener(this);
+        mBtnViewPager.setOnClickListener(this);
         mBtnFileStorage.setOnClickListener(this);
     }
 
     private void initView() {
-        mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
         mBtnViewViewGroup = findViewById(R.id.btnView);
+        mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
+        mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnFileStorage = findViewById(R.id.btnFileStorage);
     }
 
@@ -47,6 +51,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btnRecycleView:
                 intent = new Intent(MenuActivity.this, TimelineActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnViewPager:
+                intent = new Intent(MenuActivity.this, ViewPagerActivity.class);
                 startActivity(intent);
                 break;
 

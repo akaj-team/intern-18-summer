@@ -40,6 +40,7 @@
     <string name="label_add">Add</string>
     <string name="label_employee">Employee List</string>
     <string name="label_title_dialog">Add Name</string>
+    <string name="label_view_pager">View Pager</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
