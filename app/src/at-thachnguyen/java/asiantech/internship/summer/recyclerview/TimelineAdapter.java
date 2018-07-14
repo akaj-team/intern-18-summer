@@ -20,7 +20,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
     private final List<TimelineItem> mListTimeline;
     private final OnLikeClickListener mLikeClickListener;
 
-    TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline, OnLikeClickListener mLikeClickListener) {
+    public TimelineAdapter(Context mContext, ArrayList<TimelineItem> mListTimeline, OnLikeClickListener mLikeClickListener) {
         this.mContext = mContext;
         this.mListTimeline = mListTimeline;
         this.mLikeClickListener = mLikeClickListener;
@@ -45,7 +45,7 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         if (mListTimeline.get(position).ismIsLike()) {
             holder.mImgLike.setImageResource(R.drawable.ic_like);
         } else {
-            holder.mImgLike.setImageResource(R.drawable. ic_unlike);
+            holder.mImgLike.setImageResource(R.drawable.ic_unlike);
         }
     }
 
@@ -79,11 +79,11 @@ public class TimelineAdapter extends RecyclerView.Adapter<TimelineAdapter.Timeli
         @Override
         public void onClick(View v) {
             int position = getLayoutPosition();
-            mLikeClickListener.onLikeClickListener(position);
+            mLikeClickListener.onLikeClickListener(mListTimeline.get(position));
         }
     }
 
     public interface OnLikeClickListener {
-        void onLikeClickListener(int position);
+        void onLikeClickListener(TimelineItem timelineItem);
     }
 }
