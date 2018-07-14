@@ -22,4 +22,6 @@
     <color name="colorYellow">#ffee58</color>
     <color name="colorBrown">#3e2723</color>
     <color name="colorGreyPale">#e0e0e0</color>
+    <color name="colorOrangePale">#ffccbc</color>
+    <color name="colorGrey">#bdbdbd</color>
 </resources>

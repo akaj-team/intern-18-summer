@@ -86,7 +86,6 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
                 saveInternalFile();
                 readInternalFile();
                 break;
-
             case R.id.btnExternal:
                 if (isStoragePermissionGranted()) {
                     saveExternalFile();
@@ -147,7 +146,6 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
             }
             File file = new File(dir, FILE_NAME_EXTERNAL);
             String message = mEdtInputText.getText().toString();
-
             if (file.exists()) {
                 Toast.makeText(this, "exists external file", Toast.LENGTH_SHORT).show();
                 try {
@@ -186,7 +184,6 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
                 builder.append(line);
             }
             mTvContent.setText(builder.toString());
-
         } catch (IOException e) {
             e.printStackTrace();
         }

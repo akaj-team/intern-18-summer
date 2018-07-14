@@ -1,33 +1,30 @@
 package asiantech.internship.summer.storage.model.database.models;
 
-import java.io.Serializable;
-
-public class Company implements Serializable{
+public class Company {
     private int mIdCompany;
     private String mNameCompany;
 
-    public Company(String mNameCompany) {
-        this.mNameCompany = mNameCompany;
+    public Company() {
     }
 
-    public Company(int mIdCompany, String mNameCompany) {
-        this.mIdCompany = mIdCompany;
-        this.mNameCompany = mNameCompany;
-    }
-
-    public int getmIdCompany() {
+    public int getIdCompany() {
         return mIdCompany;
     }
 
-    public void setmIdCompany(int mIdCompany) {
-        this.mIdCompany = mIdCompany;
+    public void setIdCompany(int idCompany) {
+        this.mIdCompany = idCompany;
     }
 
-    public String getmNameCompany() {
+    public String getNameCompany() {
         return mNameCompany;
     }
 
-    public void setmNameCompany(String mNameCompany) {
-        this.mNameCompany = mNameCompany;
+    public void setNameCompany(String nameCompany) {
+        this.mNameCompany = nameCompany;
+    }
+
+    @Override
+    public String toString() {
+        return "Company [id=" + mIdCompany + ", name=" + mNameCompany + "]";
     }
 }

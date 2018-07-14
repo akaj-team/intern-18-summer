@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
-    <string name="label_external">External</string>
-    <string name="label_employee">Employee</string>
 </resources>

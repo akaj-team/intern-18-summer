@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -61,15 +60,13 @@ public class SharePreferenceActivity extends AppCompatActivity {
             mEditor.putBoolean(KEY_STATE, isCheckState);
             mEditor.apply();
 
-            Toast.makeText(getApplicationContext(), "hello: " + mSharedPref.getBoolean(KEY_STATE, false), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "state: " + mSharedPref.getBoolean(KEY_STATE, false), Toast.LENGTH_SHORT).show();
 
         });
     }
 
     private void checkStateStart() {
-        Toast.makeText(getApplicationContext(), "checkStateStart", Toast.LENGTH_SHORT).show();
         boolean status = mSharedPref.getBoolean(KEY_STATE, false);
-        Log.d("aaa", "checkStateStart: " + status);
         if (status) {
             mEdtUsername.setText(mSharedPref.getString(KEY_USERNAME, null));
             mEdtPassword.setText(mSharedPref.getString(KEY_PASSWORD, null));

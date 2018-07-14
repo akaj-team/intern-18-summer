@@ -10,15 +10,14 @@ import android.support.v7.widget.Toolbar;
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.storage.fragment.database.CompanyFragment;
 
-public class DatabaseActivity extends AppCompatActivity {
+public class DatabaseActivity extends AppCompatActivity implements CompanyFragment.OnReplaceListener {
     private static final String TITLE_TOOLBAR = "Database SQLite";
-    private CompanyFragment companyFragment = new CompanyFragment();
+    private CompanyFragment mCompanyFragment = new CompanyFragment();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database);
-
         initView();
         addListener();
     }
@@ -30,7 +29,7 @@ public class DatabaseActivity extends AppCompatActivity {
     }
 
     private void addListener() {
-        replaceFragment(companyFragment);
+        replaceFragment(mCompanyFragment);
     }
 
     public void replaceFragment(Fragment fragment) {
@@ -38,6 +37,11 @@ public class DatabaseActivity extends AppCompatActivity {
         transaction.replace(R.id.containerDatabase, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public void onReplaceFragment(Fragment fragment) {
+        replaceFragment(fragment);
     }
 
     @Override

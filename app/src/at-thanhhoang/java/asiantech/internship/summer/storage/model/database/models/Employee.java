@@ -1,33 +1,35 @@
 package asiantech.internship.summer.storage.model.database.models;
 
-import java.io.Serializable;
-
-public class Employee implements Serializable{
+public class Employee {
     private int mIdEmployee;
+    private int mIdCompanyEmployee;
     private String mNameEmployee;
 
-    public Employee(String mNameEmployee) {
-        this.mNameEmployee = mNameEmployee;
+    public Employee() {
     }
 
-    public Employee(int mIdEmployee, String mNameEmployee) {
-        this.mIdEmployee = mIdEmployee;
-        this.mNameEmployee = mNameEmployee;
-    }
-
-    public int getmIdEmployee() {
+    public int getIdEmployee() {
         return mIdEmployee;
     }
 
-    public void setmIdEmployee(int mIdEmployee) {
-        this.mIdEmployee = mIdEmployee;
+    public void setIdEmployee(int idEmployee) {
+        this.mIdEmployee = idEmployee;
     }
 
-    public String getmNameEmployee() {
+    public void setIdCompanyEmployee(int idCompanyEmployee) {
+        this.mIdCompanyEmployee = idCompanyEmployee;
+    }
+
+    public String getNameEmployee() {
         return mNameEmployee;
     }
 
-    public void setmNameEmployee(String mNameEmployee) {
+    public void setNameEmployee(String mNameEmployee) {
         this.mNameEmployee = mNameEmployee;
+    }
+
+    @Override
+    public String toString() {
+        return "Company [idEmploy = " + mIdEmployee + ",idCompany = " +  mIdCompanyEmployee + ", name = " + mNameEmployee + "]";
     }
 }
