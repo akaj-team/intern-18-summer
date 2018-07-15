@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import asiantech.internship.summer.drawerlayout.DrawerActivity;
 import asiantech.internship.summer.timeline.TimelineActivity;
 import asiantech.internship.summer.viewpager.ViewPagerActivity;
 
@@ -14,6 +15,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnViewViewGroup;
     private Button mBtnExRecyclerView;
     private Button mBtnViewPagerTabLayout;
+    private Button mBtnExDrawerLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,12 +30,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnViewViewGroup.setOnClickListener(this);
         mBtnExRecyclerView.setOnClickListener(this);
         mBtnViewPagerTabLayout.setOnClickListener(this);
+        mBtnExDrawerLayout.setOnClickListener(this);
     }
 
     private void initView() {
         mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
         mBtnViewViewGroup = findViewById(R.id.btnView);
         mBtnViewPagerTabLayout = findViewById(R.id.btnViewpager);
+        mBtnExDrawerLayout = findViewById(R.id.btnDrawerLayout);
     }
 
     @Override
@@ -52,6 +56,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btnViewpager:
                 intent = new Intent(MenuActivity.this, ViewPagerActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnDrawerLayout:
+                intent = new Intent(MenuActivity.this, DrawerActivity.class);
                 startActivity(intent);
                 break;
         }

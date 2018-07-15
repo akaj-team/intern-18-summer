@@ -26,6 +26,12 @@
     <string name="label_view_view_group">View View Group</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
     <string name="ex_recycler_view">RecyclerView</string>
+    <string name="label_open">open</string>
+    <string name="label_close">close</string>
+    <string name="label_setting">setting</string>
+    <string name="label_for_image_function">imageFunction</string>
+    <string name="label_hello_world">hello world</string>
+    <string name="label_drawer_layout">DrawerLayout</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
@@ -40,5 +46,18 @@
         <item>Marcos Alonso</item>
         <item>Keylor Nike</item>
         <item>Ethan Ampadu</item>
+    </string-array>
+
+    <string-array name="function_name_array">
+        <item>Inbox</item>
+        <item>Setting</item>
+        <item>Spam</item>
+        <item>Trash</item>
+    </string-array>
+
+    <string-array name="email_array">
+        <item>thanhhoang@gmail.com</item>
+        <item>thanh1003@gmail.com</item>
+        <item>worldcup@gmail.com</item>
     </string-array>
 </resources>
