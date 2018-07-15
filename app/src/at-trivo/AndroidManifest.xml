@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".recycler_view.RecyclerViewActivity">
+        <activity android:name=".recycler_view.RecyclerViewActivity" />
+        <activity android:name=".view_pager.ViewPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

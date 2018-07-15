@@ -7,14 +7,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorGray"
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorBackgroundFragmentLogin">
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent" />
 
         <ProgressBar
             android:id="@+id/progressBarLoadMore"

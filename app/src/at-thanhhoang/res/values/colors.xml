@@ -13,7 +13,13 @@
     <color name="colorBackgroundItemViewActivityMain">#fff59d</color>
     <color name="colorBackgroundDateMainActivity">#aed581</color>
     <color name="colorBackgroundNumberMenuActivity">#ffee58</color>
+    <color name="colorOrangeDark">#ff5722</color>
+    <color name="colorYellowPale">#fff59d</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorBlueLight">#81d4fa</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorBrown">#e0e0e0</color>
+    <color name="colorPinkLight">#f48fb1</color>
+    <color name="colorYellow">#ffee58</color>
+    <color name="colorBrown">#3e2723</color>
+    <color name="colorGray">#f1f1f1</color>
 </resources>
