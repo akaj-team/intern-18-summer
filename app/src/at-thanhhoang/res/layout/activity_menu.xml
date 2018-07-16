@@ -22,6 +22,18 @@
             android:textSize="18sp" />
 
         <Button
+            android:id="@+id/btnFragmentActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/label_fragment_activity"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/btnRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +41,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorBackgroundButtonMenuActivity"
-            android:text="@string/ex_recycler_view"
+            android:text="@string/label_recycler_view"
             android:textAllCaps="false"
             android:textSize="18sp" />
 

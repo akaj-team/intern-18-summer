@@ -41,6 +41,12 @@
     <string name="label_employee">Employee List</string>
     <string name="label_title_dialog">Add Name</string>
     <string name="label_view_pager">View Pager</string>
+    <string name="label_fragment_activity">Fragment Activity</string>
+    <string name="label_email">Email</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="label_sign_up">SIGN UP</string>
+    <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
+    <string name="label_recycler_view">RecyclerView</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>

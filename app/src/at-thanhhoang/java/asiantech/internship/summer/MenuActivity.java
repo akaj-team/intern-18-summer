@@ -7,12 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import asiantech.internship.summer.exercise_fragment_activity.FragmentActivity;
 import asiantech.internship.summer.storage.FileStorageActivity;
 import asiantech.internship.summer.timeline.TimelineActivity;
 import asiantech.internship.summer.viewpager.ViewPagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mBtnViewViewGroup;
+    private Button mBtnFragmentActivity;
     private Button mBtnExRecyclerView;
     private Button mBtnViewPager;
     private Button mBtnFileStorage;
@@ -28,6 +30,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addListener() {
         mBtnViewViewGroup.setOnClickListener(this);
+        mBtnFragmentActivity.setOnClickListener(this);
         mBtnExRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
         mBtnFileStorage.setOnClickListener(this);
@@ -35,6 +38,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         mBtnViewViewGroup = findViewById(R.id.btnView);
+        mBtnFragmentActivity = findViewById(R.id.btnFragmentActivity);
+        mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
         mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
         mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnFileStorage = findViewById(R.id.btnFileStorage);
@@ -46,6 +51,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btnView:
                 intent = new Intent(MenuActivity.this, ViewActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnFragmentActivity:
+                intent = new Intent(MenuActivity.this, FragmentActivity.class);
                 startActivity(intent);
                 break;
 

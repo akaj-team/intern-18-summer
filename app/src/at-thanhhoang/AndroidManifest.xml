@@ -26,5 +26,7 @@
         <activity android:name=".storage.SharePreferenceActivity" />
         <activity android:name=".storage.InternalExternalActivity" />
         <activity android:name=".storage.DatabaseActivity" />
+        <activity android:name=".exercise_fragment_activity.FragmentActivity" />
+        <activity android:name=".exercise_fragment_activity.ResultActivity" />
     </application>
 </manifest>
