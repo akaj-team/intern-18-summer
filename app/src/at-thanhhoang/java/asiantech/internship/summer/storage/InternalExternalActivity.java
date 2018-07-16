@@ -1,6 +1,7 @@
 package asiantech.internship.summer.storage;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,6 +31,7 @@ import java.nio.charset.StandardCharsets;
 
 import asiantech.internship.summer.R;
 
+@SuppressLint("Registered")
 public class InternalExternalActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = InternalExternalActivity.class.getSimpleName();
     private static final String FILE_NAME_INTERNAL = "Internal.txt";
@@ -103,12 +106,10 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
         if (internalFile.exists()) {
             Toast.makeText(getApplicationContext(), "exists internal File", Toast.LENGTH_SHORT).show();
             try {
-                internalFile.createNewFile();
-                FileWriter writer = new FileWriter(internalFile, true);
-                writer.write(mEdtInputText.getText().toString());
-                mEdtInputText.setText("");
-                writer.flush();
-                writer.close();
+                BufferedWriter out = new BufferedWriter(new FileWriter(internalFile, true));
+                out.write(mEdtInputText.getText().toString());
+                out.flush();
+                out.close();
             } catch (IOException e) {
                 Log.d(TAG, "saveInternalFile: " + e);
             }
@@ -149,15 +150,13 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
                 dir.mkdir();
             }
             File externalFile = new File(dir, FILE_NAME_EXTERNAL);
-            String message = mEdtInputText.getText().toString();
             if (externalFile.exists()) {
                 Toast.makeText(this, "exists external File", Toast.LENGTH_SHORT).show();
                 try {
-                    externalFile.createNewFile();
-                    FileWriter writer = new FileWriter(externalFile, true);
-                    writer.write(message);
-                    writer.flush();
-                    writer.close();
+                    BufferedWriter out = new BufferedWriter(new FileWriter(externalFile, true));
+                    out.write(mEdtInputText.getText().toString());
+                    out.flush();
+                    out.close();
                 } catch (IOException e) {
                     Log.d(TAG, "saveExternalFile: " + e);
                 }
@@ -166,7 +165,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
                 try {
                     Toast.makeText(this, "not exists external File", Toast.LENGTH_SHORT).show();
                     FileOutputStream fileOutputStream = new FileOutputStream(externalFile);
-                    fileOutputStream.write(message.getBytes(StandardCharsets.UTF_8));
+                    fileOutputStream.write(mEdtInputText.getText().toString().getBytes(StandardCharsets.UTF_8));
                     fileOutputStream.close();
                 } catch (IOException e) {
                     Log.d(TAG, "saveExternalFile: " + e);
