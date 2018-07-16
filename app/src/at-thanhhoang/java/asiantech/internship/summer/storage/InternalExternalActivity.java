@@ -27,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
 import asiantech.internship.summer.R;
@@ -106,7 +107,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
         if (internalFile.exists()) {
             Toast.makeText(getApplicationContext(), "exists internal File", Toast.LENGTH_SHORT).show();
             try {
-                BufferedWriter out = new BufferedWriter(new FileWriter(internalFile, true));
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(internalFile, true), StandardCharsets.UTF_8));
                 out.write(mEdtInputText.getText().toString());
                 out.flush();
                 out.close();
@@ -153,7 +154,7 @@ public class InternalExternalActivity extends AppCompatActivity implements View.
             if (externalFile.exists()) {
                 Toast.makeText(this, "exists external File", Toast.LENGTH_SHORT).show();
                 try {
-                    BufferedWriter out = new BufferedWriter(new FileWriter(externalFile, true));
+                    BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(externalFile, true), StandardCharsets.UTF_8));
                     out.write(mEdtInputText.getText().toString());
                     out.flush();
                     out.close();
