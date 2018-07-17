@@ -24,8 +24,13 @@
     <string name="label_good_morning">Good Morning!</string>
     <string name="label_february">FEBRUARY</string>
     <string name="label_view_view_group">View View Group</string>
+    <string name="label_fragment_activity">Fragment Activity</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="label_sign_up">SIGN UP</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
-    <string name="ex_recycler_view">RecyclerView</string>
+    <string name="label_recycler_view">RecyclerView</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>

@@ -34,7 +34,7 @@ public class SharePreferenceActivity extends AppCompatActivity {
         mChkRemember.setChecked(remember);
         mBtnLogin.setOnClickListener(v -> {
             store();
-            Toast.makeText(this, "You stored status login", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You stored state your login", Toast.LENGTH_SHORT).show();
         });
     }
 
