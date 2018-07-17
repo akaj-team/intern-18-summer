@@ -19,7 +19,7 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_view_view_group"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnFragmentActivity"
@@ -43,18 +43,30 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_recycler_view"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
-            android:layout_marginTop="10dp"
-            android:id="@+id/btnViewpager"
+            android:id="@+id/btnViewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ex_viewpager_tablayout"
-            android:background="@color/colorBackgroundButtonMenuActivity"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/label_view_pager"
             android:textAllCaps="false"
-            android:textSize="20sp"/>
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnFileStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/label_file_storage"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
     </LinearLayout>
 </ScrollView>

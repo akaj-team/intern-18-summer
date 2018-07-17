@@ -1,5 +1,6 @@
 package asiantech.internship.summer.viewpager;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,10 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import asiantech.internship.summer.R;
-import asiantech.internship.summer.viewpager.adapter.ViewpagerAdapter;
 import asiantech.internship.summer.timeline.TimelineFragment;
+import asiantech.internship.summer.viewpager.adapter.ViewpagerAdapter;
 import asiantech.internship.summer.timeline.model.TimelineItem;
 
+@SuppressLint("Registered")
 public class ViewPagerActivity extends AppCompatActivity implements TimelineFragment.OnTimelineListener {
     public static final String TITLE = "VIEWPAGER TAB-LAYOUT";
 

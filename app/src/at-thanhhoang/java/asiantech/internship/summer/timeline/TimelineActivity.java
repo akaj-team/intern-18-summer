@@ -1,16 +1,13 @@
 package asiantech.internship.summer.timeline;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import asiantech.internship.summer.R;
 
-@SuppressLint("Registered")
 public class TimelineActivity extends AppCompatActivity {
     private static final String TITLE_TOOLBAR = "Timeline Activity";
 

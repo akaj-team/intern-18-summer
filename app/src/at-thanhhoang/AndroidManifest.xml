@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="asiantech.internship.summer">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,10 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewActivity"/>
+        <activity android:name=".timeline.TimelineActivity" />
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".viewpager.ViewPagerActivity" />
+        <activity android:name=".storage.FileStorageActivity" />
+        <activity android:name=".storage.SharePreferenceActivity" />
+        <activity android:name=".storage.InternalExternalActivity" />
+        <activity android:name=".storage.DatabaseActivity" />
         <activity android:name=".exercise_fragment_activity.FragmentActivity" />
         <activity android:name=".exercise_fragment_activity.ResultActivity" />
-        <activity android:name=".timeline.TimelineActivity" />
-        <activity android:name=".viewpager.ViewPagerActivity"/>
     </application>
 </manifest>
