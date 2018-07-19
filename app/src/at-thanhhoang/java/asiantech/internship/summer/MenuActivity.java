@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import asiantech.internship.summer.exercise_fragment_activity.FragmentActivity;
+import asiantech.internship.summer.rest_api.RestAPIActivity;
 import asiantech.internship.summer.timeline.TimelineActivity;
 import asiantech.internship.summer.viewpager.ViewPagerActivity;
 
@@ -16,6 +17,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnFragmentActivity;
     private Button mBtnExRecyclerView;
     private Button mBtnViewPagerTabLayout;
+    private Button mBtnVRestAPI;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentActivity.setOnClickListener(this);
         mBtnExRecyclerView.setOnClickListener(this);
         mBtnViewPagerTabLayout.setOnClickListener(this);
+        mBtnVRestAPI.setOnClickListener(this);
     }
 
     private void initView() {
@@ -38,6 +41,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentActivity = findViewById(R.id.btnFragmentActivity);
         mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
         mBtnViewPagerTabLayout = findViewById(R.id.btnViewpager);
+        mBtnVRestAPI = findViewById(R.id.btnRestAPI);
     }
 
     @Override
@@ -60,6 +64,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btnViewpager:
                 intent = new Intent(MenuActivity.this, ViewPagerActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.btnRestAPI:
+                intent = new Intent(MenuActivity.this, RestAPIActivity.class);
                 startActivity(intent);
                 break;
         }

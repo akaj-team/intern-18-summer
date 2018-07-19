@@ -31,6 +31,9 @@
     <string name="label_sign_up">SIGN UP</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
     <string name="label_recycler_view">RecyclerView</string>
+    <string name="label_button_load_image_from_api">Load Image From API</string>
+    <string name="label_button_upload_image_to_api">Upload Image To API</string>
+    <string name="label_rest_api">Rest API</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
