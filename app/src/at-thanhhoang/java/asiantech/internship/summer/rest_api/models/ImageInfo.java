@@ -3,7 +3,7 @@ package asiantech.internship.summer.rest_api.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Images {
+public class ImageInfo {
     @SerializedName("image_id")
     @Expose
     private String imageId;
