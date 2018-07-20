@@ -3,6 +3,7 @@ package asiantech.internship.summer.rest_api;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -47,15 +48,21 @@ import retrofit2.Response;
 public class RestAPIActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String ACCESS_TOKEN = "6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e";
     private static final String TITLE_TOOLBAR = "REST API";
-    private static final String TITLE_OPTION_DIALOG = "Option";
+    private static final String DIALOG_OPTION_TITLE = "Option";
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int RESULT_LOAD_IMG = 2;
+    private static final String DIALOG_DOWNLOAD_TITLE = "Download image API";
+    private static final String DIALOG_DOWNLOAD_MESSAGE = "Download image ...";
+    private static final String DIALOG_UPLOAD_TITLE = "Upload image API";
+    private static final String DIALOG_UPLOAD_MESSAGE = "Upload image ...";
+
 
     private final CharSequence[] mChoiceOption = {"Take Photo", "Choose from Gallery"};
 
     private Button mBtnLoadAPI;
     private Button mBtnUploadAPI;
     private RecyclerView mImagesRecyclerView;
+    private ProgressDialog mProgressDialog;
 
     private RestAPIAdapter mRestAPIAdapter;
     private List<String> mUrlList;
@@ -112,6 +119,7 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnLoadImageApi:
+                setProgressBarDialog(DIALOG_DOWNLOAD_TITLE, DIALOG_DOWNLOAD_MESSAGE);
                 downloadImages();
                 break;
             case R.id.btnUploadToApi:
@@ -120,9 +128,19 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    private void setProgressBarDialog(String title, String message) {
+        mProgressDialog = new ProgressDialog(this, R.style.AppCompatAlertDialogStyle);
+        mProgressDialog.setTitle(title);
+        mProgressDialog.setMessage(message);
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.show();
+        mProgressDialog.setCancelable(false);
+
+    }
+
     private void showOptionDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(TITLE_OPTION_DIALOG)
+        builder.setTitle(DIALOG_OPTION_TITLE)
                 .setItems(mChoiceOption, (dialogInterface, i) -> {
                     if (mChoiceOption[i].equals(mChoiceOption[0])) {
                         if (isStoragePermissionGranted()) {
@@ -144,13 +162,14 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void downloadImages() {
-        ApiUtils.getServiceDownload().downloadImages(ACCESS_TOKEN).enqueue(new Callback<List<ImageInfo>>() {
+        ApiUtils.getServiceDownload().downloadImages(ACCESS_TOKEN, 50).enqueue(new Callback<List<ImageInfo>>() {
             @Override
             public void onResponse(@NonNull Call<List<ImageInfo>> successCall, @NonNull Response<List<ImageInfo>> response) {
                 mUrlList.clear();
                 for (ImageInfo images : Objects.requireNonNull(response.body())) {
                     mUrlList.add(images.getUrl());
                 }
+                mProgressDialog.dismiss();
 
                 mRestAPIAdapter = new RestAPIAdapter(getApplicationContext(), mUrlList, position ->
                         Toast.makeText(getApplicationContext(), "position " + position, Toast.LENGTH_SHORT).show());
@@ -216,6 +235,7 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void uploadImage() {
+        setProgressBarDialog(DIALOG_UPLOAD_TITLE, DIALOG_UPLOAD_MESSAGE);
         File file = new File(mPathImage);
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
@@ -225,6 +245,7 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
         upload.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                mProgressDialog.dismiss();
                 Toast.makeText(RestAPIActivity.this, "Upload completed", Toast.LENGTH_SHORT).show();
             }
 

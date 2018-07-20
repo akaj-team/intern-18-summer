@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 
 public interface Api {
     @GET("images")
-    Call<List<ImageInfo>> downloadImages(@Query("access_token") String accessToken);
+    Call<List<ImageInfo>> downloadImages(@Query("access_token") String accessToken, @Query("per_page") Integer page);
 
     @Multipart
     @POST("upload")
