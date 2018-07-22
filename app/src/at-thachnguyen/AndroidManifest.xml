@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="asiantech.internship.summer">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".activity_and_fragment.ActivityAndFragmentActivity"/>
+        <activity android:name=".activity_and_fragment.HomeActivity"/>
+        <activity android:name=".view_and_view_group.ViewActivity"/>
         <activity android:name=".recyclerview.RecyclerViewActivity"/>
         <activity android:name=".viewpager.PagerActivity"/>
     </application>

@@ -192,4 +192,3 @@ public class TimelineItemFragment extends Fragment {
         void onChangeFavourite(TimelineItem timelineItem);
     }
 }
-

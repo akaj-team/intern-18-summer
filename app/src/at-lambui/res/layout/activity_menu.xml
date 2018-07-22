@@ -2,21 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/nancy">
 
     <Button
-        android:id="@+id/btnRecyclerview"
+        android:id="@+id/btnViewAndViewGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@color/colorPrimaryBlack"
         android:text="@string/menu_activity_view_title"
         android:textSize="@dimen/font_normal" />
 
     <Button
-        android:id="@+id/btnViewpager"
+        android:id="@+id/btnViewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorPrimaryBlack"
         android:text="@string/menu_activity_recyclerview_title"
         android:textSize="@dimen/font_normal" />
