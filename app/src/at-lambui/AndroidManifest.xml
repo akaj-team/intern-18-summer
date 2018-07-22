@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="asiantech.internship.summer">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -24,5 +25,7 @@
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".asynctask_thread_handler.AsynctaskThreadHandlerActivity" />
     </application>
+
 </manifest>

@@ -22,5 +22,15 @@
         android:background="@color/colorPrimaryBlack"
         android:text="@string/menu_activity_recyclerview_title"
         android:textSize="@dimen/font_normal" />
+    <Button
+        android:id="@+id/btnAsynctaskThreadHandler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_asynctask_thread_handler_title"
+        android:textSize="@dimen/font_normal" />
+
+
 
 </LinearLayout>

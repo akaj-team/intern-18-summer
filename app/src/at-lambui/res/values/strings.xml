@@ -1,4 +1,4 @@
-<resources >
+<resources>
     <string name="app_name">Recycleview</string>
     <string name="menu">menu</string>
     <string name="todo">TODO</string>
@@ -33,4 +33,9 @@
     <string name="menu_recycler_view_title">Recyclerview</string>
     <string name="menu_activity_recyclerview_title">ViewPager</string>
     <string name="like"> Like </string>
+    <string name="menu_asynctask_thread_handler_title">AsyncTaskThreadHandler</string>
+    <string name="asyctask">ASYNCTASK</string>
+    <string name="thread">THREAD</string>
+    <string name="handler">HANDLER</string>
+    <string name="download_image">DOWNLOAD IMAGES</string>
 </resources>
