@@ -1,7 +1,6 @@
 package asiantech.internship.summer.filestorage;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -25,7 +24,6 @@ import java.util.List;
 
 import asiantech.internship.summer.R;
 
-@SuppressLint("Registered")
 public class InternalAndExternalAcitivity extends AppCompatActivity implements View.OnClickListener {
     private EditText mEdtInput;
     private Button mBtnInternal;
@@ -76,8 +74,6 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void loadDataInternal() {
@@ -87,7 +83,6 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             StringBuilder stringBuilder = new StringBuilder();
             String text;
-
             while ((text = bufferedReader.readLine()) != null) {
                 stringBuilder.append(text).append("\n");
             }
@@ -96,15 +91,13 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void saveDataExternal() {
         if (isExternalStorageReadable()) {
             String content = mEdtInput.getText().toString();
             try {
-                File file = new File(this.getExternalFilesDir(
-                        Environment.DIRECTORY_DOCUMENTS), FILE_NAME);
+                File file = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), FILE_NAME);
                 FileWriter fileWriter = new FileWriter(file, true);
                 fileWriter.append(content);
                 fileWriter.close();
@@ -115,8 +108,6 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
             Toast.makeText(this, "not SDCARD or not isExternalStorageReadable", Toast.LENGTH_LONG).show();
         }
     }
-
-
     private void loadDataExternal() {
         try {
             File file = new File(this.getExternalFilesDir(
@@ -158,5 +149,4 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
         String state = Environment.getExternalStorageState();
         return Environment.MEDIA_MOUNTED.equals(state) || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
     }
-
 }

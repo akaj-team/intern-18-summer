@@ -5,12 +5,7 @@ public class Employee {
     private String mName;
     private String mPhoneNumber;
     private String mAddress;
-    private int  mIdCompany;
-
-    public Employee(String Name, String PhoneNumber, String Address) {
-        this.mName = Name;
-        this.mPhoneNumber = PhoneNumber;
-        this.mAddress = Address;
+    public Employee() {
     }
 
     public int getId() {
@@ -43,13 +38,5 @@ public class Employee {
 
     public void setAddress(String Address) {
         this.mAddress = Address;
-    }
-
-    public int  getIdCompany() {
-        return mIdCompany;
-    }
-
-    public void setIdCompany(int  idCompany) {
-        this.mIdCompany = idCompany;
     }
 }

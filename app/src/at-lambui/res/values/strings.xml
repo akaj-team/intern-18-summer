@@ -26,4 +26,7 @@
     <string name="company_name">companyname</string>
     <string name="employee_name">employeename</string>
     <string name="employee_phonenumber">phonenumber</string>
+    <string name="delete_employee">Ban co muon xoa nhan vien nay khong ? </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

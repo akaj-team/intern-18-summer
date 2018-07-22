@@ -5,9 +5,7 @@ public class Company {
     private String mName;
     private String mAddress;
 
-    public Company(String mName, String mAddress) {
-        this.mName = mName;
-        this.mAddress = mAddress;
+    public Company() {
     }
 
     public int getId() {
@@ -33,5 +31,4 @@ public class Company {
     public void setAddress(String Address) {
         this.mAddress = Address;
     }
-
 }

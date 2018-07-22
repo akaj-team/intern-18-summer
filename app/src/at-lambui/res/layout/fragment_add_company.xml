@@ -1,52 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="20dp"
-        android:textSize="25dp"
-        android:hint="Ten"
-        android:background="@drawable/custom_edit_text"
-        android:id="@+id/edt_Name_Company"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <EditText
+        android:id="@+id/edtNameCompany"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="25dp"
-        android:paddingLeft="20dp"
-        android:textSize="25dp"
-        android:hint="Dia Chi"
         android:background="@drawable/custom_edit_text"
-        android:id="@+id/edt_Address_Company"/>
+        android:hint="@string/ten"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/edtAddressCompany"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_edit_text"
+        android:hint="@string/dia_chi"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textSize="25dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="2"
+        android:paddingBottom="15dp"
         android:paddingTop="15dp"
-        android:paddingBottom="15dp">
+        android:weightSum="2">
+
         <Button
-            android:layout_weight="1"
-            android:layout_height="55dp"
-            android:id="@+id/btn_Add"
-            android:text="ADD"
-            android:layout_marginLeft="10dp"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:layout_width="match_parent" />
-        <Button
-            android:layout_weight="1"
+            android:id="@+id/btnAddCompany"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/add"
             android:textSize="25dp"
-            android:text="CANCEL"
-            android:id="@+id/btn_Cancel"
-            android:textStyle="bold"
-            android:layout_marginRight="10dp"/>
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancelCompany"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>
