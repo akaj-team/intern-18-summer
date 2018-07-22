@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.BufferedInputStream;
@@ -46,7 +47,7 @@ public class DownloadImageAsynctask extends AsyncTask<URL, Integer, List<Bitmap>
                 bufferedInputStream.close();
                 inputStream.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e("EXCEPTION", e.getMessage());
             } finally {
                 if (connection != null) {
                     connection.disconnect();
