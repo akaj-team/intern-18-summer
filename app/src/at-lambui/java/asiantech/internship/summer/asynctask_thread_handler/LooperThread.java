@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.BufferedInputStream;
@@ -41,7 +42,7 @@ public class LooperThread extends Thread {
                         new Handler(Looper.getMainLooper()).post(() -> imageView.setImageBitmap(bitmap));
 
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        Log.e("AAA",e.getMessage());
                     } finally {
                         if (connection != null) {
                             connection.disconnect();

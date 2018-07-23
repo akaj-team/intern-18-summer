@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.BufferedInputStream;
@@ -41,7 +42,7 @@ public class DownloadImageThread extends Thread {
                 mActivity.runOnUiThread(() -> imageView.setImageBitmap(bitmap));
 
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e("AAA",e.getMessage());
             } finally {
                 if (connection != null) {
                     connection.disconnect();

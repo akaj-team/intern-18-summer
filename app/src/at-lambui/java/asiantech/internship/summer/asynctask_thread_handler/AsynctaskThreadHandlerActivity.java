@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,10 +23,10 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
     public LooperThread looperThread;
-    private static String save;
-    private static final String ASYNCTASK = "asyctask";
-    private static final String THREAD = "thread";
-    private static final String HANDLER = "handler";
+    private  String save;
+    private  final String ASYNCTASK = "asyctask";
+    private  final String THREAD = "thread";
+    private  final String HANDLER = "handler";
 
     public final static URL IMAGE_URL = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/beige_keyboard.jpg");
     public final static URL IMAGE_URL_2 = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/computer_blank_screen.jpg");
@@ -114,7 +115,7 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
         try {
             return new URL(s);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Log.e("AAA",e.getMessage());
         }
         return null;
     }
