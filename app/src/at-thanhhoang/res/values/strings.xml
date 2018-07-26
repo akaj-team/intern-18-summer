@@ -31,6 +31,7 @@
     <string name="label_sign_up">SIGN UP</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
     <string name="label_recycler_view">RecyclerView</string>
+    <string name="label_canvas">Canvas</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>

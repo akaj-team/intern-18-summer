@@ -56,5 +56,17 @@
             android:layout_marginLeft="20dp"
             android:textAllCaps="false"
             android:textSize="20sp"/>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_canvas"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
     </LinearLayout>
 </ScrollView>

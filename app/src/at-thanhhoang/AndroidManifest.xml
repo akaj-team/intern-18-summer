@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewActivity"/>
+        <activity android:name=".ViewActivity" />
         <activity android:name=".exercise_fragment_activity.FragmentActivity" />
         <activity android:name=".exercise_fragment_activity.ResultActivity" />
         <activity android:name=".timeline.TimelineActivity" />
-        <activity android:name=".viewpager.ViewPagerActivity"/>
+        <activity android:name=".viewpager.ViewPagerActivity" />
+        <activity android:name=".canvas.CanvasActivity" />
     </application>
 </manifest>
