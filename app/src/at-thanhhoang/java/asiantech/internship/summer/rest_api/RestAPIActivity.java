@@ -140,12 +140,12 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void openCamera() {
-        Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, REQUEST_CAMERA);
     }
 
     private void openGallery() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(galleryIntent, REQUEST_GALLERY);
     }
 
@@ -222,7 +222,9 @@ public class RestAPIActivity extends AppCompatActivity implements View.OnClickLi
     private String getRealPathImage(Uri imageUri) {
         String[] projection = {MediaStore.Images.Media.DATA};
         Cursor cursor = getContentResolver().query(imageUri, projection, null, null, null);
-        if (cursor == null) return null;
+        if (cursor == null) {
+            return null;
+        }
         int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
         cursor.moveToFirst();
         String path = cursor.getString(column_index);
