@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ef6c00">
+    android:background="@color/colorOrangeDark">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarRestApi"
+        android:id="@+id/toolbarApi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary" />
@@ -17,7 +17,7 @@
         android:padding="10dp">
 
         <Button
-            android:id="@+id/btnLoadImageApi"
+            android:id="@+id/btnLoadApi"
             style="?android:attr/buttonBarStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btnUploadToApi"
+            android:id="@+id/btnUploadApi"
             style="?android:attr/buttonBarStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -1,26 +1,19 @@
 package asiantech.internship.summer.rest_api.models;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class ImageInfo {
     @SerializedName("image_id")
-    @Expose
     private String imageId;
     @SerializedName("permalink_url")
-    @Expose
     private String permalinkUrl;
     @SerializedName("url")
-    @Expose
     private String url;
     @SerializedName("type")
-    @Expose
     private String type;
     @SerializedName("thumb_url")
-    @Expose
     private String thumbUrl;
     @SerializedName("created_at")
-    @Expose
     private String createdAt;
 
     public String getImageId() {

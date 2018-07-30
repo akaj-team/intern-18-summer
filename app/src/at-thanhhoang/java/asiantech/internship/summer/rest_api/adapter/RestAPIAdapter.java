@@ -17,12 +17,12 @@ import asiantech.internship.summer.R;
 public class RestAPIAdapter extends RecyclerView.Adapter<RestAPIAdapter.MyViewHolder> {
     private Context mContext;
     private List<String> mUrlList;
-    private clickImagesListener mListener;
+    private OnClickImagesListener mListener;
 
-    public RestAPIAdapter(Context context, List<String> listUrl, clickImagesListener listener) {
-        this.mContext = context;
-        this.mUrlList = listUrl;
-        this.mListener = listener;
+    public RestAPIAdapter(Context context, List<String> listUrl,@NonNull OnClickImagesListener listener) {
+        mContext = context;
+        mUrlList = listUrl;
+        mListener = listener;
     }
 
     @NonNull
@@ -53,7 +53,7 @@ public class RestAPIAdapter extends RecyclerView.Adapter<RestAPIAdapter.MyViewHo
         }
     }
 
-    public interface clickImagesListener{
+    public interface OnClickImagesListener {
         void onImageClick(int id);
     }
 }

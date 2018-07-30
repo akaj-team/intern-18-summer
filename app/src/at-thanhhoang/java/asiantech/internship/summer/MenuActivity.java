@@ -17,7 +17,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnFragmentActivity;
     private Button mBtnExRecyclerView;
     private Button mBtnViewPagerTabLayout;
-    private Button mBtnVRestAPI;
+    private Button mBtnRestAPI;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentActivity.setOnClickListener(this);
         mBtnExRecyclerView.setOnClickListener(this);
         mBtnViewPagerTabLayout.setOnClickListener(this);
-        mBtnVRestAPI.setOnClickListener(this);
+        mBtnRestAPI.setOnClickListener(this);
     }
 
     private void initView() {
@@ -41,7 +41,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentActivity = findViewById(R.id.btnFragmentActivity);
         mBtnExRecyclerView = findViewById(R.id.btnRecycleView);
         mBtnViewPagerTabLayout = findViewById(R.id.btnViewpager);
-        mBtnVRestAPI = findViewById(R.id.btnRestAPI);
+        mBtnRestAPI = findViewById(R.id.btnRestAPI);
     }
 
     @Override
@@ -52,7 +52,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MenuActivity.this, ViewActivity.class);
                 startActivity(intent);
                 break;
-
             case R.id.btnFragmentActivity:
                 intent = new Intent(MenuActivity.this, FragmentActivity.class);
                 startActivity(intent);
@@ -61,12 +60,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MenuActivity.this, TimelineActivity.class);
                 startActivity(intent);
                 break;
-
             case R.id.btnViewpager:
                 intent = new Intent(MenuActivity.this, ViewPagerActivity.class);
                 startActivity(intent);
                 break;
-
             case R.id.btnRestAPI:
                 intent = new Intent(MenuActivity.this, RestAPIActivity.class);
                 startActivity(intent);

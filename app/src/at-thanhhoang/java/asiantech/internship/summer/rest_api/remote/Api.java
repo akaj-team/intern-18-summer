@@ -12,9 +12,23 @@ import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface Api {
+    /**
+     * This function is used to download image
+     *
+     * @param accessToken : access token
+     * @param page        : page number
+     * @return list of ImageInfo
+     */
     @GET("images")
     Call<List<ImageInfo>> downloadImages(@Query("access_token") String accessToken, @Query("per_page") Integer page);
 
+    /**
+     * This function is used to upload image
+     *
+     * @param accessToken : access token
+     * @param image       : image api require
+     * @return void
+     */
     @Multipart
     @POST("upload")
     Call<Void> uploadImages(@Query("access_token") String accessToken, @Part MultipartBody.Part image);
