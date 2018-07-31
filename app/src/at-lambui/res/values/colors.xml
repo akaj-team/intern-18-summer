@@ -7,4 +7,6 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorPrimaryBlack">#bab3b3</color>
     <color name="colorBlack">#FF000000</color>
+    <color name="colorDolphins">#2020dc</color>
+    <color name="colorWhales">#ea940a</color>
 </resources>

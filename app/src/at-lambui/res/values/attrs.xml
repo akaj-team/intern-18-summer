@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WildlifeChart">
+        <attr name="columnColor" format="reference"/>
+        <attr name="caption" format="string"/>
+        <attr name="columnSize" format="reference"/>
+    </declare-styleable>
+</resources>

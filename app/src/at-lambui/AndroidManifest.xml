@@ -23,6 +23,6 @@
         <activity android:name=".ViewAndViewGruopActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".canvas.CanvasActivity"/>
     </application>
 </manifest>
