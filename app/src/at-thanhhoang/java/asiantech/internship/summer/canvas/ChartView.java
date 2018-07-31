@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +106,8 @@ public class ChartView extends View {
                 break;
         }
 
+        formatChartSize(getWidth(), getHeight());
+
         if (mMode == ZOOM) {
             mDetector.onTouchEvent(event);
         }
@@ -136,15 +139,15 @@ public class ChartView extends View {
         super.onDraw(canvas);
         int width = getWidth();
         int height = getHeight();
+
+        Toast.makeText(getContext(), "x: " + mTranslateX + " y: " + mTranslateY, Toast.LENGTH_SHORT).show();
         canvas.save();
         canvas.scale(mScaleFactor, mScaleFactor, mDetector.getFocusX(), mDetector.getFocusY());
-
-        formatChart(width, height);
-        drawChartLine(canvas, width, height);
 
         canvas.save();
         canvas.translate(mTranslateX / mScaleFactor, 0);
 
+        drawChartLine(canvas, width, height);
         drawChartColumn(canvas, width, height);
         canvas.restore();
 
@@ -154,11 +157,12 @@ public class ChartView extends View {
         canvas.restore();
     }
 
-    private void formatChart(int width, int height) {
+    private void formatChartSize(int width, int height) {
         if ((mTranslateX * -1) < 0) {
             mTranslateX = 0;
-        } else if ((mTranslateX * -1) > (mScaleFactor - 1) * width) {
-            mTranslateY = (1 - mScaleFactor) * width;
+        }
+        if ((mTranslateX * -1) >= getMaxWidthChart() - width + width / 8) {
+            mTranslateX = -(getMaxWidthChart() - width + width / 8);
         }
 
         if (mTranslateY * -1 < 0) {
@@ -168,12 +172,17 @@ public class ChartView extends View {
         }
     }
 
+    private int getMaxWidthChart() {
+        int count = mListData.size();
+        return (count * 60 + (count - 1) * 45 + 40);
+    }
+
     private void drawChartLine(Canvas canvas, int width, int height) {
         mPaint.setStyle(Paint.Style.STROKE);
-        canvas.drawRect(0, height / 4, width, 3 * height / 4, mPaint);
+        canvas.drawRect(0, height / 4, width / 8 + getMaxWidthChart(), 3 * height / 4, mPaint);
         for (int i = 0; i < 9; i++) {
             mPaint.setTextSize(20);
-            canvas.drawLine(width / 8, height - (height / 4 + height / 12) - i * height / 24, width - width / 32, height - (height / 4 + height / 12) - i * height / 24, mPaint);
+            canvas.drawLine(width / 8, height - (height / 4 + height / 12) - i * height / 24, width / 8 + getMaxWidthChart(), height - (height / 4 + height / 12) - i * height / 24, mPaint);
         }
     }
 
