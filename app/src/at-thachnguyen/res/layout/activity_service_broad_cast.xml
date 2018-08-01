@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="18"
+    tools:context="asiantech.internship.summer.service_and_broadcast_receiver.ServiceBroadCastActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:background="@drawable/bg_music_app">
+
+        <ImageView
+            android:id="@+id/imgDisk"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_cd" />
+    </FrameLayout>
+
+    <SeekBar
+        android:id="@+id/seekBarPlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:id="@+id/tvCurrentTime"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="@string/currentTime" />
+
+        <TextView
+            android:id="@+id/tvState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@+id/tvCurrentTime"
+            android:layout_toStartOf="@+id/tvTotalTime"
+            android:gravity="center_horizontal"
+            android:text="@string/pause"
+            android:textColor="@color/colorRed"
+            android:textStyle="bold" />
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:id="@+id/tvTotalTime"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="@string/currentTime" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorDoveGray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imgBtnPrev"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_prev" />
+
+        <ImageButton
+            android:id="@+id/imgBtnPlay"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_play" />
+
+        <ImageButton
+            android:id="@+id/imgBtnNext"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_next" />
+    </LinearLayout>
+</LinearLayout>

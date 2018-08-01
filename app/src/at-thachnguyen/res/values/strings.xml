@@ -27,6 +27,7 @@
     <string name="activity">Activity and Fragment</string>
     <string name="recycler_view">RecyclerView</string>
     <string name="view_pager">ViewPager</string>
+    <string name="service">Service and Broadcast</string>
     <string name="mail_hint">Email</string>
     <string name="pass_hint">Password</string>
     <string name="confirm_pass_hint">Confirm Password</string>
@@ -37,4 +38,7 @@
     <string name="owner">Peter Pan</string>
     <string name="description">Today, what do we eat?</string>
     <string name="like">0 like</string>
+    <string name="play">Playing</string>
+    <string name="pause">Paused</string>
+    <string name="currentTime">0:00</string>
 </resources>
