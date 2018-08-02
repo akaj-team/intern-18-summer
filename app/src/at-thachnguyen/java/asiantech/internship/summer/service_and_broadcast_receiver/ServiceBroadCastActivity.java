@@ -11,7 +11,11 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.service_and_broadcast_receiver.model.Song;
 
 public class ServiceBroadCastActivity extends AppCompatActivity {
     private ImageView mImgDisk;
@@ -19,18 +23,22 @@ public class ServiceBroadCastActivity extends AppCompatActivity {
     private TextView mTvCurrentTime;
     private TextView mTvState;
     private TextView mTvTotalTime;
+    private TextView mTvTitleSong;
     private ImageButton mImgBtnPrev;
     private ImageButton mImgBtnPlay;
     private ImageButton mImgBtnNext;
     private RotateAnimation mRotateAnimation;
     private MediaPlayer mMediaPlayer;
+    private List<Song> mListSong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_broad_cast);
         initView();
-        mMediaPlayer=MediaPlayer.create(ServiceBroadCastActivity.this, R.raw.cuoc_song_em_on_khong);
+        addListSong();
+        mMediaPlayer=MediaPlayer.create(ServiceBroadCastActivity.this, mListSong.get(0).getmFile());
+        mTvTitleSong.setText(mListSong.get(0).getmTitle());
         mImgBtnPlay.setOnClickListener(v -> {
             if (mMediaPlayer.isPlaying()){
                 mMediaPlayer.pause();
@@ -48,11 +56,17 @@ public class ServiceBroadCastActivity extends AppCompatActivity {
         });
     }
 
+    private void addListSong(){
+        mListSong=new ArrayList<>();
+        mListSong.add(new Song("Cuộc sống em ổn không", R.raw.cuoc_song_em_on_khong));
+    }
+
     private void initView(){
         mImgDisk=findViewById(R.id.imgDisk);
         mTvCurrentTime=findViewById(R.id.tvCurrentTime);
         mTvState=findViewById(R.id.tvState);
         mTvTotalTime=findViewById(R.id.tvTotalTime);
+        mTvTitleSong=findViewById(R.id.tvTitleSong);
         mImgBtnPrev=findViewById(R.id.imgBtnPrev);
         mImgBtnPlay=findViewById(R.id.imgBtnPlay);
         mImgBtnNext=findViewById(R.id.imgBtnNext);

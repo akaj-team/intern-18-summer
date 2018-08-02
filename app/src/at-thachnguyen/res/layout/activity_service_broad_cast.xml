@@ -33,11 +33,11 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:gravity="center_horizontal"
             android:id="@+id/tvCurrentTime"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:gravity="center_horizontal"
             android:text="@string/currentTime" />
 
         <TextView
@@ -53,12 +53,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:gravity="center_horizontal"
             android:id="@+id/tvTotalTime"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
             android:text="@string/currentTime" />
     </RelativeLayout>
 
@@ -70,10 +70,19 @@
         android:layout_marginTop="20dp"
         android:background="@color/colorDoveGray" />
 
+    <TextView
+        android:id="@+id/tvTitleSong"
+        android:textColor="@color/colorBlack"
+        android:layout_weight="2"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="3"
         android:gravity="center">
 
         <ImageButton
