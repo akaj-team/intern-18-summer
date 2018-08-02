@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="asiantech.internship.summer">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -20,9 +22,11 @@
                     android:scheme="android-app-google-plus-demo" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity_fragment.HomeActivity" />
+        <activity android:name=".activity_fragment.ResultActivity" />
         <activity android:name=".ViewAndViewGruopActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
-        <activity android:name=".canvas.CanvasActivity"/>
+        <activity android:name=".canvas.CanvasActivity" />
     </application>
 </manifest>

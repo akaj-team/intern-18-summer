@@ -5,6 +5,12 @@
     <dimen name="font_large">15sp</dimen>
     <dimen name="font_normal">16sp</dimen>
     <dimen name="font_small">13sp</dimen>
+    <dimen name="font_big">20sp</dimen>
+    <dimen name="font_text_big">40dp</dimen>
+    <dimen name="font_stroke_width">3dp</dimen>
+    <dimen name="font_text_large">20sp</dimen>
+    <dimen name="column_width_default">50sp</dimen>
+
 
     <!-- spacing sizes -->
     <dimen name="spacing_huge">40dp</dimen>

@@ -1,5 +1,5 @@
-<resources >
-    <string name="app_name">Recycleview</string>
+<resources>
+    <string name="app_name">Fragment</string>
     <string name="menu">menu</string>
     <string name="todo">TODO</string>
     <string name="time_8am">8 – 10 am</string>
@@ -10,6 +10,20 @@
     <string name="tue">TUE</string>
     <string name="web">WEB</string>
     <string name="thu">THU</string>
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
+    <string name="new_subpage_for_janet">New subpage for janet</string>
+    <string name="view_and_viewgroup_title">Bai tap view and view group</string>
+    <string name="activity_and_fragment">Activity and fragment</string>
+    <string name="log_in">LOG IN</string>
+    <string name="email">Email</string>
+    <string name="sign_up2">Signup?</string>
+    <string name="password">Password</string>
+    <string name="email_hint">Email :</string>
+    <string name="password_hint">Password :</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="new_subpage">New subpage for janet</string>
     <string name="hangouts">11 – 12 pm Hangouts</string>
     <string name="lunch_with_diane">Lunch with Diane</string>
@@ -26,7 +40,6 @@
     <string name="ba_message">3</string>
     <string name="good_morning">Good Morning!</string>
     <string name="menu_activity_view_title">Bai tap view and view group</string>
-
     <string name="Name">name avatar</string>
     <string name="CountLike"> 0 like </string>
     <string name="description">description</string>
@@ -34,4 +47,8 @@
     <string name="menu_activity_recyclerview_title">ViewPager</string>
     <string name="menu_activity_canvas_title">Canvas</string>
     <string name="like"> Like </string>
+    <string name="caption">Wildlife Population</string>
+    <string name="note_dolphin">Dophins</string>
+    <string name="note_whales">Whales</string>
+
 </resources>

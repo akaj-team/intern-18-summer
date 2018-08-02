@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import asiantech.internship.summer.R;
 
-public class CanvasActivity extends AppCompatActivity{
+public class CanvasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
