@@ -3,9 +3,11 @@ package asiantech.internship.summer.menu;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.canvas.CanvasActivity;
 import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.ViewAndViewGruopActivity;
@@ -16,6 +18,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
         Button btnRecyclerview = findViewById(R.id.btnRecyclerview);
 
         Button btn_ExerciseFragment = findViewById(R.id.btnExerciseFragment);
@@ -36,6 +39,11 @@ public class MenuActivity extends AppCompatActivity {
         btnViewpager.setOnClickListener(view -> {
             Intent intentViewpager = new Intent(MenuActivity.this, PagerActivity.class);
             startActivity(intentViewpager);
+        });
+        Button btnCanvas = findViewById(R.id.btnCanvas);
+        btnCanvas.setOnClickListener(v -> {
+            Intent intentCanvas = new Intent(MenuActivity.this, CanvasActivity.class);
+            startActivity(intentCanvas);
         });
     }
 }
