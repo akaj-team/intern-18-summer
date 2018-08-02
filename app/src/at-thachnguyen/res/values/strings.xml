@@ -40,5 +40,5 @@
     <string name="like">0 like</string>
     <string name="play">Playing</string>
     <string name="pause">Paused</string>
-    <string name="currentTime">0:00</string>
+    <string name="currentTime">00:00</string>
 </resources>

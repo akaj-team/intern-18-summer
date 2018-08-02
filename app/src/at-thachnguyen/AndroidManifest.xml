@@ -25,7 +25,7 @@
         <activity android:name=".view_and_view_group.ViewActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
-        <activity android:name=".service_and_broadcast_receiver.ServiceBroadCastActivity"></activity>
+        <activity android:name=".service_and_broadcast_receiver.ServiceBroadCastActivity"/>
     </application>
 
 </manifest>
