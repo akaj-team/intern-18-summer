@@ -33,7 +33,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnExerciseFragment = findViewById(R.id.btnExerciseFragment);
         mBtnRecyclerview = findViewById(R.id.btnRecyclerview);
         mBtnViewpager = findViewById(R.id.btnViewPager);
-        mBtnAsynctaskThreadHandler = findViewById(R.id.btnRestful);
+        mBtnAsynctaskThreadHandler = findViewById(R.id.btnAsynctaskThreadHandler);
     }
 
     private void setListeners() {
