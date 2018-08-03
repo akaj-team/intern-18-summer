@@ -45,5 +45,10 @@
     <string name="description">description</string>
     <string name="menu_recycler_view_title">Recyclerview</string>
     <string name="menu_activity_recyclerview_title">ViewPager</string>
+    <string name="menu_activity_canvas_title">Canvas</string>
     <string name="like"> Like </string>
+    <string name="caption">Wildlife Population</string>
+    <string name="note_dolphin">Dophins</string>
+    <string name="note_whales">Whales</string>
+
 </resources>
