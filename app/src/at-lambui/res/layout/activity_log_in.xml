@@ -7,24 +7,22 @@
 
     <EditText
         android:id="@+id/edtEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/custom_edit_text"
         android:gravity="center"
         android:hint="@string/email"
-        android:backgroundTint="@color/colorGray"
         android:inputType="textEmailAddress"
         android:textSize="@dimen/font_big" />
 
     <EditText
         android:id="@+id/edtPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/colorGray"
         android:background="@drawable/custom_edit_text"
         android:gravity="center"
         android:hint="@string/password"
