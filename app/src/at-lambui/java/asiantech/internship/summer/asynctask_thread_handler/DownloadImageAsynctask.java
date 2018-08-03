@@ -15,11 +15,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import asiantech.internship.summer.R;
+
 public class DownloadImageAsynctask extends AsyncTask<URL, Integer, List<Bitmap>> {
+    private static final String TAG = DownloadImageAsynctask.class.getSimpleName();
     private List<ImageView> mListImage;
     private ProgressDialog mProgressDialog;
-    /* backgroud*/
 
+    // backgroud
     DownloadImageAsynctask(List<ImageView> mListImage, ProgressDialog progressDialog) {
         this.mListImage = mListImage;
         this.mProgressDialog = progressDialog;
@@ -47,7 +50,7 @@ public class DownloadImageAsynctask extends AsyncTask<URL, Integer, List<Bitmap>
                 bufferedInputStream.close();
                 inputStream.close();
             } catch (IOException e) {
-                Log.e("EXCEPTION", e.getMessage());
+                Log.e(TAG, e.getMessage());
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -59,7 +62,7 @@ public class DownloadImageAsynctask extends AsyncTask<URL, Integer, List<Bitmap>
 
     @Override
     protected void onPreExecute() {
-        mProgressDialog.setTitle("AsyncTask");
+        mProgressDialog.setTitle(R.string.asyctask);
         mProgressDialog.show();
     }
 

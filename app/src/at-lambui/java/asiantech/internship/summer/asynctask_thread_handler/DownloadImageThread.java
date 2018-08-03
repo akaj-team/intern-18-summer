@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.List;
 
 public class DownloadImageThread extends Thread {
+    private static final String TAG = DownloadImageThread.class.getSimpleName();
     private Activity mActivity;
     private URL[] mUrls;
     private List<ImageView> mListImage;
@@ -42,7 +43,7 @@ public class DownloadImageThread extends Thread {
                 mActivity.runOnUiThread(() -> imageView.setImageBitmap(bitmap));
 
             } catch (IOException e) {
-                Log.e("AAA",e.getMessage());
+                Log.e(TAG,e.getMessage());
             } finally {
                 if (connection != null) {
                     connection.disconnect();

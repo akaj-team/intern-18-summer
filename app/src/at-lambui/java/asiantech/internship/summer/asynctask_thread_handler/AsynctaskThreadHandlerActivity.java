@@ -20,6 +20,7 @@ import java.util.List;
 import asiantech.internship.summer.R;
 
 public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
+    private static final String TAG = AsynctaskThreadHandlerActivity.class.getSimpleName();
 
     private ProgressDialog mProgressDialog;
     public LooperThread looperThread;
@@ -45,13 +46,10 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asynctask_thread_handler);
         Button btnDowload = findViewById(R.id.btnDowload);
-
-        //tui quat nhu nay lun,
         list.add(findViewById(R.id.imgDowloadOne));
         list.add(findViewById(R.id.imgDowloadTwo));
         list.add(findViewById(R.id.imgDowloadThree));
         list.add(findViewById(R.id.imgDowloadFour));
-        /////
         btnDowload.setOnClickListener(view -> {
             if(save != null){
                 switch (save) {
@@ -115,28 +113,24 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
         try {
             return new URL(s);
         } catch (MalformedURLException e) {
-            Log.e("AAA",e.getMessage());
+            Log.e(TAG,e.getMessage());
         }
         return null;
     }
 
     public void downloadImageAsyncTask() {
-
-        //mProgressDialog.setTitle("AsyncTask");
         addProgressbarDialog();
         DownloadImageAsynctask taskAsyctask = new DownloadImageAsynctask(list, mProgressDialog);
         taskAsyctask.execute(IMAGE_URL, IMAGE_URL_2, IMAGE_URL_3, IMAGE_URL_4);
     }
 
     public void downloadImageThread() {
-        // mProgressDialog.setTitle("Thread");
         addProgressbarDialog();
         DownloadImageThread taskThread = new DownloadImageThread(this, urls, list, mProgressDialog);
         taskThread.start();
     }
 
     public void downloadImageHandler() {
-        // mProgressDialog.setTitle("Handler");
         addProgressbarDialog();
         Message message = new Message();
         message.obj = new CustomOject(urls, list);
@@ -146,7 +140,7 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
     public void addProgressbarDialog() {
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        mProgressDialog.setMessage("Please wait, we are doing your image files");
+        mProgressDialog.setMessage(getResources().getString(R.string.message_progress));
         mProgressDialog.setMax(100);
         mProgressDialog.show();
     }

@@ -16,6 +16,7 @@ import java.net.URL;
 import java.util.Objects;
 
 public class LooperThread extends Thread {
+    private static final String TAG = DownloadImageAsynctask.class.getSimpleName();
     private Handler mHandler;
     private AsynctaskThreadHandlerActivity.Update mUpdate;
 
@@ -42,7 +43,7 @@ public class LooperThread extends Thread {
                         new Handler(Looper.getMainLooper()).post(() -> imageView.setImageBitmap(bitmap));
 
                     } catch (IOException e) {
-                        Log.e("AAA",e.getMessage());
+                        Log.e(TAG,e.getMessage());
                     } finally {
                         if (connection != null) {
                             connection.disconnect();
