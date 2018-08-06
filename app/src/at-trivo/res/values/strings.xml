@@ -24,5 +24,7 @@
         <item>Recycler view</item>
         <item>View pager</item>
         <item>Activity and fragment</item>
+        <item>Resful api</item>
     </string-array>
+    <string name="pick_image_title"> </string>
 </resources>
