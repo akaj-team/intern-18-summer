@@ -1,6 +1,7 @@
 package asiantech.internship.summer.service_and_broadcast_receiver;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -8,8 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.view.animation.Animation;
@@ -48,22 +51,29 @@ public class MusicService extends Service implements View.OnClickListener {
     private RemoteViews mRemoteViews;
     private List<Song> mListSong = new ArrayList<>();
     private int mPosition = 0;
+    private final int idChannel = 1;
+    private static final String CHANNEL_ID = "my_channel_01";
 
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Objects.equals(intent.getAction(), "play")) {
+        if (Objects.equals(intent.getAction(), getResources().getString(R.string.play_action))) {
             if (mMediaPlayer.isPlaying()) {
                 mImgBtnPlay.get().setImageResource(R.drawable.ic_play);
-                mRemoteViews.setImageViewResource(R.id.imgPause, R.drawable.ic_play_gray);
+                mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_play_gray);
                 mImgDisk.get().clearAnimation();
                 mMediaPlayer.pause();
-                mNotificationManager.notify(0, mBuilder.build());
             } else {
                 mImgBtnPlay.get().setImageResource(R.drawable.ic_pause);
-                mRemoteViews.setImageViewResource(R.id.imgPause, R.drawable.ic_pause_gray);
+                mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_pause_gray);
                 mImgDisk.get().startAnimation(mRotateAnimation);
                 mMediaPlayer.start();
-                mNotificationManager.notify(0, mBuilder.build());
+            }
+        } else if (Objects.equals(intent.getAction(), getResources().getString(R.string.close_action))) {
+            if (!mMediaPlayer.isPlaying()) {
+                mNotificationManager.deleteNotificationChannel("my_channel_01");
+                mNotificationManager.cancel(idChannel);
             }
         } else {
             initUI();
@@ -75,15 +85,8 @@ public class MusicService extends Service implements View.OnClickListener {
             seekBarChangeListener();
             initRotateAnimationDisk();
             setTotalTime();
-            initNotification();
         }
         return START_STICKY;
-    }
-
-    @Override
-
-    public void onCreate() {
-        super.onCreate();
     }
 
     private void setCurrentSong() {
@@ -113,7 +116,6 @@ public class MusicService extends Service implements View.OnClickListener {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
@@ -133,12 +135,22 @@ public class MusicService extends Service implements View.OnClickListener {
                     mImgDisk.get().clearAnimation();
                     mTvState.get().setText(R.string.pause);
                     mImgBtnPlay.get().setImageResource(R.drawable.ic_play);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        if (mNotificationManager.areNotificationsEnabled()) {
+                            mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_play_gray);
+                        }
+                    }
                 } else {
                     mMediaPlayer.start();
                     mTvState.get().setText(R.string.play);
                     mImgDisk.get().startAnimation(mRotateAnimation);
                     mImgBtnPlay.get().setImageResource(R.drawable.ic_pause);
-                    mNotificationManager.notify(0, mBuilder.build());
+                    initNotification();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        if (mNotificationManager.areNotificationsEnabled()) {
+                            mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_pause_gray);
+                        }
+                    }
                 }
                 setTotalTime();
                 updateCurrentTime();
@@ -159,7 +171,7 @@ public class MusicService extends Service implements View.OnClickListener {
                 setTotalTime();
                 updateCurrentTime();
                 setRemoteViews();
-                mNotificationManager.notify(0, mBuilder.build());
+                mNotificationManager.notify(1, mBuilder.build());
                 break;
             case R.id.imgBtnPrev:
                 mPosition--;
@@ -175,7 +187,7 @@ public class MusicService extends Service implements View.OnClickListener {
                     setCurrentSong();
                 }
                 setRemoteViews();
-                mNotificationManager.notify(0, mBuilder.build());
+                mNotificationManager.notify(idChannel, mBuilder.build());
                 setTotalTime();
                 updateCurrentTime();
                 break;
@@ -209,7 +221,7 @@ public class MusicService extends Service implements View.OnClickListener {
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateAnimation.setInterpolator(new LinearInterpolator());
-        mRotateAnimation.setDuration(2000);
+        mRotateAnimation.setDuration(1000);
         mRotateAnimation.setRepeatCount(Animation.INFINITE);
     }
 
@@ -236,7 +248,6 @@ public class MusicService extends Service implements View.OnClickListener {
                         setCurrentSong();
                     }
                     setRemoteViews();
-                    mNotificationManager.notify(0, mBuilder.build());
                     setTotalTime();
                     updateCurrentTime();
                 });
@@ -251,29 +262,34 @@ public class MusicService extends Service implements View.OnClickListener {
         mRemoteViews.setTextViewText(R.id.tvTitleSong, mListSong.get(mPosition).getmTitle());
     }
 
-    private PendingIntent setOnClick(int requestCode,String action) {
+    private PendingIntent setOnClick(String action) {
         Intent intent = new Intent(this, MusicService.class);
         intent.setAction(action);
-        return PendingIntent.getService(getBaseContext(), requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return PendingIntent.getService(getBaseContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     private void initNotification() {
         mRemoteViews = new RemoteViews(getPackageName(), R.layout.custom_notification_music);
         setRemoteViews();
-        mRemoteViews.setOnClickPendingIntent(R.id.imgPause, setOnClick(0,"play"));
-//        mRemoteViews.setOnClickPendingIntent(R.id.imgPause, setOnClick(1,"close"));
+        mRemoteViews.setOnClickPendingIntent(R.id.imgPlay, setOnClick(getResources().getString(R.string.play_action)));
+        mRemoteViews.setOnClickPendingIntent(R.id.imgClose, setOnClick(getResources().getString(R.string.close_action)));
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Intent intent = new Intent(this, ServiceBroadCastActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        mBuilder = new NotificationCompat.Builder(this, "0");
+        mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1251, intent, PendingIntent.FLAG_ONE_SHOT);
         mBuilder.setSmallIcon(R.drawable.ic_music)
                 .setCustomBigContentView(mRemoteViews)
                 .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
                 .setOnlyAlertOnce(true);
-
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, getResources().getString(R.string.channel_name), importance);
+            mNotificationManager.createNotificationChannel(mChannel);
+        }
     }
 
     @Override
@@ -285,6 +301,6 @@ public class MusicService extends Service implements View.OnClickListener {
     public boolean onUnbind(Intent intent) {
         mMediaPlayer.stop();
         mMediaPlayer.release();
-        return false;
+        return true;
     }
 }

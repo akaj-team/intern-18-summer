@@ -19,7 +19,7 @@ public class ServiceBroadCastActivity extends AppCompatActivity {
     public static TextView sTvState;
     public static TextView sTvTotalTime;
     public static TextView sTvTitleSong;
-    public static  ImageButton sImgBtnPrev;
+    public static ImageButton sImgBtnPrev;
     public static ImageButton sImgBtnPlay;
     public static ImageButton sImgBtnNext;
     private Intent mPlayIntent;
@@ -50,5 +50,11 @@ public class ServiceBroadCastActivity extends AppCompatActivity {
         sImgBtnPlay = findViewById(R.id.imgBtnPlay);
         sImgBtnNext = findViewById(R.id.imgBtnNext);
         sSeekBarPlay = findViewById(R.id.seekBarPlay);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopService(mPlayIntent);
     }
 }
