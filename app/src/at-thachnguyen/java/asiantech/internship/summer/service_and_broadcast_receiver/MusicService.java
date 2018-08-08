@@ -66,11 +66,13 @@ public class MusicService extends Service implements View.OnClickListener {
                 mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_play_gray);
                 mImgDisk.get().clearAnimation();
                 mMediaPlayer.pause();
+                mNotificationManager.notify(ID_NOTI, mBuilder.build());
             } else {
                 mImgBtnPlay.get().setImageResource(R.drawable.ic_pause);
                 mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_pause_gray);
                 mImgDisk.get().startAnimation(mRotateAnimation);
                 mMediaPlayer.start();
+                mNotificationManager.notify(ID_NOTI, mBuilder.build());
             }
         } else if (Objects.equals(intent.getAction(), getResources().getString(R.string.close_action))) {
             if (!mMediaPlayer.isPlaying()) {
@@ -78,7 +80,8 @@ public class MusicService extends Service implements View.OnClickListener {
             }
         } else {
             initUI();
-            addListSong();
+            mPosition = intent.getIntExtra(ListenMusicActivity.KEY_POSITION, 0);
+            mListSong = Song.getListSong();
             setCurrentSong();
             mImgBtnPlay.get().setOnClickListener(this);
             mImgBtnNext.get().setOnClickListener(this);
@@ -91,22 +94,22 @@ public class MusicService extends Service implements View.OnClickListener {
     }
 
     private void setCurrentSong() {
-        mMediaPlayer = MediaPlayer.create(getApplicationContext(), mListSong.get(mPosition).getmFile());
-        mTvTitleSong.get().setText(mListSong.get(mPosition).getmTitle());
-        mImgDisk.get().setImageResource(mListSong.get(mPosition).getmAvatarSinger());
+        mMediaPlayer = MediaPlayer.create(getApplicationContext(), mListSong.get(mPosition).getFile());
+        mTvTitleSong.get().setText(mListSong.get(mPosition).getTitle());
+        mImgDisk.get().setImageResource(mListSong.get(mPosition).getAvatarSinger());
     }
 
     private void initUI() {
-        mImgBtnPrev = new WeakReference<>(ServiceBroadCastActivity.sImgBtnPrev);
-        mImgBtnPlay = new WeakReference<>(ServiceBroadCastActivity.sImgBtnPlay);
-        mImgBtnNext = new WeakReference<>(ServiceBroadCastActivity.sImgBtnNext);
-        mImgBtnPrev = new WeakReference<>(ServiceBroadCastActivity.sImgBtnPrev);
-        mImgDisk = new WeakReference<>(ServiceBroadCastActivity.sImgDisk);
-        mTvTotalTime = new WeakReference<>(ServiceBroadCastActivity.sTvTotalTime);
-        mSeekBarPlay = new WeakReference<>(ServiceBroadCastActivity.sSeekBarPlay);
-        mTvTitleSong = new WeakReference<>(ServiceBroadCastActivity.sTvTitleSong);
-        mTvState = new WeakReference<>(ServiceBroadCastActivity.sTvState);
-        mTvCurrentTime = new WeakReference<>(ServiceBroadCastActivity.sTvCurrentTime);
+        mImgBtnPrev = new WeakReference<>(ListenMusicActivity.sImgBtnPrev);
+        mImgBtnPlay = new WeakReference<>(ListenMusicActivity.sImgBtnPlay);
+        mImgBtnNext = new WeakReference<>(ListenMusicActivity.sImgBtnNext);
+        mImgBtnPrev = new WeakReference<>(ListenMusicActivity.sImgBtnPrev);
+        mImgDisk = new WeakReference<>(ListenMusicActivity.sImgDisk);
+        mTvTotalTime = new WeakReference<>(ListenMusicActivity.sTvTotalTime);
+        mSeekBarPlay = new WeakReference<>(ListenMusicActivity.sSeekBarPlay);
+        mTvTitleSong = new WeakReference<>(ListenMusicActivity.sTvTitleSong);
+        mTvState = new WeakReference<>(ListenMusicActivity.sTvState);
+        mTvCurrentTime = new WeakReference<>(ListenMusicActivity.sTvCurrentTime);
     }
 
     private void seekBarChangeListener() {
@@ -136,10 +139,9 @@ public class MusicService extends Service implements View.OnClickListener {
                     mImgDisk.get().clearAnimation();
                     mTvState.get().setText(R.string.pause);
                     mImgBtnPlay.get().setImageResource(R.drawable.ic_play);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        if (mNotificationManager.areNotificationsEnabled()) {
-                            mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_play_gray);
-                        }
+                    if (mNotificationManager != null) {
+                        mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_play_gray);
+                        mNotificationManager.notify(ID_NOTI, mBuilder.build());
                     }
                 } else {
                     mMediaPlayer.start();
@@ -147,10 +149,9 @@ public class MusicService extends Service implements View.OnClickListener {
                     mImgDisk.get().startAnimation(mRotateAnimation);
                     mImgBtnPlay.get().setImageResource(R.drawable.ic_pause);
                     initNotification();
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        if (mNotificationManager.areNotificationsEnabled()) {
-                            mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_pause_gray);
-                        }
+                    if (mNotificationManager != null) {
+                        mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_pause_gray);
+                        mNotificationManager.notify(ID_NOTI, mBuilder.build());
                     }
                 }
                 setTotalTime();
@@ -171,8 +172,10 @@ public class MusicService extends Service implements View.OnClickListener {
                 }
                 setTotalTime();
                 updateCurrentTime();
-                setRemoteViews();
-                mNotificationManager.notify(1, mBuilder.build());
+                if (mNotificationManager != null) {
+                    setRemoteViews();
+                    mNotificationManager.notify(ID_NOTI, mBuilder.build());
+                }
                 break;
             case R.id.imgBtnPrev:
                 mPosition--;
@@ -187,10 +190,12 @@ public class MusicService extends Service implements View.OnClickListener {
                 } else {
                     setCurrentSong();
                 }
-                setRemoteViews();
-                mNotificationManager.notify(ID_NOTI, mBuilder.build());
                 setTotalTime();
                 updateCurrentTime();
+                if (mNotificationManager != null) {
+                    setRemoteViews();
+                    mNotificationManager.notify(ID_NOTI, mBuilder.build());
+                }
                 break;
         }
     }
@@ -199,16 +204,6 @@ public class MusicService extends Service implements View.OnClickListener {
         MusicService getService() {
             return MusicService.this;
         }
-    }
-
-    private void addListSong() {
-        mListSong = new ArrayList<>();
-        mListSong.add(new Song("Đừng như thói quen", R.raw.dung_nhu_thoi_quen, R.drawable.img_avt_jaykii_and_sara));
-        mListSong.add(new Song("Cuộc sống em ổn không", R.raw.cuoc_song_em_on_khong, R.drawable.img_avt_anh_tu));
-        mListSong.add(new Song("Đừng quên tên anh", R.raw.dung_quen_ten_anh, R.drawable.img_avt_hoa_vinh));
-        mListSong.add(new Song("Lỡ thương một người", R.raw.lo_thuong_mot_nguoi, R.drawable.img_avt_nguyen_dinh_vu));
-        mListSong.add(new Song("Rồi người thương cũng hóa người dưng", R.raw.roi_nguoi_thuong_cung_hoa_nguoi_dung, R.drawable.img_avt_hien_ho));
-        mListSong.add(new Song("Sai người sai thời điểm", R.raw.sai_nguoi_sai_thoi_diem, R.drawable.img_avt_thanh_hung));
     }
 
     private void setTotalTime() {
@@ -227,14 +222,16 @@ public class MusicService extends Service implements View.OnClickListener {
     }
 
     private void updateCurrentTime() {
-         mHandler = new Handler();
-         mRunnable = new Runnable() {
+        mHandler = new Handler();
+        mRunnable = new Runnable() {
             @Override
             public void run() {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss");
                 mTvCurrentTime.get().setText(timeFormat.format(mMediaPlayer.getCurrentPosition()));
-                mRemoteViews.setTextViewText(R.id.tvCurrentTime, timeFormat.format(mMediaPlayer.getCurrentPosition()));
-                mNotificationManager.notify(0, mBuilder.build());
+                if (mNotificationManager != null) {
+                    mRemoteViews.setTextViewText(R.id.tvCurrentTime, timeFormat.format(mMediaPlayer.getCurrentPosition()));
+                    mNotificationManager.notify(ID_NOTI, mBuilder.build());
+                }
                 mSeekBarPlay.get().setProgress(mMediaPlayer.getCurrentPosition());
                 mMediaPlayer.setOnCompletionListener(mp -> {
                     mPosition++;
@@ -248,7 +245,9 @@ public class MusicService extends Service implements View.OnClickListener {
                     } else {
                         setCurrentSong();
                     }
-                    setRemoteViews();
+                    if (mNotificationManager != null) {
+                        setRemoteViews();
+                    }
                     setTotalTime();
                     updateCurrentTime();
                 });
@@ -259,8 +258,8 @@ public class MusicService extends Service implements View.OnClickListener {
     }
 
     private void setRemoteViews() {
-        mRemoteViews.setImageViewResource(R.id.imgSinger, mListSong.get(mPosition).getmAvatarSinger());
-        mRemoteViews.setTextViewText(R.id.tvTitleSong, mListSong.get(mPosition).getmTitle());
+        mRemoteViews.setImageViewResource(R.id.imgSinger, mListSong.get(mPosition).getAvatarSinger());
+        mRemoteViews.setTextViewText(R.id.tvTitleSong, mListSong.get(mPosition).getTitle());
     }
 
     private PendingIntent setOnClick(String action) {
@@ -275,7 +274,7 @@ public class MusicService extends Service implements View.OnClickListener {
         mRemoteViews.setOnClickPendingIntent(R.id.imgPlay, setOnClick(getResources().getString(R.string.play_action)));
         mRemoteViews.setOnClickPendingIntent(R.id.imgClose, setOnClick(getResources().getString(R.string.close_action)));
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent intent = new Intent(this, ServiceBroadCastActivity.class);
+        Intent intent = new Intent(this, ListenMusicActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         mBuilder = new NotificationCompat.Builder(this, CHANNEL);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
@@ -308,11 +307,15 @@ public class MusicService extends Service implements View.OnClickListener {
     @Override
     public void onDestroy() {
         mMediaPlayer.pause();
-        mHandler.removeCallbacks(mRunnable);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            mNotificationManager.deleteNotificationChannel(CHANNEL);
+        if (mHandler != null) {
+            mHandler.removeCallbacks(mRunnable);
         }
-        mNotificationManager.cancel(ID_NOTI);
+        if (mNotificationManager != null) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                mNotificationManager.deleteNotificationChannel(CHANNEL);
+            }
+            mNotificationManager.cancel(ID_NOTI);
+        }
         super.onDestroy();
     }
 }

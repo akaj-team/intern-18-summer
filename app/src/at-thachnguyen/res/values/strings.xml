@@ -54,4 +54,6 @@
     <string name="uploading">Uploading...</string>
     <string name="wait">Please wait, </string>
     <string name="token_api">6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e</string>
+    <string name="list_song">List Songs</string>
+    <string name="listen_music">Listen Music</string>
 </resources>
