@@ -241,9 +241,11 @@ public class MusicService extends Service implements View.OnClickListener {
                     if (mMediaPlayer.isPlaying()) {
                         mMediaPlayer.stop();
                         mMediaPlayer.release();
+                        setCurrentSong();
                         mMediaPlayer.start();
                     } else {
                         setCurrentSong();
+                        mMediaPlayer.start();
                     }
                     if (mNotificationManager != null) {
                         setRemoteViews();
