@@ -49,10 +49,12 @@ public class MusicService extends Service implements View.OnClickListener {
     private WeakReference<TextView> mTvCurrentTime;
     private RotateAnimation mRotateAnimation;
     private RemoteViews mRemoteViews;
+    private Handler mHandler;
+    private Runnable mRunnable;
     private List<Song> mListSong = new ArrayList<>();
     private int mPosition = 0;
-    private final int idChannel = 1;
-    private static final String CHANNEL_ID = "my_channel_01";
+    private static final int ID_NOTI = 1;
+    private static final String CHANNEL = "my_channel_01";
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -72,8 +74,7 @@ public class MusicService extends Service implements View.OnClickListener {
             }
         } else if (Objects.equals(intent.getAction(), getResources().getString(R.string.close_action))) {
             if (!mMediaPlayer.isPlaying()) {
-                mNotificationManager.deleteNotificationChannel("my_channel_01");
-                mNotificationManager.cancel(idChannel);
+                stopSelf();
             }
         } else {
             initUI();
@@ -187,7 +188,7 @@ public class MusicService extends Service implements View.OnClickListener {
                     setCurrentSong();
                 }
                 setRemoteViews();
-                mNotificationManager.notify(idChannel, mBuilder.build());
+                mNotificationManager.notify(ID_NOTI, mBuilder.build());
                 setTotalTime();
                 updateCurrentTime();
                 break;
@@ -221,13 +222,13 @@ public class MusicService extends Service implements View.OnClickListener {
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateAnimation.setInterpolator(new LinearInterpolator());
-        mRotateAnimation.setDuration(1000);
+        mRotateAnimation.setDuration(3000);
         mRotateAnimation.setRepeatCount(Animation.INFINITE);
     }
 
     private void updateCurrentTime() {
-        Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
+         mHandler = new Handler();
+         mRunnable = new Runnable() {
             @Override
             public void run() {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss");
@@ -251,10 +252,10 @@ public class MusicService extends Service implements View.OnClickListener {
                     setTotalTime();
                     updateCurrentTime();
                 });
-                handler.postDelayed(this, 100);
+                mHandler.postDelayed(this, 100);
             }
         };
-        handler.postDelayed(runnable, 100);
+        mHandler.postDelayed(mRunnable, 100);
     }
 
     private void setRemoteViews() {
@@ -276,7 +277,7 @@ public class MusicService extends Service implements View.OnClickListener {
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Intent intent = new Intent(this, ServiceBroadCastActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID);
+        mBuilder = new NotificationCompat.Builder(this, CHANNEL);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1251, intent, PendingIntent.FLAG_ONE_SHOT);
@@ -287,7 +288,7 @@ public class MusicService extends Service implements View.OnClickListener {
                 .setOnlyAlertOnce(true);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, getResources().getString(R.string.channel_name), importance);
+            NotificationChannel mChannel = new NotificationChannel(CHANNEL, getResources().getString(R.string.channel_name), importance);
             mNotificationManager.createNotificationChannel(mChannel);
         }
     }
@@ -302,5 +303,16 @@ public class MusicService extends Service implements View.OnClickListener {
         mMediaPlayer.stop();
         mMediaPlayer.release();
         return true;
+    }
+
+    @Override
+    public void onDestroy() {
+        mMediaPlayer.pause();
+        mHandler.removeCallbacks(mRunnable);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            mNotificationManager.deleteNotificationChannel(CHANNEL);
+        }
+        mNotificationManager.cancel(ID_NOTI);
+        super.onDestroy();
     }
 }
