@@ -55,41 +55,48 @@ public class MusicService extends Service implements View.OnClickListener {
     private int mPosition = 0;
     private static final int ID_NOTI = 1;
     private static final String CHANNEL = "my_channel_01";
-
+    private boolean mIsShowNotification = false;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (Objects.equals(intent.getAction(), getResources().getString(R.string.play_action))) {
-            if (mMediaPlayer.isPlaying()) {
-                mImgBtnPlay.get().setImageResource(R.drawable.ic_play);
-                mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_play_gray);
-                mImgDisk.get().clearAnimation();
-                mMediaPlayer.pause();
-                mNotificationManager.notify(ID_NOTI, mBuilder.build());
+            if (Objects.equals(intent.getAction(), getResources().getString(R.string.play_action))) {
+                if (mMediaPlayer.isPlaying()) {
+                    mImgBtnPlay.get().setImageResource(R.drawable.ic_play);
+                    mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_play_gray);
+                    mImgDisk.get().clearAnimation();
+                    mMediaPlayer.pause();
+                    mNotificationManager.notify(ID_NOTI, mBuilder.build());
+                } else {
+                    mImgBtnPlay.get().setImageResource(R.drawable.ic_pause);
+                    mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_pause_gray);
+                    mImgDisk.get().startAnimation(mRotateAnimation);
+                    mMediaPlayer.start();
+                    mNotificationManager.notify(ID_NOTI, mBuilder.build());
+                }
+            } else if (Objects.equals(intent.getAction(), getResources().getString(R.string.close_action))) {
+                if (!mMediaPlayer.isPlaying()) {
+                    mIsShowNotification = false;
+                    if (mNotificationManager != null) {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            mNotificationManager.deleteNotificationChannel(CHANNEL);
+                        }
+                        stopForeground(true);
+                        mNotificationManager.cancel(ID_NOTI);
+                    }
+                }
             } else {
-                mImgBtnPlay.get().setImageResource(R.drawable.ic_pause);
-                mRemoteViews.setImageViewResource(R.id.imgPlay, R.drawable.ic_menu_pause_gray);
-                mImgDisk.get().startAnimation(mRotateAnimation);
-                mMediaPlayer.start();
-                mNotificationManager.notify(ID_NOTI, mBuilder.build());
+                initUI();
+                mPosition = intent.getIntExtra(ListenMusicActivity.KEY_POSITION, 0);
+                mListSong = Song.getListSong();
+                setCurrentSong();
+                mImgBtnPlay.get().setOnClickListener(this);
+                mImgBtnNext.get().setOnClickListener(this);
+                mImgBtnPrev.get().setOnClickListener(this);
+                seekBarChangeListener();
+                initRotateAnimationDisk();
+                setTotalTime();
             }
-        } else if (Objects.equals(intent.getAction(), getResources().getString(R.string.close_action))) {
-            if (!mMediaPlayer.isPlaying()) {
-                stopSelf();
-            }
-        } else {
-            initUI();
-            mPosition = intent.getIntExtra(ListenMusicActivity.KEY_POSITION, 0);
-            mListSong = Song.getListSong();
-            setCurrentSong();
-            mImgBtnPlay.get().setOnClickListener(this);
-            mImgBtnNext.get().setOnClickListener(this);
-            mImgBtnPrev.get().setOnClickListener(this);
-            seekBarChangeListener();
-            initRotateAnimationDisk();
-            setTotalTime();
-        }
         return START_STICKY;
     }
 
@@ -144,6 +151,7 @@ public class MusicService extends Service implements View.OnClickListener {
                         mNotificationManager.notify(ID_NOTI, mBuilder.build());
                     }
                 } else {
+                    mIsShowNotification = true;
                     mMediaPlayer.start();
                     mTvState.get().setText(R.string.play);
                     mImgDisk.get().startAnimation(mRotateAnimation);
@@ -223,12 +231,12 @@ public class MusicService extends Service implements View.OnClickListener {
 
     private void updateCurrentTime() {
         mHandler = new Handler();
-        mRunnable = new Runnable() {
+         mRunnable = new Runnable() {
             @Override
             public void run() {
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFormat = new SimpleDateFormat("mm:ss");
                 mTvCurrentTime.get().setText(timeFormat.format(mMediaPlayer.getCurrentPosition()));
-                if (mNotificationManager != null) {
+                if (mNotificationManager != null && mIsShowNotification) {
                     mRemoteViews.setTextViewText(R.id.tvCurrentTime, timeFormat.format(mMediaPlayer.getCurrentPosition()));
                     mNotificationManager.notify(ID_NOTI, mBuilder.build());
                 }

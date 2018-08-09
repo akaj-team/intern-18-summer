@@ -28,6 +28,8 @@ public class ListenMusicActivity extends AppCompatActivity {
     public static ImageButton sImgBtnNext;
     private Toolbar mToolbarListenMusic;
     private Intent mPlayIntent;
+    private MusicService mMusicService;
+    private boolean mIsActive = false;
     private int mPosition;
     public static final String KEY_POSITION = "pos";
 

@@ -40,7 +40,8 @@
         <service
             android:name=".service_and_broadcast_receiver.MusicService"
             android:enabled="true"
-            android:exported="false"
+            android:exported="true"
+            android:stopWithTask="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity android:name=".service_and_broadcast_receiver.ServiceBroadCastActivity" />
