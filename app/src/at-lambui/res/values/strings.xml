@@ -45,5 +45,14 @@
     <string name="description">description</string>
     <string name="menu_recycler_view_title">Recyclerview</string>
     <string name="menu_activity_recyclerview_title">ViewPager</string>
+    <string name="menu_activity_broadcast_receiver_title">BroadCast Receiver And Service</string>
     <string name="like"> Like </string>
+    <string name="title_dialog">Permisstion needed</string>
+    <string name="message_dialog">This permission needed because of insert camera</string>
+    <string name="ok">OK</string>
+    <string name="cancel">EXIT</string>
+    <string name="message_success">Permission granted</string>
+    <string name="message_failure">Permission denied</string>
+    <string name="message_music_pause">paused</string>
+    <string name="message_music_running">running</string>
 </resources>
