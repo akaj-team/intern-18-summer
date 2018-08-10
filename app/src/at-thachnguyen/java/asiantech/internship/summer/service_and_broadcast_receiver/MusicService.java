@@ -35,7 +35,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MusicService extends Service implements View.OnClickListener {
     private MediaPlayer mMediaPlayer;
-    private final IBinder mMusicBind = new MusicBinder();
     private NotificationManager mNotificationManager;
     private NotificationCompat.Builder mBuilder;
     private WeakReference<ImageButton> mImgBtnPrev;
@@ -304,7 +303,7 @@ public class MusicService extends Service implements View.OnClickListener {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return mMusicBind;
+        return null;
     }
 
     @Override
