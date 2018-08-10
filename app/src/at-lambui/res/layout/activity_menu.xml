@@ -41,6 +41,15 @@
         android:text="@string/menu_activity_recyclerview_title"
         android:textSize="@dimen/font_normal" />
 
+
+    <Button
+        android:id="@+id/btnRestful"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_activity_restful_with_retrofit_gson"
+        android:textSize="@dimen/font_normal" />
     <Button
         android:id="@+id/btnBroadcastAndService"
         android:layout_width="match_parent"
@@ -49,5 +58,4 @@
         android:background="@color/colorPrimaryBlack"
         android:text="@string/menu_activity_broadcast_receiver_title"
         android:textSize="@dimen/font_normal" />
-
 </LinearLayout>
