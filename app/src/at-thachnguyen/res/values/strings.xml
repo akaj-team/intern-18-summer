@@ -47,6 +47,11 @@
     <string name="sqlite">SQLite</string>
     <string name="remember">Remember</string>
     <string name="enter_content">Enter content need to store</string>
+    <string name="async_task_thread_handler">AsyncTask, Thread, Handler</string>
+    <string name="async_task">AsyncTask</string>
+    <string name="thread">Thread</string>
+    <string name="handler">Handler</string>
+    <string name="message_download">Please wait, Downloading your image file...</string>
     <string name="title_chart">Wildlife Population</string>
     <string name="dolphins">Dolphins</string>
     <string name="whales">Whales</string>

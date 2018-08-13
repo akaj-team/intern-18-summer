@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -30,10 +31,13 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".recyclerview.RecyclerViewActivity" />
-        <activity android:name=".activity_and_fragment.ActivityAndFragmentActivity" />
-        <activity android:name=".activity_and_fragment.HomeActivity" />
         <activity android:name=".view_and_view_group.ViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
+        <activity android:name=".async_task_thread_and_handler.AsyncTaskActivity" />
+        <activity android:name=".async_task_thread_and_handler.ThreadActivity" />
+        <activity android:name=".async_task_thread_and_handler.HandlerActivity" />
+        <activity android:name=".activity_and_fragment.ActivityAndFragmentActivity" />
+        <activity android:name=".activity_and_fragment.HomeActivity" />
         <activity android:name=".restful.RestfulActivity" />
         <activity android:name=".storage.StorageActivity" />
         <activity android:name=".storage.SharePreferenceActivity" />
