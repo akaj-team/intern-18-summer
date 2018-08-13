@@ -1,10 +1,12 @@
 package asiantech.internship.summer.broadcastandservice;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -14,6 +16,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +38,8 @@ import asiantech.internship.summer.R;
 import asiantech.internship.summer.broadcastandservice.adapter.ListSongAdapter;
 import asiantech.internship.summer.broadcastandservice.model.Song;
 
+import static asiantech.internship.summer.broadcastandservice.getDurationTransfer.getDuration;
+
 public class BroadCastReceiverAndServiceActivity extends AppCompatActivity implements View.OnClickListener, OnplayerEventListener,OnClickListenerSong {
     private ImageView mImgCircleMain;
     private SeekBar mSeekBar;
@@ -53,6 +58,9 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
     private final int PERMISSION_CODE_STORAGE = 1;
     private simplePlayer mSimplePlayer;
     public static final String DURATION_KEY = "Duration key";
+    public static final String DURATION_ACTION = "Duration Action";
+    public static final String SONG_ACTION = "Song Action";
+    private durationReceiver mdurationReceiver;
     private boolean isRunning = true;
 
 
@@ -175,7 +183,11 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
     public void onPlayerStart(String title, int duration) {
         mSeekBar.setMax(duration);
         mSeekBar.setProgress(0);
-        mTvTotalRunTime.setText(getResources().getString(duration));
+        mTvTotalRunTime.setText(getDurationTransfer.getDuration(duration));
+    }
+    private void updateTime(int milisec){
+        mSeekBar.setProgress(milisec);
+        mTvStartRuntime.setText(getDurationTransfer.getDuration(milisec));
     }
 
     @Override
@@ -211,17 +223,36 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
                 break;
         }
     }
-    private class durationReceiver extends BroadcastReceiver{
+    @SuppressLint("MissingSuperCall")
+    protected void onResume() {
 
+        super.onResume();
+        if(mdurationReceiver != null){
+           mdurationReceiver= new durationReceiver();
+        }
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(DURATION_ACTION);
+        filter.addAction(SONG_ACTION);
+        registerReceiver(mdurationReceiver,filter);
+
+    }
+    protected void onPause(){
+        super.onPause();
+        if (mdurationReceiver != null){
+            unregisterReceiver(mdurationReceiver);
+        }
+    }
+
+    private class durationReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
             Bundle bundle = intent.getExtras();
             if (bundle != null){
                 mSeekBar.setProgress(bundle.getInt(DURATION_KEY));
-                mTvStartRuntime.setText();
+                mTvStartRuntime.setText(getDuration(bundle.getInt(DURATION_KEY)));
+                mTvStatus.setText(bundle.getInt(SONG_ACTION));
+               // if (mListSongs.get)
             }
-
-
         }
     }
 }

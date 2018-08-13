@@ -16,6 +16,7 @@ import asiantech.internship.summer.broadcastandservice.model.Song;
 public class ListSongViewHolder extends RecyclerView.ViewHolder {
     private TextView mTvNameSong;
     private TextView mTvArtist;
+
     private int mPosition;
     private OnClickListenerSong mOnClickedSong;
     private List<Song> mListSongs;
@@ -29,8 +30,6 @@ public class ListSongViewHolder extends RecyclerView.ViewHolder {
         mTvArtist = itemView.findViewById(R.id.tvArtist);
         Log.e("xx",""+mPosition);
         itemView.setOnClickListener(view -> mOnClickedSong.onSongClicked(mListSongs.get(getAdapterPosition())));
-
-
     }
 
     public TextView getTvNameSong() {
@@ -41,7 +40,7 @@ public class ListSongViewHolder extends RecyclerView.ViewHolder {
         return mTvArtist;
     }
 
-//    public void setPosition(int position) {
+    //    public void setPosition(int position) {
 //        this.mPosition = position;
 //    }
 }

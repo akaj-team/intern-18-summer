@@ -13,6 +13,7 @@ import java.util.List;
 
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.broadcastandservice.OnClickListenerSong;
+import asiantech.internship.summer.broadcastandservice.getDurationTransfer;
 import asiantech.internship.summer.broadcastandservice.model.Song;
 
 public class ListSongAdapter extends RecyclerView.Adapter<ListSongViewHolder> {
@@ -38,9 +39,9 @@ public class ListSongAdapter extends RecyclerView.Adapter<ListSongViewHolder> {
     public void onBindViewHolder(@NonNull ListSongViewHolder holder, int position) {
         Song song = mSongsList.get(position);
         if (song != null){
+            Log.e("xxxx", " " + getDurationTransfer.getDuration((int)(song.getDuration())));
             holder.getTvNameSong().setText(song.getName());
             holder.getTvArtist().setText(song.getArtist());
-            Log.e("xxxx", " " + position);
         }
     }
 

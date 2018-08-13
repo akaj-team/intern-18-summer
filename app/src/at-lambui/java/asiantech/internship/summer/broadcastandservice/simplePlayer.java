@@ -17,7 +17,7 @@ public class simplePlayer {
     private Activity mActivity;
     private List<Song> mListSongs = null;
     private boolean isPaused = false;
-    private int mCurrentPosition = 0;
+    public int mCurrentPosition = 0;
     public long mCurrentDuration = 0;
     private   MediaPlayer mMediaPlayer;
     simplePlayer(Activity activity){
@@ -61,8 +61,11 @@ public class simplePlayer {
 
         if (mMediaPlayer != null){
             if (!isPaused  && !mMediaPlayer.isPlaying()){
+
                 if (mListSongs.size() > 0){
+                    Song song = mListSongs.get(mCurrentPosition);
                     try{
+
                         Log.e("aaa", "vo day");
                        mCurrentDuration = mListSongs.get(mCurrentPosition).getDuration();
                         mMediaPlayer.setDataSource(mListSongs.get(mCurrentPosition).getPath());
@@ -73,6 +76,7 @@ public class simplePlayer {
                     }catch (Exception e){
                         Log.e("XXX",e.getMessage());
                     }
+                    mListener.onPlayerStart(song.getName(),(int) (song.getDuration()));
                 }
             }else {
                 mMediaPlayer.start();

@@ -19,8 +19,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button mBtnFragmentAndListener;
     Button mBtnRecyclerView;
     Button mBtnViewPager;
-    Button mBtnBroadcastAndService;
     Button mBtnRestful;
+    Button mBtnBroadcastAndService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,17 +68,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MenuActivity.this, PagerActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnBroadcastAndService:
-                intent = new Intent(MenuActivity.this, BroadCastReceiverAndServiceActivity.class);
-                startActivity(intent);
-                break;
             case R.id.btnRestful:
                 intent = new Intent(MenuActivity.this, RestfulActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btnBroadcastAndService:
+                intent = new Intent(MenuActivity.this, BroadCastReceiverAndServiceActivity.class);
+                startActivity(intent);
+                break;
         }
     }
-
 }
 
 
