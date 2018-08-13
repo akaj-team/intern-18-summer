@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textview_song_title">20sp</dimen>
+    <dimen name="text_size_title">25sp</dimen>
+    <dimen name="text_size_name">12sp</dimen>
 </resources>
