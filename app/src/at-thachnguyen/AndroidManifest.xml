@@ -23,6 +23,7 @@
         <activity android:name=".menu.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,5 +35,7 @@
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
         <activity android:name=".restful.RestfulActivity" />
+        <activity android:name=".canvas.CanvasActivity"/>
     </application>
+
 </manifest>

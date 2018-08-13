@@ -9,6 +9,7 @@ import android.widget.Button;
 import asiantech.internship.summer.activity_and_fragment.ActivityAndFragmentActivity;
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.drawer_layout.DrawerLayoutActivity;
+import asiantech.internship.summer.canvas.CanvasActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.restful.RestfulActivity;
 import asiantech.internship.summer.view_and_view_group.ViewActivity;
@@ -20,6 +21,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnRecyclerView;
     private Button mBtnViewPager;
     private Button mBtnDrawerLayout;
+    private Button mBtnCanvas;
     private Button mBtnRestful;
 
     @Override
@@ -32,6 +34,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
         mBtnDrawerLayout.setOnClickListener(this);
+        mBtnCanvas.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
     }
 
@@ -41,6 +44,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnRecyclerView = findViewById(R.id.btnRecyclerView);
         mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnDrawerLayout = findViewById(R.id.btnDrawerLayout);
+        mBtnCanvas = findViewById(R.id.btnCanvas);
         mBtnRestful = findViewById(R.id.btnRestful);
     }
 
@@ -70,6 +74,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnRestful:
                 intent = new Intent(MenuActivity.this, RestfulActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnCanvas:
+                intent = new Intent(MenuActivity.this, CanvasActivity.class);
                 startActivity(intent);
                 break;
         }

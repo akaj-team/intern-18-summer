@@ -2,10 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="asiantech.internship.summer">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.CAMERA" />
+>>>>>>> master
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
@@ -30,5 +40,6 @@
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".retrofitandgson.RestfulActivity" />
     </application>
 </manifest>
