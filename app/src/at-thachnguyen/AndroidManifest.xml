@@ -40,6 +40,7 @@
         <activity android:name=".storage.InternalAndExternalActivity" />
         <activity android:name=".storage.SqliteActivity" />
         <activity android:name=".storage.ListEmployeeActivity" />
+        <activity android:name=".canvas.CanvasActivity"/>
     </application>
 
 </manifest>

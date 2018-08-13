@@ -28,6 +28,7 @@
     <string name="recycler_view">RecyclerView</string>
     <string name="storage">File Storage</string>
     <string name="view_pager">ViewPager</string>
+    <string name="canvas">Canvas</string>
     <string name="restful">RESTful</string>
     <string name="mail_hint">Email</string>
     <string name="pass_hint">Password</string>
@@ -46,6 +47,9 @@
     <string name="sqlite">SQLite</string>
     <string name="remember">Remember</string>
     <string name="enter_content">Enter content need to store</string>
+    <string name="title_chart">Wildlife Population</string>
+    <string name="dolphins">Dolphins</string>
+    <string name="whales">Whales</string>
     <string name="upload_file">Upload File</string>
     <string name="download_file">Download File</string>
     <string name="read_file">Read File</string>
