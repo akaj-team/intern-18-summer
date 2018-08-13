@@ -3,6 +3,7 @@ package asiantech.internship.summer.asynctask_thread_handler;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Message;
+import android.support.annotation.StringDef;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,16 +22,24 @@ import java.util.List;
 
 import asiantech.internship.summer.R;
 
+import static asiantech.internship.summer.asynctask_thread_handler.AsynctaskThreadHandlerActivity.Type.ASYNCTASK;
+import static asiantech.internship.summer.asynctask_thread_handler.AsynctaskThreadHandlerActivity.Type.HANDLER;
+import static asiantech.internship.summer.asynctask_thread_handler.AsynctaskThreadHandlerActivity.Type.THREAD;
+
 public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
     private static final String TAG = AsynctaskThreadHandlerActivity.class.getSimpleName();
 
+    @Retention(RetentionPolicy.SOURCE)
+    @StringDef({ASYNCTASK, THREAD, HANDLER})
+    public @interface Type {
+        String ASYNCTASK = "asyctask";
+        String THREAD = "thread";
+        String HANDLER = "handler";
+    }
+
     private ProgressDialog mProgressDialog;
     public LooperThread looperThread;
-    private  String save;
-    private  final String ASYNCTASK = "asyctask";
-    private  final String THREAD = "thread";
-    private  final String HANDLER = "handler";
-
+    private @Type String save;
     public final static URL IMAGE_URL = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/beige_keyboard.jpg");
     public final static URL IMAGE_URL_2 = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/computer_blank_screen.jpg");
     public final static URL IMAGE_URL_3 = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/computer_memory_dimm.jpg");
@@ -51,7 +62,7 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
         list.add(findViewById(R.id.imgDowloadThree));
         list.add(findViewById(R.id.imgDowloadFour));
         btnDowload.setOnClickListener(view -> {
-            if(save != null){
+            if (save != null) {
                 switch (save) {
                     case ASYNCTASK: {
                         downloadImageAsyncTask();
@@ -113,7 +124,7 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
         try {
             return new URL(s);
         } catch (MalformedURLException e) {
-            Log.e(TAG,e.getMessage());
+            Log.e(TAG, e.getMessage());
         }
         return null;
     }
@@ -145,10 +156,10 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
         mProgressDialog.show();
     }
 
-    public void updateUI(){
-      for(int i = 0; i < 4; i++){
-          list.get(i).setImageResource(R.color.colorWhite);
-      }
+    public void updateUI() {
+        for (int i = 0; i < 4; i++) {
+            list.get(i).setImageResource(R.color.colorWhite);
+        }
     }
 
     @Override
@@ -159,6 +170,7 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
 
     interface Update {
         void updateProgress(int percent);
+
         void updateDismiss();
     }
 }

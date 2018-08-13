@@ -22,7 +22,7 @@ public class DownloadImageThread extends Thread {
     private ProgressDialog mProgressDialog;
 
     DownloadImageThread(Activity activity, URL[] mUrls, List<ImageView> mListImage, ProgressDialog mProgressDialog) {
-        this.mActivity = activity;
+        mActivity = activity;
         this.mUrls = mUrls;
         this.mListImage = mListImage;
         this.mProgressDialog = mProgressDialog;

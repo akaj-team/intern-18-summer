@@ -51,5 +51,15 @@
     <string name="thread">THREAD</string>
     <string name="handler">HANDLER</string>
     <string name="download_image">DOWNLOAD IMAGES</string>
+    <string name="menu_activity_restful_with_retrofit_gson">Restful with Retrofit and Gson</string>
+    <string name="photo">Photo</string>
+    <string name="choose_gallery">Choose photo from gallery</string>
+    <string name="take_photo">Take photo</string>
+    <string name="title_dialog">Permisstion needed</string>
+    <string name="message_dialog">This permission needed because of insert camera</string>
+    <string name="ok">OK</string>
+    <string name="cancel">EXIT</string>
+    <string name="message_success">Permission granted</string>
+    <string name="message_failure">Permission denied</string>
     <string name="message_progress">Please wait, we are doing your image files</string>
 </resources>

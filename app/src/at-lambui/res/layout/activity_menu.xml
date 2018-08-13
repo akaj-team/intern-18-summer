@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/nancy">
+    android:background="@drawable/nancy"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/btnViewAndViewGroup"
@@ -47,6 +47,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimaryBlack"
-        android:text="@string/menu_asynctask_thread_handler_title"
+        android:text="@string/menu_asynctask_thread_handler_title" />
+
+    <Button
+        android:id="@+id/btnRestful"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_activity_restful_with_retrofit_gson"
         android:textSize="@dimen/font_normal" />
 </LinearLayout>
