@@ -53,7 +53,11 @@ public class RestAPIAdapter extends RecyclerView.Adapter<RestAPIAdapter.MyViewHo
         }
     }
 
+    /**
+     * This Interface is used to click on image inside recycler view
+     * @param position : position of image in recycler view
+     */
     public interface OnClickImagesListener {
-        void onImageClick(int id);
+        void onImageClick(int position);
     }
 }
