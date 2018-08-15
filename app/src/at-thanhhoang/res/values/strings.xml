@@ -32,6 +32,11 @@
     <string name="label_sign_up_login">SignUp?</string>
     <string name="label_login">Login</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
+    <string name="label_asyncTask_thread_handler">AsyncTask_Thread_Handler</string>
+    <string name="label_async_task">AsyncTask</string>
+    <string name="label_thread">Thread</string>
+    <string name="label_handler">Handler</string>
+    <string name="label_download_images">Download Images</string>
     <string name="label_recycler_view">RecyclerView</string>
     <string name="label_button_load_image_from_api">Load Image From API</string>
     <string name="label_button_upload_image_to_api">Upload Image To API</string>

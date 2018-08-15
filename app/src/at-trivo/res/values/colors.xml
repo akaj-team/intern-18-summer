@@ -3,8 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorBrightTurquoise">#42F4C8</color>
+    <color name="colorWedgewood">#4f70a5</color>
+    <color name="colorToreaBay">#0840A0</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorAmaranth">#e22248</color>
+    <color name="colorBrightTurquoise">#42F4C8</color>
     <color name="colorPersianBlue">#1D30C4</color>
     <color name="colorNobel">#B5B3B3</color>
     <color name="colorGray">#999999</color>

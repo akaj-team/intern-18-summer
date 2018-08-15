@@ -31,5 +31,6 @@
         <activity android:name=".timeline.TimelineActivity" />
         <activity android:name=".viewpager.ViewPagerActivity" />
         <activity android:name=".rest_api.RestAPIActivity" />
+        <activity android:name=".asynctask_thread_handler.AsyncTaskThreadHandlerActivity" />
     </application>
 </manifest>
