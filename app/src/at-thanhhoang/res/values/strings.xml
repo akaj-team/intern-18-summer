@@ -31,6 +31,10 @@
     <string name="label_sign_up">SIGN UP</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
     <string name="label_recycler_view">RecyclerView</string>
+    <string name="label_services_broadcast_receive">Services_Broadcast Receive</string>
+    <string name="music_play">Play</string>
+    <string name="music_pause">Pause</string>
+    <string name="name_music">xin lỗi vì ta đã yêu nhau</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
