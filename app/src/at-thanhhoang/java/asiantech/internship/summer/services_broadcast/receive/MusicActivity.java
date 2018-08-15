@@ -44,13 +44,9 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
     private TextView mTvPlayOrPause;
     private TextView mTvTotalTime;
     private TextView mTvMusicName;
-    private ImageView mImgPrevious;
     private ImageView mImgAction;
-    private ImageView mImgNext;
     private Animation mRotateAnimation;
 
-    private RemoteViews mRemoteViews;
-    private NotificationCompat.Builder mBuilder;
     private NotificationManager mNotificationManager;
 
     private boolean mIsPlay = false;
@@ -130,9 +126,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         mTvPlayOrPause = findViewById(R.id.tvPlayOrPause);
         mTvTotalTime = findViewById(R.id.tvTotalTime);
         mTvMusicName = findViewById(R.id.tvMusicName);
-        mImgPrevious = findViewById(R.id.imgPrevious);
         mImgAction = findViewById(R.id.imgAction);
-        mImgNext = findViewById(R.id.imgNext);
 
         mTvMusicName.setText(R.string.name_music);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img_cd);
@@ -209,38 +203,38 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void createNotification() {
-        mRemoteViews = new RemoteViews(getPackageName(),
+        RemoteViews remoteViews = new RemoteViews(getPackageName(),
                 R.layout.custom_notification);
-        mRemoteViews.setImageViewResource(R.id.imgLogoNotification, R.drawable.bg_music);
-        mRemoteViews.setTextViewText(R.id.tvNameMusicNotification, mTvMusicName.getText());
-        mRemoteViews.setTextViewText(R.id.tvTimeNotification, mTvCurrentTime.getText());
+        remoteViews.setImageViewResource(R.id.imgLogoNotification, R.drawable.bg_music);
+        remoteViews.setTextViewText(R.id.tvNameMusicNotification, mTvMusicName.getText());
+        remoteViews.setTextViewText(R.id.tvTimeNotification, mTvCurrentTime.getText());
         if (mIsPlay) {
-            mRemoteViews.setImageViewResource(R.id.imgActionNotification, R.drawable.ic_play_music);
+            remoteViews.setImageViewResource(R.id.imgActionNotification, R.drawable.ic_play_music);
         } else {
-            mRemoteViews.setImageViewResource(R.id.imgActionNotification, R.drawable.ic_pause_music);
+            remoteViews.setImageViewResource(R.id.imgActionNotification, R.drawable.ic_pause_music);
         }
         Intent pauseOrPlayNotificationIntent = new Intent(getApplicationContext(), MusicService.class);
         pauseOrPlayNotificationIntent.setAction(ACTION_FOCUS_IMAGE_NOTIFICATION);
         pauseOrPlayNotificationIntent.putExtra(KEY_IS_PLAYING, mIsPlay);
         PendingIntent pendingPauseOrPlayIntent = PendingIntent.getService(this, 0, pauseOrPlayNotificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        mRemoteViews.setOnClickPendingIntent(R.id.imgActionNotification, pendingPauseOrPlayIntent);
+        remoteViews.setOnClickPendingIntent(R.id.imgActionNotification, pendingPauseOrPlayIntent);
 
         Intent closeNotificationIntent = new Intent(this, MusicService.class);
         closeNotificationIntent.setAction(ACTION_CLOSE_NOTIFICATION);
         PendingIntent pendingCloseIntent = PendingIntent.getService(this, 0, closeNotificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        mRemoteViews.setOnClickPendingIntent(R.id.imgCloseNotification, pendingCloseIntent);
+        remoteViews.setOnClickPendingIntent(R.id.imgCloseNotification, pendingCloseIntent);
 
         Intent openActivityIntent = new Intent(this, MusicActivity.class);
         openActivityIntent.setAction(Intent.ACTION_MAIN);
         openActivityIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         openActivityIntent.setComponent(Objects.requireNonNull(getPackageManager().getLaunchIntentForPackage(getPackageName())).getComponent());
 
-        mBuilder = new NotificationCompat.Builder(this)
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.ic_like_red)
                 .setContentIntent(PendingIntent.getActivity(this, 0, openActivityIntent, 0))
-                .setCustomBigContentView(mRemoteViews);
+                .setCustomBigContentView(remoteViews);
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(1, mBuilder.build());
+        mNotificationManager.notify(1, builder.build());
     }
 }

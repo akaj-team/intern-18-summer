@@ -28,8 +28,7 @@ public class MusicService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mMediaPlayer = MediaPlayer.create(this, R.raw.xin_loi_vi_da_yeu_nhau_hoai_lam);
-//        startForeground(1, new Notification.Builder(this).build());
+        mMediaPlayer = MediaPlayer.create(this, R.raw.dung_quen_ten_anh_hoa_vinh);
     }
 
     @Override
