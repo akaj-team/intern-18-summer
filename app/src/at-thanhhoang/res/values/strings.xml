@@ -32,6 +32,9 @@
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
     <string name="label_recycler_view">RecyclerView</string>
     <string name="label_canvas">Canvas</string>
+    <string name="label_chart_name">Wildlife Population</string>
+    <string name="label_dolphins">dolphins</string>
+    <string name="label_whales">whales</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>

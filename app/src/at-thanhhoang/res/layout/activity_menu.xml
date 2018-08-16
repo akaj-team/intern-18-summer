@@ -19,7 +19,7 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_view_view_group"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btnFragmentActivity"
@@ -31,7 +31,7 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_fragment_activity"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btnRecycleView"
@@ -43,30 +43,30 @@
             android:background="@color/colorBackgroundButtonMenuActivity"
             android:text="@string/label_recycler_view"
             android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Button
-            android:layout_marginTop="10dp"
             android:id="@+id/btnViewpager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ex_viewpager_tablayout"
-            android:background="@color/colorBackgroundButtonMenuActivity"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/ex_viewpager_tablayout"
             android:textAllCaps="false"
-            android:textSize="20sp"/>
+            android:textSize="20dp" />
 
         <Button
-            android:layout_marginTop="10dp"
             android:id="@+id/btnCanvas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/label_canvas"
-            android:background="@color/colorBackgroundButtonMenuActivity"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/label_canvas"
             android:textAllCaps="false"
-            android:textSize="20sp"/>
+            android:textSize="20dp" />
     </LinearLayout>
 </ScrollView>
