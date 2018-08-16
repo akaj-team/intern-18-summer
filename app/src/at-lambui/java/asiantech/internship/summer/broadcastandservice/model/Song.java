@@ -7,13 +7,12 @@ public class Song {
     private String path;
     private long duration;
 
-    public Song(Long id, String name, String artist,String path,long duration) {
+    public Song(Long id, String name, String artist, String path, long duration) {
         this.id = id;
         this.name = name;
         this.artist = artist;
         this.path = path;
         this.duration = duration;
-
     }
 
     public Long getId() {
@@ -44,4 +43,3 @@ public class Song {
         return duration;
     }
 }
-

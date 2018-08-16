@@ -47,6 +47,14 @@
         <service
             android:name=".broadcastandservice.MusicSimplePlayerService"
             android:enabled="true" />
+        <receiver android:name=".broadcastandservice.BroadCastReceiverAndServiceActivity$DurationReceiver"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action
+                    android:name="asiantech.internship.summer.CLOSE_ACTION"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
