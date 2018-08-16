@@ -64,7 +64,6 @@ public class ChartCustomView extends View {
     }
 
     private void attributeSet(AttributeSet attrs) {
-
         @SuppressLint("CustomViewStyleable") TypedArray typedArray = getContext().obtainStyledAttributes(attrs,
                 R.styleable.WildlifeChart);
         try {
@@ -76,7 +75,6 @@ public class ChartCustomView extends View {
             mSizeNumber = typedArray.getInteger(R.styleable.WildlifeChart_sizeNumber, 8);
             mRectNumber = typedArray.getInteger(R.styleable.WildlifeChart_rectNumber, 20);
         } finally {
-            //tao lai
             typedArray.recycle();
         }
     }
@@ -91,7 +89,7 @@ public class ChartCustomView extends View {
         //text paint
         mTextPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(Color.BLACK);
-        mTextPaint.setTextSize(R.dimen.font_text_large);
+        mTextPaint.setTextSize(getResources().getDimension(R.dimen.font_text_large));
     }
 
     @Override
@@ -136,14 +134,12 @@ public class ChartCustomView extends View {
             case MotionEvent.ACTION_POINTER_DOWN:
                 mMode = ZOOM;
                 break;
-
             case MotionEvent.ACTION_UP:
                 mMode = NONE;
                 mDragged = false;
                 peviousTranslateX = mTranslateX;
                 peviousTranslateY = mTranslateY;
                 break;
-
             case MotionEvent.ACTION_POINTER_UP:
                 mMode = DRAG;
                 peviousTranslateX = mTranslateX;
@@ -175,7 +171,6 @@ public class ChartCustomView extends View {
         mPaint.setStrokeWidth(2);
         canvas.drawLine(getWidth() / 100, getHeight() - getHeight() / 18, getWidth(), getHeight() - getHeight() / 18, mPaint);
         mPaint.setTextSize(getResources().getDimension(R.dimen.font_text_large));
-
         for (int j = 1; j < mColumnNumber; j++) {
             canvas.drawLine(getWidth() / 7, getHeight() - getHeight() / 4 - j * mDifferenceOfSuccessive, getWidth() - getWidth() * 2 / 17, getHeight() - getHeight() / 4 - j * mDifferenceOfSuccessive, mPaint);
         }
@@ -183,7 +178,6 @@ public class ChartCustomView extends View {
     }
 
     private void drawRect(Canvas canvas) {
-
         float top = getHeight() - getHeight() / 4 - 8 * getHeight() / 17;
         for (int i = 0; i <= mRectNumber; i++) {
             mPaint.setColor(getResources().getColor(R.color.colorWhales));

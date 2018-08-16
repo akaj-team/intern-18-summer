@@ -2,4 +2,6 @@
     <string name="app_name">Intern18Summer</string>
     <string name="label_sign_up_login">SignUp?</string>
     <string name="label_login">Login</string>
+    <string name="load_image">Load Image</string>
+    <string name="upload_image">Upload Image</string>
 </resources>

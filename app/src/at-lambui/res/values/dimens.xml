@@ -8,8 +8,8 @@
     <dimen name="font_big">20sp</dimen>
     <dimen name="font_text_big">40dp</dimen>
     <dimen name="font_stroke_width">3dp</dimen>
-    <dimen name="font_text_large">20sp</dimen>
-    <dimen name="column_width_default">50sp</dimen>
+    <dimen name="font_text_large">20dp</dimen>
+    <dimen name="column_width_default">50dp</dimen>
     <!-- spacing sizes -->
     <dimen name="spacing_huge">40dp</dimen>
     <dimen name="spacing_large">20dp</dimen>

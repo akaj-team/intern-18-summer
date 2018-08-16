@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.retrofitandgson.RestfulActivity;
 import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.canvas.CanvasActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
@@ -18,14 +19,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button mBtnFragmentAndListener;
     Button mBtnRecyclerView;
     Button mBtnViewPager;
+    Button mBtnRestful;
     Button mBtnCanvas;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         initViews();
-        addListeners();
+        setListeners();
     }
 
     private void initViews() {
@@ -33,14 +34,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentAndListener = findViewById(R.id.btnExerciseFragment);
         mBtnRecyclerView = findViewById(R.id.btnRecyclerview);
         mBtnViewPager = findViewById(R.id.btnViewPager);
+        mBtnRestful = findViewById(R.id.btnRestful);
         mBtnCanvas = findViewById(R.id.btnCanvas);
     }
 
-    private void addListeners() {
+    private void setListeners(){
         mBtnViewAndViewGroup.setOnClickListener(this);
         mBtnFragmentAndListener.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
+        mBtnRestful.setOnClickListener(this);
         mBtnCanvas.setOnClickListener(this);
     }
 
@@ -62,6 +65,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnViewPager:
                 intent = new Intent(MenuActivity.this, PagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnRestful:
+                intent = new Intent(MenuActivity.this, RestfulActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnCanvas:
