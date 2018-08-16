@@ -11,6 +11,7 @@ import java.util.List;
 import asiantech.internship.summer.broadcastandservice.model.Song;
 
 public class SimplePlayer {
+    private static final int TIME_DELAY = 1000;
     private OnplayerEventListener mListener;
     private Activity mActivity;
      List<Song> mListSongs = null;
@@ -18,11 +19,8 @@ public class SimplePlayer {
     public int mCurrentPosition = 0;
     private MediaPlayer mMediaPlayer;
     private Runnable mRunnable;
-    //    private UpdateOnEverySecond mUpdateOnEverySecond;
     private Handler mHandler = new Handler();
-
     public void init(List<Song> songList) {
-        Log.e("EEE", songList.toString());
         mListSongs = songList;
         mCurrentPosition = 0;
         if (mMediaPlayer == null) {
@@ -82,7 +80,7 @@ public class SimplePlayer {
                 mListener.onUnPauseSong();
             }
             mHandler.removeCallbacks(updateSeekBar);
-            mHandler.postDelayed(updateSeekBar, 1000);
+            mHandler.postDelayed(updateSeekBar, TIME_DELAY);
         }
     }
 
@@ -168,7 +166,6 @@ public class SimplePlayer {
     }
 
     private Runnable updateSeekBar = new Runnable() {
-
         @Override
         public void run() {
             if (mMediaPlayer.isPlaying()) {

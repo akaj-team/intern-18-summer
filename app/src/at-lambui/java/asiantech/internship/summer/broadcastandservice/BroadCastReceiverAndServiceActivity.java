@@ -238,7 +238,6 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
 
     @Override
     public void onPlayerPlaying(long time) {
-
     }
 
     @Override
@@ -246,8 +245,6 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
         mSeekBar.setMax(duration);
         mSeekBar.setProgress(0);
         mTvTotalRunTime.setText(GetDurationTransfer.getDuration(duration));
-        //rotateCircle();
-//        mTvStartRuntime.setText();
     }
 
     @Override

@@ -44,17 +44,17 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".broadcastandservice.BroadCastReceiverAndServiceActivity" />
         <activity android:name=".retrofitandgson.RestfulActivity" />
+
         <service
             android:name=".broadcastandservice.MusicSimplePlayerService"
             android:enabled="true" />
-        <receiver android:name=".broadcastandservice.BroadCastReceiverAndServiceActivity$DurationReceiver"
-            android:exported="true"
-            android:enabled="true">
+        <receiver
+            android:name=".broadcastandservice.BroadCastReceiverAndServiceActivity$DurationReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action
-                    android:name="asiantech.internship.summer.CLOSE_ACTION"/>
+                <action android:name="asiantech.internship.summer.CLOSE_ACTION" />
             </intent-filter>
         </receiver>
     </application>
-
 </manifest>

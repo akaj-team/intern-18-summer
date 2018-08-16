@@ -41,6 +41,7 @@ public class MusicSimplePlayerService extends Service implements OnplayerEventLi
     private RemoteViews mNotificationView;
     private NotificationManager mNotificationManager;
     private final IBinder mIbinder = new LocalBinder();
+
     public MusicSimplePlayerService() {
         if (mSimplePlayer == null) {
             mSimplePlayer = new SimplePlayer();
@@ -81,11 +82,13 @@ public class MusicSimplePlayerService extends Service implements OnplayerEventLi
     public void setProgessSeekbar(SeekBar seekbar) {
         mSimplePlayer.setSeekPosition(seekbar.getProgress());
     }
+
     public class LocalBinder extends Binder {
         MusicSimplePlayerService getservice() {
             return MusicSimplePlayerService.this;
         }
     }
+
     @Override
     public IBinder onBind(Intent intent) {
         return mIbinder;
@@ -104,12 +107,9 @@ public class MusicSimplePlayerService extends Service implements OnplayerEventLi
                     if (mSimplePlayer.isPlayingSong()) {
                         mNotificationView.setImageViewResource(R.id.imgPlayNotification, R.drawable.ic_pause);
                     } else {
-
                         mNotificationView.setImageViewResource(R.id.imgPlayNotification, R.drawable.ic_play);
                     }
-
                     updateState();
-
                     break;
                 case CLOSE_ACTION:
                     mNotificationManager.cancel(SERVICE_ID);
@@ -221,11 +221,13 @@ public class MusicSimplePlayerService extends Service implements OnplayerEventLi
             mNotificationManager.notify(SERVICE_ID, mNotification);
         }
     }
+
     public void updateDefault() {
         Song song = mSimplePlayer.mListSongs.get(mSimplePlayer.mCurrentPosition);
         onPlayerStart(song.getName(), (int) song.getDuration());
         updateState();
     }
+
     public boolean updateStateDefault() {
         return mSimplePlayer.isPlayingSong();
     }
