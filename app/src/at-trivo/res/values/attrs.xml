@@ -1,0 +1,29 @@
+<resources>
+
+    <declare-styleable name="WildlifeChartView">
+        <attr name="columnData" format="reference" />
+        <attr name="columnColor" format="reference" />
+        <attr name="caption" format="reference" />
+        <attr name="year" format="integer" />
+        <attr name="rulerWidth" format="integer" />
+        <attr name="captionHeight" format="integer" />
+        <attr name="bottomHeight" format="integer" />
+        <attr name="columnSize" format="integer" />
+        <attr name="columnFarDistance" format="integer" />
+        <attr name="columnNearDistance" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="EventView">
+        <attr name="message" format="string" />
+        <attr name="image_src" format="string" />
+        <attr name="time" format="string" />
+        <attr name="location" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="DayView">
+        <attr name="dayNumber" format="string" />
+        <attr name="day" format="string" />
+        <attr name="isToday" format="boolean" />
+        <attr name="isHasEvent" format="boolean" />
+    </declare-styleable>
+</resources>

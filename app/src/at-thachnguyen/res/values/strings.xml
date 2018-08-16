@@ -27,6 +27,8 @@
     <string name="activity">Activity and Fragment</string>
     <string name="recycler_view">RecyclerView</string>
     <string name="view_pager">ViewPager</string>
+    <string name="canvas">Canvas</string>
+    <string name="restful">RESTful</string>
     <string name="mail_hint">Email</string>
     <string name="pass_hint">Password</string>
     <string name="confirm_pass_hint">Confirm Password</string>
@@ -37,4 +39,20 @@
     <string name="owner">Peter Pan</string>
     <string name="description">Today, what do we eat?</string>
     <string name="like">0 like</string>
+    <string name="async_task_thread_handler">AsyncTask, Thread, Handler</string>
+    <string name="async_task">AsyncTask</string>
+    <string name="thread">Thread</string>
+    <string name="handler">Handler</string>
+    <string name="message_download">Please wait, Downloading your image file...</string>
+    <string name="title_chart">Wildlife Population</string>
+    <string name="dolphins">Dolphins</string>
+    <string name="whales">Whales</string>
+    <string name="upload_file">Upload File</string>
+    <string name="download_file">Download File</string>
+    <string name="read_file">Read File</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="dowloading">Dowloading...</string>
+    <string name="uploading">Uploading...</string>
+    <string name="wait">Please wait, </string>
+    <string name="token_api">6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e</string>
 </resources>

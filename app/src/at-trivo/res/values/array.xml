@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="data">
+        <item>@array/dolphin</item>
+        <item>@array/tiger</item>
+    </array>
+
+    <array name="dolphin">
+        <item>176</item>
+        <item>102</item>
+        <item>75</item>
+        <item>120</item>
+        <item>150</item>
+        <item>120</item>
+    </array>
+
+    <array name="tiger">
+        <item>39</item>
+        <item>130</item>
+        <item>50</item>
+        <item>110</item>
+        <item>320</item>
+        <item>10</item>
+    </array>
+
+    <array name="columnColor">
+        <item>@color/colorMalachite</item>
+        <item>@color/colorAccent</item>
+    </array>
+</resources>
