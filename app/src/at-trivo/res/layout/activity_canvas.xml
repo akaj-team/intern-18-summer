@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="asiantech.internship.summer.canvas.CanvasActivity">
+
+    <asiantech.internship.summer.canvas.WildlifeChartView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        app:bottomHeight="100"
+        app:caption="@string/chart_caption"
+        app:captionHeight="100"
+        app:columnColor="@array/columnColor"
+        app:columnData="@array/data"
+        app:columnFarDistance="60"
+        app:columnNearDistance="10"
+        app:columnSize="30"
+        app:rulerWidth="50"
+        app:year="3000" />
+</FrameLayout>

@@ -59,6 +59,18 @@
 
         <Button
             android:layout_marginTop="10dp"
+            android:id="@+id/btnAsyncTaskThreadHandler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_asyncTask_thread_handler"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
+
+        <Button
+            android:layout_marginTop="10dp"
             android:id="@+id/btnServicesBroadcastReceive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

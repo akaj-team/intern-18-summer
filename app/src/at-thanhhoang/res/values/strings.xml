@@ -30,6 +30,11 @@
     <string name="label_confirm_password">Confirm Password</string>
     <string name="label_sign_up">SIGN UP</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
+    <string name="label_asyncTask_thread_handler">AsyncTask_Thread_Handler</string>
+    <string name="label_async_task">AsyncTask</string>
+    <string name="label_thread">Thread</string>
+    <string name="label_handler">Handler</string>
+    <string name="label_download_images">Download Images</string>
     <string name="label_recycler_view">RecyclerView</string>
     <string name="label_services_broadcast_receive">Services_Broadcast Receive</string>
     <string name="music_play">Play</string>
