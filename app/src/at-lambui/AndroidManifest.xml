@@ -33,7 +33,8 @@
         <activity android:name=".recyclerview.RecyclerViewActivity" />
         <activity android:name=".viewpager.PagerActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".canvas.CanvasActivity"/>
+        <activity android:name=".canvas.CanvasActivity" />
+        <activity android:name=".unittest.UnitTestActivity" />
         <activity android:name=".retrofitandgson.RestfulActivity" />
     </application>
 </manifest>

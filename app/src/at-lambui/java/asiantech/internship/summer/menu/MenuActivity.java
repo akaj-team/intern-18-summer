@@ -12,6 +12,7 @@ import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.canvas.CanvasActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.ViewAndViewGruopActivity;
+import asiantech.internship.summer.unittest.UnitTestActivity;
 import asiantech.internship.summer.viewpager.PagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button mBtnViewPager;
     Button mBtnRestful;
     Button mBtnCanvas;
+    Button mBtnUnitTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
         setListeners();
     }
-
     private void initViews() {
         mBtnViewAndViewGroup = findViewById(R.id.btnViewAndViewGroup);
         mBtnFragmentAndListener = findViewById(R.id.btnExerciseFragment);
@@ -36,15 +37,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnRestful = findViewById(R.id.btnRestful);
         mBtnCanvas = findViewById(R.id.btnCanvas);
+        mBtnUnitTest = findViewById(R.id.btnUnitTest);
     }
-
-    private void setListeners(){
+    private void setListeners() {
         mBtnViewAndViewGroup.setOnClickListener(this);
         mBtnFragmentAndListener.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
         mBtnCanvas.setOnClickListener(this);
+        mBtnUnitTest.setOnClickListener(this);
     }
 
     @Override
@@ -73,6 +75,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnCanvas:
                 intent = new Intent(MenuActivity.this, CanvasActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnUnitTest:
+                intent = new Intent(MenuActivity.this, UnitTestActivity.class);
                 startActivity(intent);
                 break;
         }
