@@ -28,8 +28,6 @@ public class ListenMusicActivity extends AppCompatActivity {
     public static ImageButton sImgBtnNext;
     private Toolbar mToolbarListenMusic;
     private Intent mPlayIntent;
-    private MusicService mMusicService;
-    private boolean mIsActive = false;
     private int mPosition;
     public static final String KEY_POSITION = "pos";
 
@@ -50,6 +48,7 @@ public class ListenMusicActivity extends AppCompatActivity {
         super.onStart();
         if (mPlayIntent == null) {
             mPlayIntent = new Intent(this, MusicService.class);
+            mPlayIntent.setAction("move");
             mPlayIntent.putExtra(KEY_POSITION, mPosition);
             startService(mPlayIntent);
         }

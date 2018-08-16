@@ -8,11 +8,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.os.Binder;
-import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.view.animation.Animation;
@@ -56,7 +53,6 @@ public class MusicService extends Service implements View.OnClickListener {
     private static final String CHANNEL = "my_channel_01";
     private boolean mIsShowNotification = false;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
             if (Objects.equals(intent.getAction(), getResources().getString(R.string.play_action))) {
@@ -207,12 +203,6 @@ public class MusicService extends Service implements View.OnClickListener {
         }
     }
 
-    class MusicBinder extends Binder {
-        MusicService getService() {
-            return MusicService.this;
-        }
-    }
-
     private void setTotalTime() {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat timeFomart = new SimpleDateFormat("mm:ss");
         mTvTotalTime.get().setText(timeFomart.format(mMediaPlayer.getDuration()));
@@ -296,8 +286,8 @@ public class MusicService extends Service implements View.OnClickListener {
                 .setOnlyAlertOnce(true);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel mChannel = new NotificationChannel(CHANNEL, getResources().getString(R.string.channel_name), importance);
-            mNotificationManager.createNotificationChannel(mChannel);
+            NotificationChannel channel = new NotificationChannel(CHANNEL, getResources().getString(R.string.channel_name), importance);
+            mNotificationManager.createNotificationChannel(channel);
         }
     }
 
