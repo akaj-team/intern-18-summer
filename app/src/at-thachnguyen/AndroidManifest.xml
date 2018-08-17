@@ -50,6 +50,7 @@
 
         <activity android:name=".service_and_broadcast_receiver.ServiceBroadCastActivity" />
         <activity android:name=".canvas.CanvasActivity" />
+        <activity android:name=".unit_test.UnitTestActivity"/>
     </application>
 
 </manifest>
