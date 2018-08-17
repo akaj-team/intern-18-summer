@@ -55,6 +55,10 @@
     <string name="check_password_not_end_digit_or_special_character">Password do not end with digit or special characters</string>
     <string name="check_password_least_three_uppercase_character_not_continue">Password have at least 3 uppercase characters but not consecutive</string>
     <string name="check_login_success">Login success!!!</string>
+    <string name="label_services_broadcast_receive">Services_Broadcast Receive</string>
+    <string name="music_play">Play</string>
+    <string name="music_pause">Pause</string>
+    <string name="name_music">Đừng quên tên anh</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>

@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import asiantech.internship.summer.asynctask_thread_handler.AsyncTaskThreadHandlerActivity;
 import asiantech.internship.summer.exercise_fragment_activity.FragmentActivity;
+import asiantech.internship.summer.services_broadcast.receive.MusicActivity;
 import asiantech.internship.summer.timeline.TimelineActivity;
 import asiantech.internship.summer.unit.test.UnitTestActivity;
 import asiantech.internship.summer.viewpager.ViewPagerActivity;
@@ -20,6 +21,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnViewPagerTabLayout;
     private Button mBtnUnitTest;
     private Button mBtnThread;
+    private Button mBtnServicesBroadcastReceive;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnViewPagerTabLayout.setOnClickListener(this);
         mBtnUnitTest.setOnClickListener(this);
         mBtnThread.setOnClickListener(this);
+        mBtnServicesBroadcastReceive.setOnClickListener(this);
     }
 
     private void initView() {
@@ -46,6 +49,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnViewPagerTabLayout = findViewById(R.id.btnViewpager);
         mBtnUnitTest = findViewById(R.id.btnUnitTest);
         mBtnThread = findViewById(R.id.btnAsyncTaskThreadHandler);
+        mBtnServicesBroadcastReceive = findViewById(R.id.btnServicesBroadcastReceive);
     }
 
     @Override
@@ -74,6 +78,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAsyncTaskThreadHandler:
                 intent = new Intent(MenuActivity.this, AsyncTaskThreadHandlerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnServicesBroadcastReceive:
+                intent = new Intent(MenuActivity.this, MusicActivity.class);
                 startActivity(intent);
                 break;
         }

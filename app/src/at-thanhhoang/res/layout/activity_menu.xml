@@ -80,5 +80,17 @@
             android:text="@string/label_asyncTask_thread_handler"
             android:textAllCaps="false"
             android:textSize="@dimen/menu_text_size" />
+
+        <Button
+            android:id="@+id/btnServicesBroadcastReceive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/menu_margin_left"
+            android:layout_marginRight="@dimen/menu_margin_right"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorBackgroundButtonMenuActivity"
+            android:text="@string/label_services_broadcast_receive"
+            android:textAllCaps="false"
+            android:textSize="@dimen/menu_text_size" />
     </LinearLayout>
 </ScrollView>
