@@ -76,4 +76,6 @@
     <string name="message_success">Permission granted</string>
     <string name="message_failure">Permission denied</string>
     <string name="message_progress">Please wait, we are doing your image files</string>
+    <string name="load_image">Load Image</string>
+    <string name="upload_image">Upload Image</string>
 </resources>
