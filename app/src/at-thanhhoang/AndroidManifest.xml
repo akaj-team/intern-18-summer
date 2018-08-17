@@ -22,7 +22,6 @@
         <activity android:name=".timeline.TimelineActivity" />
         <activity android:name=".viewpager.ViewPagerActivity"/>
         <activity android:name=".asynctask_thread_handler.AsyncTaskThreadHandlerActivity" />
-        <activity android:name=".viewpager.ViewPagerActivity" />
         <activity android:name=".services_broadcast.receive.MusicActivity" />
 
         <service android:name=".services_broadcast.receive.MusicService" />

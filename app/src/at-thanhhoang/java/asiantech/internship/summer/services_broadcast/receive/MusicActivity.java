@@ -230,7 +230,7 @@ public class MusicActivity extends AppCompatActivity implements View.OnClickList
         openActivityIntent.setComponent(Objects.requireNonNull(getPackageManager().getLaunchIntentForPackage(getPackageName())).getComponent());
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_like_red)
+                .setSmallIcon(R.drawable.ic_notification)
                 .setContentIntent(PendingIntent.getActivity(this, 0, openActivityIntent, 0))
                 .setCustomBigContentView(remoteViews);
 

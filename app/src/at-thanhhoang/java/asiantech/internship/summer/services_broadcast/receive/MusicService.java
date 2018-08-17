@@ -94,8 +94,8 @@ public class MusicService extends Service {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         mCountDownTimer.cancel();
         mMediaPlayer.stop();
+        super.onDestroy();
     }
 }
