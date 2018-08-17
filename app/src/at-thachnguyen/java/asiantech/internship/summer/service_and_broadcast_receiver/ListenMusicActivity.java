@@ -15,7 +15,7 @@ import java.util.Objects;
 import asiantech.internship.summer.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-@SuppressLint("Registered, StaticFieldLeak")
+@SuppressLint("StaticFieldLeak")
 public class ListenMusicActivity extends AppCompatActivity {
     public static CircleImageView sImgDisk;
     public static SeekBar sSeekBarPlay;
@@ -29,7 +29,6 @@ public class ListenMusicActivity extends AppCompatActivity {
     private Toolbar mToolbarListenMusic;
     private Intent mPlayIntent;
     private int mPosition;
-    public static final String KEY_POSITION = "pos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +47,8 @@ public class ListenMusicActivity extends AppCompatActivity {
         super.onStart();
         if (mPlayIntent == null) {
             mPlayIntent = new Intent(this, MusicService.class);
-            mPlayIntent.setAction("move");
-            mPlayIntent.putExtra(KEY_POSITION, mPosition);
+            mPlayIntent.setAction(getResources().getString(R.string.move));
+            mPlayIntent.putExtra(getResources().getString(R.string.position), mPosition);
             startService(mPlayIntent);
         }
     }

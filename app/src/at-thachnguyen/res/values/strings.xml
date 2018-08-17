@@ -65,4 +65,9 @@
     <string name="token_api">6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e</string>
     <string name="list_song">List Songs</string>
     <string name="listen_music">Listen Music</string>
+    <string name="channel">my_channel_01</string>
+    <string name="position">position</string>
+    <string name="current">current_time</string>
+    <string name="preference">my_preference</string>
+    <string name="move">move</string>
 </resources>
