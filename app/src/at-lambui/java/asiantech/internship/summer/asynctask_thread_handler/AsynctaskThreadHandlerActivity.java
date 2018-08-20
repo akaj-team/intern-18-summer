@@ -39,7 +39,8 @@ public class AsynctaskThreadHandlerActivity extends AppCompatActivity {
 
     private ProgressDialog mProgressDialog;
     public LooperThread looperThread;
-    private @Type String save;
+    private @Type
+    String save;
     public final static URL IMAGE_URL = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/beige_keyboard.jpg");
     public final static URL IMAGE_URL_2 = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/computer_blank_screen.jpg");
     public final static URL IMAGE_URL_3 = stringToURL("http://www.freeimageslive.com/galleries/transtech/informationtechnology/pics/computer_memory_dimm.jpg");

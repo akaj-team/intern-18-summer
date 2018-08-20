@@ -12,15 +12,18 @@ import asiantech.internship.summer.retrofitandgson.RestfulActivity;
 import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.ViewAndViewGruopActivity;
+import asiantech.internship.summer.unittest.UnitTestActivity;
 import asiantech.internship.summer.viewpager.PagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
-    Button mBtnRecyclerview;
-    Button mBtnExerciseFragment;
     Button mBtnViewAndViewGroup;
     Button mBtnViewpager;
     Button mBtnAsynctaskThreadHandler;
+    Button mBtnFragmentAndListener;
+    Button mBtnRecyclerView;
+    Button mBtnViewPager;
     Button mBtnRestful;
+    Button mBtnUnitTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,20 +35,22 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initViews() {
         mBtnViewAndViewGroup = findViewById(R.id.btnViewAndViewGroup);
-        mBtnExerciseFragment = findViewById(R.id.btnExerciseFragment);
-        mBtnRecyclerview = findViewById(R.id.btnRecyclerview);
-        mBtnViewpager = findViewById(R.id.btnViewPager);
+        mBtnFragmentAndListener = findViewById(R.id.btnExerciseFragment);
+        mBtnRecyclerView = findViewById(R.id.btnRecyclerview);
+        mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnRestful = findViewById(R.id.btnRestful);
         mBtnAsynctaskThreadHandler = findViewById(R.id.btnAsynctaskThreadHandler);
+        mBtnUnitTest = findViewById(R.id.btnUnitTest);
     }
 
     private void setListeners() {
         mBtnViewAndViewGroup.setOnClickListener(this);
-        mBtnExerciseFragment.setOnClickListener(this);
-        mBtnRecyclerview.setOnClickListener(this);
-        mBtnViewpager.setOnClickListener(this);
+        mBtnFragmentAndListener.setOnClickListener(this);
+        mBtnRecyclerView.setOnClickListener(this);
+        mBtnViewPager.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
         mBtnAsynctaskThreadHandler.setOnClickListener(this);
+        mBtnUnitTest.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +79,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnRestful:
                 intent = new Intent(MenuActivity.this, RestfulActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnUnitTest:
+                intent = new Intent(MenuActivity.this, UnitTestActivity.class);
                 startActivity(intent);
                 break;
         }
