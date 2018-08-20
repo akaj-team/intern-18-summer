@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.asynctask_thread_handler.AsynctaskThreadHandlerActivity;
 import asiantech.internship.summer.retrofitandgson.RestfulActivity;
 import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
@@ -16,6 +17,8 @@ import asiantech.internship.summer.viewpager.PagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
     Button mBtnViewAndViewGroup;
+    Button mBtnViewpager;
+    Button mBtnAsynctaskThreadHandler;
     Button mBtnFragmentAndListener;
     Button mBtnRecyclerView;
     Button mBtnViewPager;
@@ -36,6 +39,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnRecyclerView = findViewById(R.id.btnRecyclerview);
         mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnRestful = findViewById(R.id.btnRestful);
+        mBtnAsynctaskThreadHandler = findViewById(R.id.btnAsynctaskThreadHandler);
         mBtnUnitTest = findViewById(R.id.btnUnitTest);
     }
 
@@ -45,6 +49,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
+        mBtnAsynctaskThreadHandler.setOnClickListener(this);
         mBtnUnitTest.setOnClickListener(this);
     }
 
@@ -66,6 +71,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnViewPager:
                 intent = new Intent(MenuActivity.this, PagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnAsynctaskThreadHandler:
+                intent = new Intent(MenuActivity.this, AsynctaskThreadHandlerActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnRestful:

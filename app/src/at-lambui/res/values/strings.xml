@@ -47,6 +47,11 @@
     <string name="menu_activity_recyclerview_title">ViewPager</string>
     <string name="menu_activity_unit_test_title">Unit Test</string>
     <string name="like"> Like </string>
+    <string name="menu_asynctask_thread_handler_title">AsyncTaskThreadHandler</string>
+    <string name="asyctask">ASYNCTASK</string>
+    <string name="thread">THREAD</string>
+    <string name="handler">HANDLER</string>
+    <string name="download_image">DOWNLOAD IMAGES</string>
     <string name="username">user name</string>
     <string name="text_use_account">Or log in using a social account</string>
     <string name="text_remain_account"> Don\'t have an account yet</string>

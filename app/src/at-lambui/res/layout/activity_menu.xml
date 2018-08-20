@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img_sea"
+    android:background="@drawable/nancy"
     android:orientation="vertical">
 
     <Button
@@ -40,6 +40,14 @@
         android:background="@color/colorPrimaryBlack"
         android:text="@string/menu_activity_recyclerview_title"
         android:textSize="@dimen/font_normal" />
+
+    <Button
+        android:id="@+id/btnAsynctaskThreadHandler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_asynctask_thread_handler_title" />
 
     <Button
         android:id="@+id/btnRestful"
