@@ -29,12 +29,17 @@
     <string name="storage">File Storage</string>
     <string name="view_pager">ViewPager</string>
     <string name="canvas">Canvas</string>
+    <string name="unit_test">Unit Test</string>
     <string name="restful">RESTful</string>
     <string name="mail_hint">Email</string>
+    <string name="username_hint">Username</string>
     <string name="pass_hint">Password</string>
     <string name="confirm_pass_hint">Confirm Password</string>
     <string name="sign_up_request">Sign Up?</string>
     <string name="log_in_label">LOG IN</string>
+    <string name="log_in_use_social_account">Or log in using a social account</string>
+    <string name="no_account">Do not have account yet?</string>
+    <string name="forgot_password">Forgot your password?</string>
     <string name="sign_up_label">SIGN UP</string>
     <string name="home_label">HOME</string>
     <string name="owner">Peter Pan</string>
@@ -63,4 +68,5 @@
     <string name="uploading">Uploading...</string>
     <string name="wait">Please wait, </string>
     <string name="token_api">6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e</string>
+    <string name="error">User and password are not empty</string>
 </resources>
