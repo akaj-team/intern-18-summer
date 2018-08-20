@@ -6,15 +6,18 @@
     <color name="colorDustyGray">#9c9c9c</color>
     <color name="colorRed">#fa0000</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorIndigo">#6373ca</color>
+    <color name="colorIndigo">#6373CA</color>
     <color name="colorGreen">#008000</color>
     <color name="colorBlack">#000000</color>
     <color name="colorTurquoiseBlue">#61EDC0</color>
     <color name="colorCornapprox">#E2BE09</color>
-    <color name="colorSalemapprox">#109b4a</color>
+    <color name="colorSalemapprox">#109B4A</color>
     <color name="colorTimberwolfapprox">#D8D7D0</color>
     <color name="colorMineShaft">#282828</color>
-    <color name="colorDoveGray">#706f6f</color>
+    <color name="colorDoveGray">#706F6F</color>
+    <color name="colorPomegranate">#F4511E</color>
+    <color name="colorSanMarino">#3F51B5</color>
+    <color name="colorYourPink">#FFC1C1</color>
     <color name="colorTango">#EF7E25</color>
     <color name="colorPorcelain">#ECEFF1</color>
 </resources>
