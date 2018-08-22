@@ -11,6 +11,7 @@ import android.widget.Spinner;
 
 import java.util.HashMap;
 
+import asiantech.internship.summer.file_storage.FileStorageActivity;
 import asiantech.internship.summer.activity_fragment.ActivityFragmentActivity;
 import asiantech.internship.summer.asynctack_thread_handler.AsyncTaskThreadHandlerActivity;
 import asiantech.internship.summer.canvas.CanvasActivity;
@@ -73,5 +74,6 @@ public class MenuActivity extends AppCompatActivity {
         mMap.put(mMenuList[4], RestfulActivity.class);
         mMap.put(mMenuList[5], CanvasActivity.class);
         mMap.put(mMenuList[6], AsyncTaskThreadHandlerActivity.class);
+        mMap.put(mMenuList[7], FileStorageActivity.class);
     }
 }

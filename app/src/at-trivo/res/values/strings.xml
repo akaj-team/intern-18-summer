@@ -21,11 +21,34 @@
     <string name="like">Like</string>
     <string name="chart_caption">Wild animals</string>
     <string name="pick_image_title"> </string>
+
     <string name="download_async_task">Async task</string>
     <string name="download_thread">Thread</string>
     <string name="download_handler">Handler</string>
     <string name="download">Download</string>
     <string name="downloading">Downloading ...</string>
+
+    <string name="share_preference">Share preference</string>
+    <string name="internal_and_external_store">Internal and external store</string>
+    <string name="database">Database</string>
+    <string name="content_hint">Content</string>
+    <string name="company_address_hint">Company address</string>
+    <string name="company_name_hint">Company name</string>
+    <string name="employee_name_hint">Employee name</string>
+    <string name="internal">Internal</string>
+    <string name="external">External</string>
+    <string name="remember">remember me</string>
+    <string name="unsaved_login">Unsaved login</string>
+    <string name="saved_login">Saved login</string>
+    <string name="new_company">New Company</string>
+    <string name="new_employee">New employee</string>
+    <string name="s_employees">\'s employees</string>
+    <string name="delete_employee">Delete this employee?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="error">Error</string>
+    <string name="man">Man</string>
+    <string name="woman">Woman</string>
 
     <string-array name="homework_title">
         <item>View and view group</item>
@@ -35,5 +58,6 @@
         <item>Resful api</item>
         <item>Canvas</item>
         <item>Asynctask,thread and handler</item>
+        <item>File storage</item>
     </string-array>
 </resources>
