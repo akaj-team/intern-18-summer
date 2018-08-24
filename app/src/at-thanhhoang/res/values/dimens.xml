@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_margin_left">20dp</dimen>
+    <dimen name="menu_margin_right">20dp</dimen>
+    <dimen name="menu_margin_top">10dp</dimen>
+    <dimen name="menu_text_size">20dp</dimen>
+    <dimen name="unit_text_padding_edit_text">15dp</dimen>
+    <dimen name="unit_text_padding_button_login">10dp</dimen>
+    <dimen name="unit_text_text_size_large">18dp</dimen>
+    <dimen name="unit_text_text_size_small">15dp</dimen>
+    <dimen name="unit_text_margin">30dp</dimen>
+    <dimen name="unit_text_margin_top">20dp</dimen>
+    <dimen name="unit_text_height_image">100dp</dimen>
+    <dimen name="unit_text_weight_image">40dp</dimen>
+</resources>
