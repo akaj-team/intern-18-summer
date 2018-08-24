@@ -14,6 +14,7 @@ import asiantech.internship.summer.filestorage.DatabaseHelper;
 import asiantech.internship.summer.filestorage.model.Employee;
 
 import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_ADDRESS;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_ID;
 import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_KEY_ID;
 import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_NAME;
 import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_PHONENUMBER;
@@ -24,7 +25,7 @@ public class EmployeeDAO {
     private DatabaseHelper mDbHelper;
     private static final String TAG = "MyActivity";
     private String[] mAllColumns = {
-            DatabaseHelper.COLUMN_EMPLOYEE_ID,
+            COLUMN_EMPLOYEE_ID,
             COLUMN_EMPLOYEE_KEY_ID,
             COLUMN_EMPLOYEE_NAME,
             COLUMN_EMPLOYEE_ADDRESS,
@@ -53,14 +54,14 @@ public class EmployeeDAO {
         values.put(COLUMN_EMPLOYEE_PHONENUMBER, phonenumber);
         values.put(COLUMN_EMPLOYEE_KEY_ID, key_company);
         long insertId = mDatabase.insert(TABLE_EMPLOYEE, null, values);
-        mDatabase.query(DatabaseHelper.TABLE_EMPLOYEE, mAllColumns, DatabaseHelper.COLUMN_EMPLOYEE_ID + " = " + insertId, null, null, null, null);
+        mDatabase.query(TABLE_EMPLOYEE, mAllColumns, COLUMN_EMPLOYEE_ID + " = " + insertId, null, null, null, null);
 
     }
 
     private Employee cursorToEmployee(Cursor cursor) {
 
         Employee employee = new Employee();
-        employee.setId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMPLOYEE_ID)));
+        employee.setId(cursor.getInt(cursor.getColumnIndex(COLUMN_EMPLOYEE_ID)));
         employee.setName(cursor.getString(cursor.getColumnIndex(COLUMN_EMPLOYEE_NAME)));
         employee.setAddress(cursor.getString(cursor.getColumnIndex(COLUMN_EMPLOYEE_ADDRESS)));
         employee.setPhoneNumber(cursor.getString(cursor.getColumnIndex(COLUMN_EMPLOYEE_PHONENUMBER)));
@@ -70,7 +71,7 @@ public class EmployeeDAO {
     }
 
     public void deleteEmployee(int employeeId) {
-        mDatabase.delete(TABLE_EMPLOYEE, DatabaseHelper.COLUMN_EMPLOYEE_ID + " = " + employeeId, null);
+        mDatabase.delete(TABLE_EMPLOYEE, COLUMN_EMPLOYEE_ID + " = " + employeeId, null);
     }
 
     public List<Employee> getEmployeesOfCompany(int companyId) {

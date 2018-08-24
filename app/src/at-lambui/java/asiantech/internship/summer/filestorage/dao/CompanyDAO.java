@@ -14,6 +14,10 @@ import java.util.Objects;
 import asiantech.internship.summer.filestorage.DatabaseHelper;
 import asiantech.internship.summer.filestorage.model.Company;
 
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_COMPANY_ADDRESS;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_COMPANY_ID;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_COMPANY_NAME;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_NAME;
 import static asiantech.internship.summer.filestorage.DatabaseHelper.TABLE_COMPANY;
 
 public class CompanyDAO {
@@ -22,9 +26,9 @@ public class CompanyDAO {
     private DatabaseHelper mDbHelper;
     private static final String TAG = "MyActivity";
     private String[] mAllColums = {
-            DatabaseHelper.COLUMN_COMPANY_ID,
-            DatabaseHelper.COLUMN_COMPANY_NAME,
-            DatabaseHelper.COLUMN_COMPANY_ADDRESS};
+            COLUMN_COMPANY_ID,
+            COLUMN_COMPANY_NAME,
+            COLUMN_COMPANY_ADDRESS};
 
     public CompanyDAO(Context context) {
         mDbHelper = new DatabaseHelper(context);
@@ -43,17 +47,17 @@ public class CompanyDAO {
     public void insertCompany(String name, String address) {
 
         ContentValues values = new ContentValues();
-        values.put(DatabaseHelper.COLUMN_EMPLOYEE_NAME, name);
-        values.put(DatabaseHelper.COLUMN_COMPANY_ADDRESS, address);
+        values.put(COLUMN_EMPLOYEE_NAME, name);
+        values.put(COLUMN_COMPANY_ADDRESS, address);
         long insertId = mDatabase.insert(TABLE_COMPANY, null, values);
-        mDatabase.query(TABLE_COMPANY, mAllColums, DatabaseHelper.COLUMN_COMPANY_ID + " = " + insertId, null, null, null, null);
+        mDatabase.query(TABLE_COMPANY, mAllColums, COLUMN_COMPANY_ID + " = " + insertId, null, null, null, null);
     }
 
     private Company cursorToCompany(Cursor cursor) {
         Company company = new Company();
-        company.setId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_COMPANY_ID)));
-        company.setName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_COMPANY_NAME)));
-        company.setAddress(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_COMPANY_ADDRESS)));
+        company.setId(cursor.getInt(cursor.getColumnIndex(COLUMN_COMPANY_ID)));
+        company.setName(cursor.getString(cursor.getColumnIndex(COLUMN_COMPANY_NAME)));
+        company.setAddress(cursor.getString(cursor.getColumnIndex(COLUMN_COMPANY_ADDRESS)));
         return company;
 
     }
