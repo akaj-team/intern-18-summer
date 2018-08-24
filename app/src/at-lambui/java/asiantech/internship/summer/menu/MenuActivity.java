@@ -11,6 +11,7 @@ import asiantech.internship.summer.retrofitandgson.RestfulActivity;
 import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.ViewAndViewGruopActivity;
+import asiantech.internship.summer.filestorage.FileStorageActivity;
 import asiantech.internship.summer.unittest.UnitTestActivity;
 import asiantech.internship.summer.viewpager.PagerActivity;
 
@@ -19,6 +20,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button mBtnFragmentAndListener;
     Button mBtnRecyclerView;
     Button mBtnViewPager;
+    Button mBtnFileStorage;
     Button mBtnRestful;
     Button mBtnUnitTest;
 
@@ -35,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentAndListener = findViewById(R.id.btnExerciseFragment);
         mBtnRecyclerView = findViewById(R.id.btnRecyclerview);
         mBtnViewPager = findViewById(R.id.btnViewPager);
+        mBtnFileStorage = findViewById(R.id.btnFileStorage);
         mBtnRestful = findViewById(R.id.btnRestful);
         mBtnUnitTest = findViewById(R.id.btnUnitTest);
     }
@@ -44,6 +47,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentAndListener.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
+        mBtnFileStorage.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
         mBtnUnitTest.setOnClickListener(this);
     }
@@ -66,6 +70,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnViewPager:
                 intent = new Intent(MenuActivity.this, PagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnFileStorage:
+                intent = new Intent(MenuActivity.this, FileStorageActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnRestful:

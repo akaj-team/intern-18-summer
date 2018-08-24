@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edtNameCompany"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_edit_text"
+        android:hint="@string/ten"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/edtAddressCompany"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/custom_edit_text"
+        android:hint="@string/address"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnAddCompany"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/add"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancelCompany"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:text="@string/cancel"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

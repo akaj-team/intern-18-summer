@@ -64,8 +64,6 @@ public class RestfulActivity extends AppCompatActivity implements View.OnClickLi
     private final int PERMISSION_CODE_STORAGE = 1;
     private Dialog mDialog;
     private static final int PER_PAGE = 40;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnSharePreference"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/share_preference"
+        android:textSize="@dimen/font_normal" />
+
+    <Button
+        android:id="@+id/btnInternalAndExternalStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/internal_external_store"
+        android:textSize="@dimen/font_normal" />
+
+    <Button
+        android:id="@+id/btnDatabese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/database"
+        android:textSize="@dimen/font_normal" />
+</LinearLayout>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvEployeeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/employee_name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvEmployeeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvEployeeName"
+        android:layout_marginTop="4dp"
+        android:text="@string/address"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tvEmployeePhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvEmployeeAddress"
+        android:layout_marginTop="4dp"
+        android:autoLink="phone"
+        android:linksClickable="false"
+        android:text="@string/employee_phonenumber"
+        android:textColor="@android:color/darker_gray" />
+</RelativeLayout>
