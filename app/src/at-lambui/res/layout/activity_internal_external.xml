@@ -24,20 +24,12 @@
 
         <Button
             android:id="@+id/btnInternal"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
+            style="@style/button"
             android:text="@string/internal" />
 
         <Button
             android:id="@+id/btnExternal"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
+            style="@style/button"
             android:gravity="center"
             android:text="@string/external" />
 

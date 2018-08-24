@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Fragment</string>
+    <string name="app_name">Recycleview</string>
     <string name="menu">menu</string>
     <string name="todo">TODO</string>
     <string name="time_8am">8 – 10 am</string>
@@ -65,4 +65,35 @@
     <string name="ten">Name</string>
     <string name="add">ADD</string>
     <string name="cancel">EXIT</string>
+    <string name="menu_activity_unit_test_title">Unit Test</string>
+    <string name="username">user name</string>
+    <string name="text_use_account">Or log in using a social account</string>
+    <string name="text_remain_account"> Don\'t have an account yet</string>
+    <string name="text_remain_password">Forgot your password?</string>
+    <string name="error_username_length">user name not true with require, from 7 to 21</string>
+    <string name="error_username_not_start_with_lowercase">user name not start with lowercase</string>
+    <string name="error_username_have_not_at_most_two_character_consecutive">user name have at most two character consecutive</string>
+    <string name="error_username_have_not_at_least_two_uppercase_nonconsecutive">user name have at least two uppercase nonconsecutive</string>
+    <string name="username_result">check username successfully</string>
+    <string name="error_password_have_not_at_least_two_character_special">password have not at least two character special</string>
+    <string name="error_password_have_not_at_least_two_character_digital">password have not at least two digital</string>
+    <string name="error_password_have_not_enough_8_character_char">password have not enough 8 character char</string>
+    <string name="error_password_have_character_Which_Repeated">password have character which repeat twice consecutive</string>
+    <string name="error_password_have_not_end_with_digital_or_char">password have not end with digital or char</string>
+    <string name="error_password_have_at_least_3_character_uppercase_nonconsective">pass have not at least 3 character uppercase nonconsective</string>
+    <string name="error_password_username_equal">password equal username</string>
+    <string name="password_result">check password successfully</string>
+    <string name="username_not_equal_password">username not equal password</string>
+    <string name="menu_activity_restful_with_retrofit_gson">Restful with Retrofit and Gson</string>
+    <string name="photo">Photo</string>
+    <string name="choose_gallery">Choose photo from gallery</string>
+    <string name="take_photo">Take photo</string>
+    <string name="title_dialog">Permisstion needed</string>
+    <string name="message_dialog">This permission needed because of insert camera</string>
+    <string name="ok">OK</string>
+    <string name="message_success">Permission granted</string>
+    <string name="message_failure">Permission denied</string>
+    <string name="message_progress">Please wait, we are doing your image files</string>
+    <string name="load_image">Load Image</string>
+    <string name="upload_image">Upload Image</string>
 </resources>

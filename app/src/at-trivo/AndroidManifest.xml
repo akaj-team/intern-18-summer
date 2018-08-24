@@ -3,6 +3,9 @@
     package="asiantech.internship.summer">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -19,11 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_fragment.ActivityFragmentActivity"/>
+
         <activity android:name=".recycler_view.RecyclerViewActivity" />
         <activity android:name=".view_pager.ViewPagerActivity" />
-        <activity android:name=".view_and_viewgroup.ViewPracticeActivity"/>
+        <activity android:name=".view_and_viewgroup.ViewPracticeActivity" />
+        <activity android:name=".restful.RestfulActivity" />
+        <activity android:name=".activity_fragment.ActivityFragmentActivity" />
+        <activity android:name=".canvas.CanvasActivity" />
+        <activity android:name=".asynctack_thread_handler.AsyncTaskThreadHandlerActivity" />
         <activity android:name=".MainActivity" />
-
     </application>
+
 </manifest>

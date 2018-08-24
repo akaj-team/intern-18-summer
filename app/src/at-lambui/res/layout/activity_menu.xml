@@ -46,6 +46,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimaryBlack"
-        android:text="@string/menu_activity_file_storage_title"
+        android:text="@string/menu_activity_file_storage_title"/>
+
+    <Button
+        android:id="@+id/btnRestful"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_activity_restful_with_retrofit_gson"
+        android:textSize="@dimen/font_normal" />
+
+    <Button
+        android:id="@+id/btnUnitTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryBlack"
+        android:text="@string/menu_activity_unit_test_title"
         android:textSize="@dimen/font_normal" />
 </LinearLayout>

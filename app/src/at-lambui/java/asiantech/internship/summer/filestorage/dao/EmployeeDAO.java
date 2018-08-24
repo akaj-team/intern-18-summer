@@ -12,6 +12,10 @@ import java.util.List;
 import asiantech.internship.summer.filestorage.DatabaseHelper;
 import asiantech.internship.summer.filestorage.model.Employee;
 
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_ADDRESS;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_KEY_ID;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_NAME;
+import static asiantech.internship.summer.filestorage.DatabaseHelper.COLUMN_EMPLOYEE_PHONENUMBER;
 import static asiantech.internship.summer.filestorage.DatabaseHelper.TABLE_EMPLOYEE;
 
 public class EmployeeDAO {
@@ -19,10 +23,10 @@ public class EmployeeDAO {
     private DatabaseHelper mDbHelper;
     private String[] mAllColumns = {
             DatabaseHelper.COLUMN_EMPLOYEE_ID,
-            DatabaseHelper.COLUMN_EMPLOYEE_KEY_ID,
-            DatabaseHelper.COLUMN_EMPLOYEE_NAME,
-            DatabaseHelper.COLUMN_EMPLOYEE_ADDRESS,
-            DatabaseHelper.COLUMN_EMPLOYEE_PHONENUMBER,
+            COLUMN_EMPLOYEE_KEY_ID,
+            COLUMN_EMPLOYEE_NAME,
+            COLUMN_EMPLOYEE_ADDRESS,
+            COLUMN_EMPLOYEE_PHONENUMBER,
     };
 
     public EmployeeDAO(Context context) {
@@ -41,11 +45,11 @@ public class EmployeeDAO {
 
     public void insertEmployee(String name, String address, String phonenumber, int key_company) {
         ContentValues values = new ContentValues();
-        values.put(DatabaseHelper.COLUMN_EMPLOYEE_NAME, name);
-        values.put(DatabaseHelper.COLUMN_EMPLOYEE_ADDRESS, address);
-        values.put(DatabaseHelper.COLUMN_EMPLOYEE_PHONENUMBER, phonenumber);
-        values.put(DatabaseHelper.COLUMN_EMPLOYEE_KEY_ID, key_company);
-        long insertId = mDatabase.insert(DatabaseHelper.TABLE_EMPLOYEE, null, values);
+        values.put(COLUMN_EMPLOYEE_NAME, name);
+        values.put(COLUMN_EMPLOYEE_ADDRESS, address);
+        values.put(COLUMN_EMPLOYEE_PHONENUMBER, phonenumber);
+        values.put(COLUMN_EMPLOYEE_KEY_ID, key_company);
+        long insertId = mDatabase.insert(TABLE_EMPLOYEE, null, values);
         mDatabase.query(DatabaseHelper.TABLE_EMPLOYEE, mAllColumns, DatabaseHelper.COLUMN_EMPLOYEE_ID + " = " + insertId, null, null, null, null);
 
     }
@@ -54,21 +58,21 @@ public class EmployeeDAO {
 
         Employee employee = new Employee();
         employee.setId(cursor.getInt(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMPLOYEE_ID)));
-        employee.setName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMPLOYEE_NAME)));
-        employee.setAddress(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMPLOYEE_ADDRESS)));
-        employee.setPhoneNumber(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_EMPLOYEE_PHONENUMBER)));
+        employee.setName(cursor.getString(cursor.getColumnIndex(COLUMN_EMPLOYEE_NAME)));
+        employee.setAddress(cursor.getString(cursor.getColumnIndex(COLUMN_EMPLOYEE_ADDRESS)));
+        employee.setPhoneNumber(cursor.getString(cursor.getColumnIndex(COLUMN_EMPLOYEE_PHONENUMBER)));
         //get company by id
         /*lay nhan vien cua company*/
         return employee;
     }
 
     public void deleteEmployee(int employeeId) {
-        mDatabase.delete(DatabaseHelper.TABLE_EMPLOYEE, DatabaseHelper.COLUMN_EMPLOYEE_ID + " = " + employeeId, null);
+        mDatabase.delete(TABLE_EMPLOYEE, DatabaseHelper.COLUMN_EMPLOYEE_ID + " = " + employeeId, null);
     }
 
     public List<Employee> getEmployeesOfCompany(int companyId) {
         List<Employee> employeeList = new ArrayList<>();
-        String selectQuery = "Select * from " + TABLE_EMPLOYEE + " where " + DatabaseHelper.COLUMN_EMPLOYEE_KEY_ID + " = " + companyId;
+        String selectQuery = "Select * from " + TABLE_EMPLOYEE + " where " + COLUMN_EMPLOYEE_KEY_ID + " = " + companyId;
 
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

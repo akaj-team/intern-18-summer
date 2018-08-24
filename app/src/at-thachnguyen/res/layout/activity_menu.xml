@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:scrollbars="vertical"
     tools:context=".menu.MenuActivity">
 
     <LinearLayout
@@ -65,6 +63,50 @@
             android:layout_marginTop="10dp"
             android:background="@color/colorPrimaryDark"
             android:text="@string/view_pager"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnAsyncTaskThreadHandler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/async_task_thread_handler"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnRestful"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/restful"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCanvas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/canvas"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnUnitTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/unit_test"
             android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>

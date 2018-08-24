@@ -2,12 +2,15 @@ package asiantech.internship.summer.filestorage;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.util.Xml;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +19,15 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +38,7 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
     private Button mBtnInternal;
     private Button mBtnExternal;
     private TextView mTvDisplay;
+    private static final String TAG = "MyActivity";
     private static final String FILE_NAME = "duclam.txt";
 
     @Override
@@ -68,19 +78,20 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
         String getInput = mEdtInput.getText().toString();
         try {
             File file = new File(this.getFilesDir(), FILE_NAME);
-            FileWriter fileWriter = new FileWriter(file, true);
-            fileWriter.append(getInput);
-            fileWriter.close();
+            OutputStreamWriter fileOutPut = new OutputStreamWriter( new FileOutputStream(file),StandardCharsets.UTF_8);
+            fileOutPut.append(getInput);
+            fileOutPut.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d(TAG,e.getMessage());
         }
     }
 
     private void loadDataInternal() {
         try {
             File file = new File(this.getFilesDir(), FILE_NAME);
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            FileInputStream fileReader = new FileInputStream(file);
+            InputStreamReader inputStreamReader=new InputStreamReader(fileReader,StandardCharsets.UTF_8);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder stringBuilder = new StringBuilder();
             String text;
             while ((text = bufferedReader.readLine()) != null) {
@@ -89,7 +100,7 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
             mTvDisplay.setText(stringBuilder.toString());
             fileReader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d(TAG,e.getMessage());
         }
     }
 
@@ -98,11 +109,11 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
             String content = mEdtInput.getText().toString();
             try {
                 File file = new File(this.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), FILE_NAME);
-                FileWriter fileWriter = new FileWriter(file, true);
-                fileWriter.append(content);
-                fileWriter.close();
+                OutputStreamWriter fileOutPut = new OutputStreamWriter( new FileOutputStream(file),StandardCharsets.UTF_8);
+                fileOutPut.append(content);
+                fileOutPut.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.e(TAG,e.getMessage());
             }
         } else {
             Toast.makeText(this, "not SDCARD or not isExternalStorageReadable", Toast.LENGTH_LONG).show();
@@ -112,8 +123,9 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
         try {
             File file = new File(this.getExternalFilesDir(
                     Environment.DIRECTORY_DOCUMENTS), FILE_NAME);
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            FileInputStream fileReader = new FileInputStream(file);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileReader,StandardCharsets.UTF_8);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -123,7 +135,7 @@ public class InternalAndExternalAcitivity extends AppCompatActivity implements V
             fileReader.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG,e.getMessage());
         }
     }
 

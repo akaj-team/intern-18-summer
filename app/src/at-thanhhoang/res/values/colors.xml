@@ -22,4 +22,9 @@
     <color name="colorYellow">#ffee58</color>
     <color name="colorBrown">#3e2723</color>
     <color name="colorGray">#f1f1f1</color>
+    <color name="colorGrayDark">#bdbdbd</color>
+    <color name="colorGreenLight">#8bc34a</color>
+    <color name="colorGreenDark">#66bb6a</color>
+    <color name="colorRed">#e53935</color>
+    <color name="colorGreen">#00e676</color>
 </resources>
