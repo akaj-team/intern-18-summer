@@ -49,7 +49,9 @@
 
         <service
             android:name=".broadcastandservice.MusicSimplePlayerService"
-            android:enabled="true" />
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedService" />
         <receiver
             android:name=".broadcastandservice.BroadCastReceiverAndServiceActivity$DurationReceiver"
             android:enabled="true"

@@ -23,7 +23,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -309,6 +308,7 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
                         mImgPlay.setImageDrawable(getResources().getDrawable(R.drawable.ic_pause));
                         mTvStatus.setText(getResources().getString(R.string.message_music_running));
                         rotateCircle();
+                        break;
                 }
             }
         }
