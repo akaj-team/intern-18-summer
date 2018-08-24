@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ import static asiantech.internship.summer.filestorage.DatabaseHelper.TABLE_EMPLO
 public class EmployeeDAO {
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDbHelper;
+    private static final String TAG = "MyActivity";
     private String[] mAllColumns = {
             DatabaseHelper.COLUMN_EMPLOYEE_ID,
             COLUMN_EMPLOYEE_KEY_ID,
@@ -35,7 +37,8 @@ public class EmployeeDAO {
         try {
             mDatabase = mDbHelper.getWritableDatabase();
         } catch (SQLiteException e) {
-            e.printStackTrace();
+            Log.d(TAG,e.getMessage());
+
         }
     }
 
