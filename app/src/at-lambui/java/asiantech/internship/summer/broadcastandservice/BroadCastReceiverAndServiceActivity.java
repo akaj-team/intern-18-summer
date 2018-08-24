@@ -60,7 +60,6 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
     private RecyclerView mRecycleViewSong;
     private ListSongAdapter mListSongAdapter;
     private List<Song> mListSongs = new ArrayList<>();
-    public static final int RUNTIME_PERMISSION_CODE = 7;
     private final int PERMISSION_CODE_STORAGE = 1;
     private DurationReceiver mDurationReceiver;
     private MusicSimplePlayerService mMusicSimplePlayerService;
@@ -285,38 +284,28 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
 
     public class DurationReceiver extends BroadcastReceiver {
 
-        public DurationReceiver() {
-            super();
-        }
-
         @Override
         public void onReceive(Context context, Intent intent) {
             String value = intent.getAction();
-            Log.e("BBB", value);
             if (value != null) {
                 switch (value) {
                     case SONG_ACTION:
-//                        mImgPlay.setImageDrawable(getResources().getDrawable(R.drawable.ic_pause));
                         String nameIntent = intent.getStringExtra(MusicSimplePlayerService.TITLE_SONG);
                         long duration = intent.getIntExtra(MusicSimplePlayerService.DURATION_SONG, 0);
                         onPlayerStart(nameIntent, (int) duration);
                         break;
-
                     case UPDATE_TIMER_SONG:
                         long time = intent.getLongExtra(MusicSimplePlayerService.CURRENT_TIME, 0);
                         updateTimer((int) time);
                         break;
                     case ACTION_PAUSE:
-                        Log.e("sss", "onReceive: ccc" + intent.getAction());
                         mImgPlay.setImageDrawable(getResources().getDrawable(R.drawable.ic_play));
                         mTvStatus.setText(getResources().getString(R.string.message_music_pause));
-                        Log.e("sss", "onReceive: ccc" + mImgCircleMain.getAnimation());
                         if (mImgCircleMain.getAnimation() != null) {
                             mImgCircleMain.getAnimation().cancel();
                         }
                         break;
                     case ACTION_UN_PAUSE:
-                        Log.e("sss", "onReceive: ccc" + intent.getAction());
                         mImgPlay.setImageDrawable(getResources().getDrawable(R.drawable.ic_pause));
                         mTvStatus.setText(getResources().getString(R.string.message_music_running));
                         rotateCircle();
@@ -328,7 +317,6 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
     protected void onResume() {
 
         super.onResume();
-        // null cho này.
         if (mDurationReceiver == null) {
             mDurationReceiver = new DurationReceiver();
         }
@@ -339,7 +327,6 @@ public class BroadCastReceiverAndServiceActivity extends AppCompatActivity imple
         filter.addAction(ACTION_PAUSE);
         filter.addAction(ACTION_UN_PAUSE);
         registerReceiver(mDurationReceiver, filter);
-
     }
 
     protected void onPause() {

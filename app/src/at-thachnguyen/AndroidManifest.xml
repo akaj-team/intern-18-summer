@@ -39,6 +39,7 @@
         <activity android:name=".activity_and_fragment.HomeActivity" />
         <activity android:name=".restful.RestfulActivity" />
         <activity android:name=".canvas.CanvasActivity"/>
+        <activity android:name=".unit_test.UnitTestActivity"/>
     </application>
 
 </manifest>

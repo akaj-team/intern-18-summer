@@ -12,6 +12,7 @@ import asiantech.internship.summer.activity_fragment.HomeActivity;
 import asiantech.internship.summer.broadcastandservice.BroadCastReceiverAndServiceActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.ViewAndViewGruopActivity;
+import asiantech.internship.summer.unittest.UnitTestActivity;
 import asiantech.internship.summer.viewpager.PagerActivity;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button mBtnViewPager;
     Button mBtnRestful;
     Button mBtnBroadcastAndService;
+    Button mBtnUnitTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnRestful = findViewById(R.id.btnRestful);
         mBtnBroadcastAndService = findViewById(R.id.btnBroadcastAndService);
+        mBtnUnitTest = findViewById(R.id.btnUnitTest);
     }
 
     private void setListeners() {
@@ -46,6 +49,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnViewPager.setOnClickListener(this);
         mBtnBroadcastAndService.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
+        mBtnUnitTest.setOnClickListener(this);
     }
 
     @Override
@@ -76,8 +80,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MenuActivity.this, BroadCastReceiverAndServiceActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btnUnitTest:
+                intent = new Intent(MenuActivity.this, UnitTestActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }
-
-
