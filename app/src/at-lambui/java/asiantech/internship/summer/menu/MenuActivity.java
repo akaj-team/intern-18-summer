@@ -9,6 +9,7 @@ import android.widget.Button;
 import asiantech.internship.summer.R;
 import asiantech.internship.summer.retrofitandgson.RestfulActivity;
 import asiantech.internship.summer.activity_fragment.HomeActivity;
+import asiantech.internship.summer.broadcastandservice.BroadCastReceiverAndServiceActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.ViewAndViewGruopActivity;
 import asiantech.internship.summer.unittest.UnitTestActivity;
@@ -20,6 +21,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     Button mBtnRecyclerView;
     Button mBtnViewPager;
     Button mBtnRestful;
+    Button mBtnBroadcastAndService;
     Button mBtnUnitTest;
 
     @Override
@@ -36,6 +38,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnRecyclerView = findViewById(R.id.btnRecyclerview);
         mBtnViewPager = findViewById(R.id.btnViewPager);
         mBtnRestful = findViewById(R.id.btnRestful);
+        mBtnBroadcastAndService = findViewById(R.id.btnBroadcastAndService);
         mBtnUnitTest = findViewById(R.id.btnUnitTest);
     }
 
@@ -44,6 +47,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnFragmentAndListener.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
+        mBtnBroadcastAndService.setOnClickListener(this);
         mBtnRestful.setOnClickListener(this);
         mBtnUnitTest.setOnClickListener(this);
     }
@@ -70,6 +74,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnRestful:
                 intent = new Intent(MenuActivity.this, RestfulActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnBroadcastAndService:
+                intent = new Intent(MenuActivity.this, BroadCastReceiverAndServiceActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnUnitTest:

@@ -45,6 +45,7 @@
     <string name="description">description</string>
     <string name="menu_recycler_view_title">Recyclerview</string>
     <string name="menu_activity_recyclerview_title">ViewPager</string>
+    <string name="menu_activity_broadcast_receiver_title">BroadCast Receiver And Service</string>
     <string name="menu_activity_unit_test_title">Unit Test</string>
     <string name="like"> Like </string>
     <string name="username">user name</string>
@@ -75,7 +76,12 @@
     <string name="cancel">EXIT</string>
     <string name="message_success">Permission granted</string>
     <string name="message_failure">Permission denied</string>
+    <string name="message_music_pause">paused</string>
+    <string name="message_music_running">running</string>
     <string name="message_progress">Please wait, we are doing your image files</string>
+    <string name="timer_default">00:00</string>
+    <string name="music_default">cho anh nhe</string>
+    <string name="state_default">Pause</string>
     <string name="load_image">Load Image</string>
     <string name="upload_image">Upload Image</string>
 </resources>
