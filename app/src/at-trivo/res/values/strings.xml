@@ -21,11 +21,22 @@
     <string name="like">Like</string>
     <string name="chart_caption">Wild animals</string>
     <string name="pick_image_title"> </string>
+
     <string name="download_async_task">Async task</string>
     <string name="download_thread">Thread</string>
     <string name="download_handler">Handler</string>
     <string name="download">Download</string>
     <string name="downloading">Downloading ...</string>
+
+    <string name="feature_inbox">Inbox</string>
+    <string name="feature_outbox">Outbox</string>
+    <string name="feature_spam">Spam</string>
+    <string name="feature_trash">Trash</string>
+    <string-array name="email_list">
+        <item>abcxyx@gg.com</item>
+        <item>uqwetq@gg.com</item>
+        <item>agrge@gg.com</item>
+    </string-array>
 
     <string-array name="homework_title">
         <item>View and view group</item>
@@ -35,5 +46,6 @@
         <item>Resful api</item>
         <item>Canvas</item>
         <item>Asynctask,thread and handler</item>
+        <item>Drawer layout</item>
     </string-array>
 </resources>

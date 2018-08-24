@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="asiantech.internship.summer">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
 
         <activity android:name=".MenuActivity">
             <intent-filter>
@@ -30,7 +29,7 @@
         <activity android:name=".activity_fragment.ActivityFragmentActivity" />
         <activity android:name=".canvas.CanvasActivity" />
         <activity android:name=".asynctack_thread_handler.AsyncTaskThreadHandlerActivity" />
+        <activity android:name=".drawer_layout.DrawerLayoutActivity" />
         <activity android:name=".MainActivity" />
     </application>
-
 </manifest>
