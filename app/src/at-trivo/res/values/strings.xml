@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Intern18Summer</string>
     <string name="email_hint">Email</string>
+    <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="password_repeat_hint">Repeat password</string>
     <string name="sign_up">Sign up</string>
@@ -19,13 +20,33 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="view_holder_header_text">Timeline</string>
     <string name="like">Like</string>
-    <string name="chart_caption">Wild animals</string>
     <string name="pick_image_title"> </string>
+    <string name="chart_caption">Wild animals</string>
+
     <string name="download_async_task">Async task</string>
     <string name="download_thread">Thread</string>
     <string name="download_handler">Handler</string>
     <string name="download">Download</string>
     <string name="downloading">Downloading ...</string>
+
+    <!-- Strings related to login -->
+    <string name="action_log_in">log in</string>
+    <string name="instruction_social_log_in">Or login using social account</string>
+    <string name="instruction_sign_up">Don\'t have an account yet?</string>
+    <string name="instruction_forget_pass">Forget your password?</string>
+    <string name="error_username_empty">Username must not empty</string>
+    <string name="error_password_empty">Password must not empty</string>
+    <string name="error_username_not_has_2_uppercase">This username doesn\'t have 2 upper case</string>
+    <string name="error_username_has_3_adjacent_number">This username has 3 adjacent number</string>
+    <string name="error_username_not_start_with_normal_char">This username doesn\'t start with normal char</string>
+    <string name="error_username_not_has_7_to_21_char">This username doesn\'t has 7 to 21 char</string>
+    <string name="error_password_repeat_char">This password repeats char</string>
+    <string name="error_password_not_has_2_special_char">This password doesn\'t has 2 special char</string>
+    <string name="error_password_not_has_3_uppercase">This password doesn\'t has 3 uppercase</string>
+    <string name="error_password_has_less_than_8_char">This password has less than 8 char</string>
+    <string name="error_password_end_with_special_char">This password end with special char</string>
+    <string name="error_username_equals_password">This password equals username</string>
+    <string name="valid_username_password">Valid username and password</string>
 
     <string-array name="homework_title">
         <item>View and view group</item>
@@ -35,5 +56,6 @@
         <item>Resful api</item>
         <item>Canvas</item>
         <item>Asynctask,thread and handler</item>
+        <item>Unit test</item>
     </string-array>
 </resources>

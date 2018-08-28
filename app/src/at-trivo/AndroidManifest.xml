@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +29,7 @@
         <activity android:name=".activity_fragment.ActivityFragmentActivity" />
         <activity android:name=".canvas.CanvasActivity" />
         <activity android:name=".asynctack_thread_handler.AsyncTaskThreadHandlerActivity" />
+        <activity android:name=".unittest.UnitTestActivity" />
         <activity android:name=".MainActivity" />
     </application>
-
 </manifest>
