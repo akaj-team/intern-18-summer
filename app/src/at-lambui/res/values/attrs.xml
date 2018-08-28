@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WildlifeChart">
+        <attr name="columnColorDolphins" format="color" />
+        <attr name="columnColorWhales" format="color" />
+        <attr name="caption" format="string" />
+        <attr name="columnSize" format="integer" />
+        <attr name="year" format="integer" />
+        <attr name="paddingRectYear" format="integer" />
+        <attr name="spaceTwoColumn" format="integer" />
+        <attr name="columnNumber" format="integer" />
+        <attr name="rectNumber" format="integer" />
+        <attr name="sizeNumber" format="integer" />
+        <attr name="heightLineTop" format="integer" />
+    </declare-styleable>
+</resources>
