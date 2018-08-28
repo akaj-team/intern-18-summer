@@ -29,8 +29,8 @@
     <string name="label_password">Password</string>
     <string name="label_confirm_password">Confirm Password</string>
     <string name="label_sign_up_login">SignUp?</string>
-    <string name="label_login">Login</string>
     <string name="label_sign_up">SIGN UP</string>
+    <string name="label_login">Login</string>
     <string name="ex_viewpager_tablayout">ViewPager_TabLayout</string>
     <string name="label_asyncTask_thread_handler">AsyncTask_Thread_Handler</string>
     <string name="label_async_task">AsyncTask</string>
@@ -55,6 +55,18 @@
     <string name="check_password_not_end_digit_or_special_character">Password do not end with digit or special characters</string>
     <string name="check_password_least_three_uppercase_character_not_continue">Password have at least 3 uppercase characters but not consecutive</string>
     <string name="check_login_success">Login success!!!</string>
+    <string name="label_button_load_image_from_api">Load Image From API</string>
+    <string name="label_button_upload_image_to_api">Upload Image To API</string>
+    <string name="label_rest_api">Rest API</string>
+    <string name="access_token_api">6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e</string>
+    <string name="label_rest_api_toolbar_title">REST API</string>
+    <string name="label_api_option">Option</string>
+    <string name="label_api_dialog_download_title">Download image API</string>
+    <string name="label_api_dialog_download_message">Download image ...</string>
+    <string name="label_api_dialog_upload_title">Upload image API</string>
+    <string name="label_api_dialog_upload_message">Upload image ...</string>
+    <string name="url_download">https://api.gyazo.com/api/</string>
+    <string name="url_upload">https://upload.gyazo.com/api/</string>
 
     <string-array name="username_array">
         <item>Keylor Navas</item>
