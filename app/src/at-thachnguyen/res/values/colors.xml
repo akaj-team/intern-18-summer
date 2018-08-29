@@ -3,6 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorDustyGray">#9c9c9c</color>
+    <color name="colorRed">#fa0000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorIndigo">#6373CA</color>
     <color name="colorGreen">#008000</color>
@@ -15,7 +17,6 @@
     <color name="colorDoveGray">#706F6F</color>
     <color name="colorPomegranate">#F4511E</color>
     <color name="colorSanMarino">#3F51B5</color>
-    <color name="colorRed">#FFFF0000</color>
     <color name="colorYourPink">#FFC1C1</color>
     <color name="colorTango">#EF7E25</color>
     <color name="colorPorcelain">#ECEFF1</color>

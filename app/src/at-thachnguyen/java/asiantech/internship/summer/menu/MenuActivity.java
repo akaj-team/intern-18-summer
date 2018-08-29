@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import asiantech.internship.summer.activity_and_fragment.ActivityAndFragmentActivity;
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.drawer_layout.DrawerLayoutActivity;
 import asiantech.internship.summer.async_task_thread_and_handler.AsyncTaskActivity;
 import asiantech.internship.summer.canvas.CanvasActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnActivity;
     private Button mBtnRecyclerView;
     private Button mBtnViewPager;
+    private Button mBtnDrawerLayout;
     private Button mBtnUnitTest;
     private Button mBtnAsyncTaskThreadHandler;
     private Button mBtnCanvas;
@@ -35,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnActivity.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
+        mBtnDrawerLayout.setOnClickListener(this);
         mBtnUnitTest.setOnClickListener(this);
         mBtnAsyncTaskThreadHandler.setOnClickListener(this);
         mBtnCanvas.setOnClickListener(this);
@@ -46,6 +49,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnActivity = findViewById(R.id.btnActivity);
         mBtnRecyclerView = findViewById(R.id.btnRecyclerView);
         mBtnViewPager = findViewById(R.id.btnViewPager);
+        mBtnDrawerLayout = findViewById(R.id.btnDrawerLayout);
         mBtnUnitTest = findViewById(R.id.btnUnitTest);
         mBtnAsyncTaskThreadHandler = findViewById(R.id.btnAsyncTaskThreadHandler);
         mBtnCanvas = findViewById(R.id.btnCanvas);
@@ -70,6 +74,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnViewPager:
                 intent = new Intent(MenuActivity.this, PagerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnDrawerLayout:
+                intent = new Intent(MenuActivity.this, DrawerLayoutActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnAsyncTaskThreadHandler:

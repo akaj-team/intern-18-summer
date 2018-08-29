@@ -27,6 +27,8 @@
     <string name="activity">Activity and Fragment</string>
     <string name="recycler_view">RecyclerView</string>
     <string name="view_pager">ViewPager</string>
+    <string name="drawer_layout">DrawerLayout</string>
+    <string name="inbox">Inbox</string>
     <string name="canvas">Canvas</string>
     <string name="unit_test">Unit Test</string>
     <string name="restful">RESTful</string>
@@ -44,6 +46,23 @@
     <string name="owner">Peter Pan</string>
     <string name="description">Today, what do we eat?</string>
     <string name="like">0 like</string>
+    <string-array name="mail">
+        <item>hoangthach@gmail.com</item>
+        <item>nguyenhoangthach@gmail.com</item>
+    </string-array>
+    <string-array name="title">
+        <item>Profile</item>
+        <item>Delete</item>
+        <item>Inbox</item>
+        <item>Outbox</item>
+        <item>Spam</item>
+        <item>Home</item>
+        <item>Setting</item>
+        <item>Notification</item>
+        <item>LogOut</item>
+        <item>SignUp</item>
+        <item>LogIn</item>
+    </string-array>
     <string name="async_task_thread_handler">AsyncTask, Thread, Handler</string>
     <string name="async_task">AsyncTask</string>
     <string name="thread">Thread</string>
