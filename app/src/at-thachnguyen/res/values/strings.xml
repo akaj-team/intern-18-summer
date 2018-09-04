@@ -27,6 +27,7 @@
     <string name="activity">Activity and Fragment</string>
     <string name="recycler_view">RecyclerView</string>
     <string name="view_pager">ViewPager</string>
+    <string name="service">Service and Broadcast</string>
     <string name="canvas">Canvas</string>
     <string name="unit_test">Unit Test</string>
     <string name="restful">RESTful</string>
@@ -44,6 +45,13 @@
     <string name="owner">Peter Pan</string>
     <string name="description">Today, what do we eat?</string>
     <string name="like">0 like</string>
+    <string name="play">Playing</string>
+    <string name="pause">Paused</string>
+    <string name="currentTime">00:00</string>
+    <string name="app_mucsic">Music Media</string>
+    <string name="channel_name">my_channel</string>
+    <string name="play_action">play_action</string>
+    <string name="close_action">close_action</string>
     <string name="async_task_thread_handler">AsyncTask, Thread, Handler</string>
     <string name="async_task">AsyncTask</string>
     <string name="thread">Thread</string>
@@ -60,5 +68,12 @@
     <string name="uploading">Uploading...</string>
     <string name="wait">Please wait, </string>
     <string name="token_api">6f5a48ac0e8aca77e0e8ef42e88962852b6ffaba01c16c5ba37ea13760c0317e</string>
+    <string name="list_song">List Songs</string>
+    <string name="listen_music">Listen Music</string>
+    <string name="channel">my_channel_01</string>
+    <string name="position">position</string>
+    <string name="current">current_time</string>
+    <string name="preference">my_preference</string>
+    <string name="move">move</string>
     <string name="error">User and password are not empty</string>
 </resources>

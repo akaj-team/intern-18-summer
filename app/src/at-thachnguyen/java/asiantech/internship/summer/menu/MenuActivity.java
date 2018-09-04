@@ -1,18 +1,19 @@
 package asiantech.internship.summer.menu;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import asiantech.internship.summer.activity_and_fragment.ActivityAndFragmentActivity;
 import asiantech.internship.summer.R;
+import asiantech.internship.summer.activity_and_fragment.ActivityAndFragmentActivity;
 import asiantech.internship.summer.async_task_thread_and_handler.AsyncTaskActivity;
 import asiantech.internship.summer.canvas.CanvasActivity;
 import asiantech.internship.summer.recyclerview.RecyclerViewActivity;
 import asiantech.internship.summer.unit_test.UnitTestActivity;
 import asiantech.internship.summer.restful.RestfulActivity;
+import asiantech.internship.summer.service_and_broadcast_receiver.ServiceBroadCastActivity;
 import asiantech.internship.summer.view_and_view_group.ViewActivity;
 import asiantech.internship.summer.viewpager.PagerActivity;
 
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnActivity;
     private Button mBtnRecyclerView;
     private Button mBtnViewPager;
+    private Button mBtnService;
     private Button mBtnUnitTest;
     private Button mBtnAsyncTaskThreadHandler;
     private Button mBtnCanvas;
@@ -35,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnActivity.setOnClickListener(this);
         mBtnRecyclerView.setOnClickListener(this);
         mBtnViewPager.setOnClickListener(this);
+        mBtnService.setOnClickListener(this);
         mBtnUnitTest.setOnClickListener(this);
         mBtnAsyncTaskThreadHandler.setOnClickListener(this);
         mBtnCanvas.setOnClickListener(this);
@@ -46,6 +49,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mBtnActivity = findViewById(R.id.btnActivity);
         mBtnRecyclerView = findViewById(R.id.btnRecyclerView);
         mBtnViewPager = findViewById(R.id.btnViewPager);
+        mBtnService = findViewById(R.id.btnService);
         mBtnUnitTest = findViewById(R.id.btnUnitTest);
         mBtnAsyncTaskThreadHandler = findViewById(R.id.btnAsyncTaskThreadHandler);
         mBtnCanvas = findViewById(R.id.btnCanvas);
@@ -78,6 +82,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnRestful:
                 intent = new Intent(MenuActivity.this, RestfulActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnService:
+                intent = new Intent(MenuActivity.this, ServiceBroadCastActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnCanvas:

@@ -12,6 +12,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
@@ -38,7 +39,17 @@
         <activity android:name=".activity_and_fragment.ActivityAndFragmentActivity" />
         <activity android:name=".activity_and_fragment.HomeActivity" />
         <activity android:name=".restful.RestfulActivity" />
-        <activity android:name=".canvas.CanvasActivity"/>
+        <activity android:name=".service_and_broadcast_receiver.ListenMusicActivity" />
+
+        <service
+            android:name=".service_and_broadcast_receiver.MusicService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:stopWithTask="false" />
+
+        <activity android:name=".service_and_broadcast_receiver.ServiceBroadCastActivity" />
+        <activity android:name=".canvas.CanvasActivity" />
         <activity android:name=".unit_test.UnitTestActivity"/>
     </application>
 
